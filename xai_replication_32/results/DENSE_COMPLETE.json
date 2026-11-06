@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "runtime_seconds": 975.4202169589698,
+  "models": [
+    {
+      "seed": 42,
+      "main_score_rows": 24192,
+      "added_score_rows": 72576,
+      "all_score_rows": 96768,
+      "added_histories": 6048
+    },
+    {
+      "seed": 123,
+      "main_score_rows": 24192,
+      "added_score_rows": 72576,
+      "all_score_rows": 96768,
+      "added_histories": 6048
+    },
+    {
+      "seed": 2026,
+      "main_score_rows": 24192,
+      "added_score_rows": 72576,
+      "all_score_rows": 96768,
+      "added_histories": 6048
+    }
+  ],
+  "dense_planned_histories": 8064,
+  "main_histories_reused": 2016,
+  "new_target_outcomes_scored": true
+}

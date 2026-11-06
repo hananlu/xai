@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "linear_shapley_oracle": true,
+  "random_response_matches_closed_form": true,
+  "operator_oracle_quality_one": true,
+  "zero_response_marked_undefined": true,
+  "linear_ig_oracle": true,
+  "operators": [
+    "interpolation",
+    "rotation"
+  ],
+  "target_data_used": false,
+  "interpretation": "Validates operator-specific ranking arithmetic, not real-world causal feature importance."
+}

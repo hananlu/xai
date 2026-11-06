@@ -12,14 +12,24 @@ Start with [the full experimental notebook](xai_cross_institution/XAI_Complete_E
 |---|---|
 | [Full experiment notebook](xai_cross_institution/XAI_Complete_Experiment.ipynb) | 95 cells, 58 code cells, 22 plots; inline EDA, preprocessing, models, training loops, forecasting, Shapley/IG/occlusion, agreement, stability, latency and paired inference. Light default mode is executed. |
 | [Full local run notebook](xai_cross_institution/XAI_Full_Local_Run.ipynb) | Local full-training and batch-evaluation run; execution record and fresh-run snapshot are in `runs/2026-11-06/`. |
-| [Paper PDF](xai_cross_institution/paper/paper.pdf) | Expanded anonymous English working draft: 9 pages, 8 figures, overall TikZ pipeline and 18 references. |
+| [Paper PDF](xai_cross_institution/paper/paper.pdf) | Expanded anonymous English working draft: 12 pages, 12 figures, overall TikZ pipeline and 18 references. |
 | [LaTeX](xai_cross_institution/paper/paper.tex) / [BibTeX](xai_cross_institution/paper/references.bib) | Editable paper, complete TikZ pipeline, and all 18 cited bibliography entries; the manuscript builds directly from BibTeX. |
-| [Editable slides](xai_cross_institution/presentation/XAI_Research_Results_v2.pptx) | Opening, gap/goal, pipeline, findings and limitations. |
+| [Editable slides](xai_cross_institution/presentation/XAI_Research_Results_v4.pptx) | Opening, gap/goal, pipeline, findings and limitations. |
 | [Source](xai_cross_institution/src/) | Frozen core training/evaluation/analysis code and independent audits. |
 | [Data](xai_cross_institution/data/) / [models](xai_cross_institution/models/) | 48 selected hourly institutional series, provenance hashes and trained checkpoints. |
 | [Predictions](xai_cross_institution/predictions/) / [results](xai_cross_institution/results/) | Per-origin forecast output, detailed attribution records, numerical rejection records, statistics and freeze manifests. |
 
-The prespecified target-minus-source ranking contrast is approximately -0.019, with nominal 95% interval [-0.089, 0.053], seven complete pairs. This does not establish systematic degradation or equivalence. Additional notebook agreement/stability/latency analyses are exploratory. No paper has been submitted.
+The original eight-target prespecified target-minus-source ranking contrast is approximately -0.019, with nominal 95% interval [-0.089, 0.053], seven complete pairs. This does not establish systematic degradation or equivalence. Additional notebook agreement/stability/latency analyses are exploratory. No paper has been submitted.
+
+## Completed new-target replication, 7 November 2026
+
+The additional cohort contains **32 previously unevaluated targets**, matched to the original 32 source anchors with the same locked models. Both studies together cover **80 unique institutions within one ISP**. [New results](xai_replication_32/RESULTS_BRIEF.md), [research position](xai_replication_32/RESEARCH_POSITION.md), [executed replication notebook](xai_replication_32/XAI_Replication_32.ipynb), [protocol](xai_replication_32/PROTOCOL_REPLICATION.md), and [reproduction guide](xai_replication_32/README.md).
+
+The new primary contrast is **-0.0075**, nominal 95% interval **[-0.0402, 0.0241]**, 30 complete pairs. A prespecified nested 64-origin frozen-GRU sensitivity gives h1 **+0.0001**, interval **[-0.0229, 0.0248]**, on the same 30 pairs. Neither establishes degradation or equivalence. The original history-median zero-excluding secondary pattern does not recur in the new cohort. Sources, trained models and ISP are shared, so estimates remain separate.
+
+All scientific/dense audits passed. The new analysis notebook has 52 cells, 31 executed code cells, seven embedded plots and zero errors. Its default reads the completed batch and reproduces local arithmetic/primary inference; optional full evaluation runs on a copy. The actual added main/dense XAI batches took about 35 minutes on the local CPU, without retraining. Low-volume forecast-scale failures and undefined ranking cases remain visible.
+
+The combined paper now has **12 pages, 12 figures and 18 cited references**, with LaTeX/BibTeX/TikZ sources. The updated [editable PPT](xai_cross_institution/presentation/XAI_Research_Results_v4.pptx) has **17 slides**, ten native tables and two native charts with embedded workbooks. The previous 9-page paper is archived; original scientific freezes and the independent full local rerun remain unchanged. Conference page budget and authorship still need final selection; nothing has been submitted.
 
 ## Run locally
 

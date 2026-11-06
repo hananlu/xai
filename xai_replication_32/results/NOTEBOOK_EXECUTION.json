@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "runtime_seconds": 3.5333790840231813,
+  "cells": 52,
+  "code_cells": 31,
+  "executed_code_cells": 31,
+  "embedded_pngs": 7,
+  "errors": 0,
+  "kernel": "xai-project",
+  "input_notebook_sha256": "98c4a0d64c3cbfe550fd8510f887344f684a18705d399d11267ef1cdc310a503",
+  "executed_notebook_sha256": "db174212357047a4889f613b0e82b650b25db48b5760957b8ffd3c23a9dfee77",
+  "full_evaluation_enabled": false,
+  "locked_models_refitted": false
+}

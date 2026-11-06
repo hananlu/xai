@@ -1,0 +1,64 @@
+{
+  "status": "complete",
+  "runtime_seconds": 1121.4363071918488,
+  "models": [
+    {
+      "model": "ridge",
+      "seed": 0,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 100
+    },
+    {
+      "model": "dlinear",
+      "seed": 42,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 111
+    },
+    {
+      "model": "dlinear",
+      "seed": 123,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 110
+    },
+    {
+      "model": "dlinear",
+      "seed": 2026,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 126
+    },
+    {
+      "model": "gru",
+      "seed": 42,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 94
+    },
+    {
+      "model": "gru",
+      "seed": 123,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 51
+    },
+    {
+      "model": "gru",
+      "seed": 2026,
+      "case_origins": 2016,
+      "quality_records": 100800,
+      "ig_cases": 2016,
+      "ig_failed": 98
+    }
+  ],
+  "target_outcomes_scored": true,
+  "source_sha256": "c85c7b9548fedbb023e210d62da2f77812a5141d77c8a34a58b3ce69009f424e"
+}

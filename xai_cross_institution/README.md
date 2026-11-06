@@ -1,3 +1,11 @@
+# Combined paper and original training study
+
+7 November 2026: the paper and editable slides now include the separately frozen [32-new-target replication](../xai_replication_32/README.md). Across both studies there are 80 unique institutions. The new primary is ΔQ -0.0075, nominal 95% interval [-0.0402,0.0241], 30 complete pairs. Dense 64-origin h1 is +0.0001, interval [-0.0229,0.0248]. Both remain inconclusive about degradation or equivalence. The stronger-looking original history-median secondary pattern does not recur as a zero-excluding interval in the new cohort. Source/model/ISP reuse and undefined-score exclusions remain explicit.
+
+Use the original full training notebooks here together with the new `../xai_replication_32/XAI_Replication_32.ipynb` analysis companion. Its default reads audited batch outputs and recomputes local arithmetic and the primary bootstrap; opt-in full evaluation runs on an isolated copy. The added batch XAI evaluations took about 35 minutes on CPU with no retraining. See PAPER_REPLICATION_REVISION_NOTES.md for the combined manuscript, and the new cohort RESULTS_BRIEF.md for all fixed sensitivities. The original scientific study below remains unchanged.
+
+---
+
 # Cross-Institution Reliability of Temporal Attributions in Network Traffic Forecasting
 
 Status: full frozen study executed; manuscript and editable presentation prepared. The old development-only status is superseded by `results/STUDY_COMPLETE.json`. Historical protocol/hash manifests are preserved without rewriting their freeze-time status.
@@ -8,8 +16,8 @@ Status: full frozen study executed; manuscript and editable presentation prepare
 - `XAI_Results_and_Reproduction.ipynb`: earlier short results companion.
 
 - `RESULTS_BRIEF_ID.md`: findings, honest publication assessment, remaining author/venue decisions.
-- `paper/paper.pdf` and `paper/paper.tex`: English IEEE-style expanded anonymous draft, 9 pages, 8 figures and 18 cited references; editable overall TikZ pipeline and BibTeX source included. Adapt to the selected conference before submission.
-- `presentation/XAI_Research_Results_v2.pptx`: 12 editable slides in Indonesian; opening, gap/goal, pipeline, results. Charts, tables, diagram and text remain native objects.
+- `paper/paper.pdf` and `paper/paper.tex`: English IEEE-style expanded anonymous draft, 12 pages, 12 figures and 18 cited references; editable overall TikZ pipeline and BibTeX source included. Adapt to the selected conference before submission.
+- `presentation/XAI_Research_Results_v4.pptx`: 17 editable slides in Indonesian; opening, gap/goal, pipeline, results. Charts, tables, diagram and text remain native objects.
 - `LITERATURE_AND_GAP.md`: closest work, bounded novelty and distinct future-paper directions.
 - `FULL_PROTOCOL.md`, `ANALYSIS_CLARIFICATIONS.md`: frozen experimental and statistical decisions.
 - `results/NUMERIC_CLAIMS.json`, `results/FINAL_VALIDATION.json`: authoritative headline estimates and final integrity/arithmetic audit.

@@ -1,0 +1,9 @@
+{
+  "status": "prepared",
+  "runtime_seconds": 4.756486541999038,
+  "source_series": 32,
+  "new_target_series": 32,
+  "main_histories": 2016,
+  "dense_histories": 8064,
+  "new_target_performance_scored": false
+}

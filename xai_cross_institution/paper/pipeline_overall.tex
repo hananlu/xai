@@ -11,12 +11,12 @@
 {\textbf{Observed traffic and eligibility}\quad CESNET-TimeSeries26 hourly bytes $\to$ decimal GB; native coverage audit; finite nonnegative observations; complete 168h histories and both endpoints; no label imputation.};
 \node[cohort] (source) at (-5.75,-1.35) {\textbf{32 source institutions}\quad training targets: 2024\\Normalization and calendar reference fitted here};
 \node[cohort] (val) at (0,-1.35) {\textbf{8 validation institutions}\quad Jan--Mar 2025\\Choose $\alpha$, learning rate, and early-stopped epoch};
-\node[cohort] (target) at (5.75,-1.35) {\textbf{8 target institutions}\quad no gradient fitting\\2024 metadata only for membership/matching/scale};
+\node[cohort] (target) at (5.75,-1.35) {\textbf{8 original targets}\quad no gradient fitting\\2024 metadata only for membership/matching/scale};
 \foreach \a in {source,val,target}\draw[arr] (data.south)--(\a.north);
 \node[box,text width=9.4cm,minimum height=1.13cm,fill=blue!3] (fit) at (-3.4,-2.95)
 {\textbf{Fit and lock predictors}\quad log1p inputs; Ridge, DLinear, GRU.\\Neural training: 1,024 windows/source/epoch, max 30 epochs, patience 5;\\LR selected with seed 42, then seeds 123/2026. Freeze protocol/code before target scoring.};
 \node[box,text width=6.0cm,minimum height=1.13cm,fill=orange!5] (cases) at (5.25,-2.95)
-{\textbf{Future source/target evaluation inputs}\quad Apr 8--Jul 1, 2025/2026.\\Forecast: all eligible six-hourly origins. XAI: 8 matched pairs;\\16 shared origins/pair-year, IG subset 4; 15 pair-years available.};
+{\textbf{Original evaluation inputs}\\Apr 8--Jul 1, 2025/2026; all eligible six-hourly forecast origins.\\XAI: 8 pairs, 16 shared origins/pair-year; IG subset 4.\\15 pair-years available.};
 \draw[arr] (source.south)--(fit.north west);
 \draw[arr] (val.south)--(fit.north east);
 \draw[arr] (target.south)--(cases.north);
@@ -25,11 +25,11 @@
 \draw[arr] (fit.south)--node[tag,left] {locked parameters}(function.north -| fit.south);
 \draw[arr] (cases.south)--node[tag,right] {eligible histories}(function.north -| cases.south);
 \node[lane] (forecast) at (-5.75,-6.55)
-{\textbf{A. Forecast accuracy}\\All eligible origins: 13,937 source + 3,179 target.\\Observed endpoint comparison: MAE/RMSE in GB; MASE using each institution's 2024 weekly scale.\\Average neural seeds, then available institution-year cells; 15 target cells.};
+{\textbf{A. Original forecast accuracy}\\All eligible origins: 13,937 source + 3,179 target.\\Observed endpoint comparison: MAE/RMSE in GB; MASE using each institution's 2024 weekly scale.\\Average neural seeds, then available institution-year cells; 15 target cells.};
 \node[lane] (attr) at (0,-6.55)
-{\textbf{B. Temporal allocations and numerics}\\480 histories/fitted model; 7 consecutive day groups; source-calendar and history-median references.\\Exact Shapley: all 128 coalitions; occlusion; recency. IG: 120 histories/fit, 32--512 nodes. Keep all numerical failures.};
+{\textbf{B. Original allocations and numerics}\\480 histories/fitted model; 7 consecutive day groups; source-calendar and history-median references.\\Exact Shapley: all 128 coalitions; occlusion; recency. IG: 120 histories/fit, 32--512 nodes. Keep all numerical failures.};
 \node[lane] (response) at (5.75,-6.55)
-{\textbf{C. Independent ranking-response game}\\Within-day interpolation and one-day rotation.\\128 replacement coalitions; enumerate 5,040 rankings from cached responses.\\$U=\operatorname{mean}(C_1,C_2,C_4)$; $Q=(U-R)/(O-R)$. Undefined if oracle--random gap $\leq10^{-9}$ GB.};
+{\textbf{C. Shared ranking-response definition}\\Within-day interpolation and one-day rotation.\\128 replacement coalitions; enumerate 5,040 rankings from cached responses.\\$U=\operatorname{mean}(C_1,C_2,C_4)$; $Q=(U-R)/(O-R)$. Undefined if oracle--random gap $\leq10^{-9}$ GB.};
 \draw[arr] (function.south)--(0,-5.23)--(-5.75,-5.23)--(forecast.north);
 \draw[arr] (function.south)--(attr.north);
 \draw[arr] (function.south)--(0,-5.23)--(5.75,-5.23)--(response.north);
@@ -37,9 +37,14 @@
 \node[box,text width=4.95cm,minimum height=1.5cm,fill=black!3] (audit) at (-5.75,-9.0)
 {\textbf{Accuracy and numerical reporting}\\Forecast distributions and local examples; IG acceptance, denominator exclusions and provenance.\\Numerical acceptance does not certify ranking usefulness or forecast accuracy.};
 \node[box,text width=10.7cm,minimum height=1.5cm,fill=orange!5] (infer) at (2.9,-9.0)
-{\textbf{Prespecified transfer endpoint and inference}\\Frozen GRU / h1 / source-calendar Shapley. Require all three defined seeds; timestamp-pair source/target; equal means across year/operator cells, then complete pairs.\\7 complete pairs; resample pairs and observed 14-day blocks. 1,853/2,000 valid draws.\\$\Delta Q=-0.0189$, nominal 95\% interval $[-0.0891,0.0533]$. Secondary contrasts remain exploratory.};
+{\textbf{Original-cohort transfer endpoint and inference}\\Frozen GRU / h1 / source-calendar Shapley. Require all three defined seeds; timestamp-pair source/target; equal means across year/operator cells, then complete pairs.\\7 complete pairs; resample pairs and observed 14-day blocks. 1,853/2,000 valid draws.\\$\Delta Q=-0.0189$, nominal 95\% interval $[-0.0891,0.0533]$. Secondary contrasts remain exploratory.};
 \draw[arr] (forecast.south)--(audit.north);
 \draw[arr] (attr.south west)--(audit.north east);
 \draw[arr] (attr.south)--(infer.north west);
 \draw[arr] (response.south)--(infer.north east);
+
+\node[box,text width=16.7cm,minimum height=1.37cm,fill=blue!3] (replicate) at (0,-11.15)
+{\textbf{Separately frozen extension: 32 newly evaluated targets, same 32 source anchors and model bytes}\\Select and match using 2024 metadata; no new target fitting. Original outcome already known; freeze new membership, code, data and timestamps before scoring.\\Main: 16 shared origins/pair-year, IG subset 4; 63 available pair-years, 2,016 histories/fit. Dense frozen GRU: nested 64 origins, 8,064 histories/seed.\\Report original and new contrasts separately; original bootstrap, pair-only and synchronized-calendar sensitivities; undefined denominators by volume stratum.};
+\draw[arr] (infer.south)--(replicate.north east);
+\draw[arr] (audit.south)--(replicate.north west);
 \end{tikzpicture}

@@ -1,0 +1,418 @@
+{
+  "status": "pass",
+  "checks": {
+    "PREEVALUATION_FREEZE": true,
+    "64_data_hashes": true,
+    "model_hashes": true,
+    "disjoint_membership": true,
+    "forecast_metric_recalculation": true,
+    "checkpoint_prediction_and_truth_requeries": true,
+    "permutation_shapley_oracle": true,
+    "ranking_quality_requeries": true,
+    "primary_point_independent": true,
+    "failed_ig_never_scored": true
+  },
+  "details": {
+    "prediction_rows": 1108120,
+    "max_metric_difference": 0.0,
+    "max_prediction_difference": 1.4210854715202004e-13,
+    "max_shapley_difference": 7.244205235679146e-15,
+    "max_quality_difference": 0.0,
+    "selection_by_pair_year": [
+      {
+        "pair": 0,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 0,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 1,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 2,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 2,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 3,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 3,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 4,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 250
+      },
+      {
+        "pair": 4,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 5,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 5,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 6,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 6,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 7,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 7,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 8,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 8,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 9,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 9,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 10,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 10,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 11,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 11,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 12,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 12,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 13,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 13,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 14,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 14,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 15,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 15,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 16,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 16,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 17,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 17,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 18,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 18,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 19,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 19,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 20,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 20,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 21,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 21,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 22,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 22,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 23,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 23,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 24,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 24,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 25,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 25,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 26,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 26,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 27,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 27,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 28,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 28,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 29,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 29,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 30,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 30,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 31,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 31,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      }
+    ],
+    "missing_pair_years": [
+      {
+        "pair": 1,
+        "year": 2026,
+        "source": 260,
+        "target": 8,
+        "source_eligible": 114,
+        "target_eligible": 0,
+        "common_eligible": 0,
+        "main_origins": 0,
+        "dense_origins": 0
+      }
+    ],
+    "forecast_target_institution_years": 63
+  },
+  "target_outcomes_scored": true,
+  "post_evaluation_audit": true
+}

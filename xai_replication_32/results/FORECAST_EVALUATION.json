@@ -1,0 +1,53 @@
+{
+  "status": "complete",
+  "runtime_seconds": 14.960535049438477,
+  "specs": [
+    [
+      "persistence",
+      0
+    ],
+    [
+      "daily",
+      0
+    ],
+    [
+      "weekly",
+      0
+    ],
+    [
+      "ridge",
+      0
+    ],
+    [
+      "dlinear",
+      42
+    ],
+    [
+      "dlinear",
+      123
+    ],
+    [
+      "dlinear",
+      2026
+    ],
+    [
+      "gru",
+      42
+    ],
+    [
+      "gru",
+      123
+    ],
+    [
+      "gru",
+      2026
+    ]
+  ],
+  "metric_rows": 5080,
+  "predictions_files": 10,
+  "target_outcomes_scored": true,
+  "evaluation_periods": [
+    2025,
+    2026
+  ]
+}

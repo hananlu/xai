@@ -1,3 +1,11 @@
+# Status terbaru: replikasi 32 target selesai
+
+7 November 2026. Studi gabungan mencakup 80 institusi unik dalam satu ISP. Replikasi 32 target baru, model terkunci, main/dense budget dan audit selesai; notebook baru 52 cells/31 code cells lolos eksekusi. Hasil primer baru -0,0075, nominal 95% CI [-0,0402; +0,0241], 30 pasangan lengkap. Budget 64 origin h1 memberi +0,0001, CI [-0,0229; +0,0248]. Tidak membuktikan degradasi atau equivalence. Pola sekunder history-median awal tidak berulang sebagai interval yang mengecualikan nol.
+
+Mulai dari [hasil replikasi](xai_replication_32/RESULTS_BRIEF.md), [posisi riset](xai_replication_32/RESEARCH_POSITION.md), dan [paper gabungan](xai_cross_institution/paper/paper.pdf). Paper 12 halaman/12 figures/18 referensi dan PPT editable 17 slide sudah diperbarui. Protokol dan hasil ilmiah awal tetap utuh; arsip draft sebelumnya tersedia. Bagian berikut adalah riwayat.
+
+---
+
 # Status terkini: eksperimen penuh selesai
 
 5 November 2026. Studi **Cross-Institution Reliability of Temporal Attributions in Network Traffic Forecasting** sudah dijalankan dengan 48 institusi CESNET-TimeSeries26. Paper, PPT editable, data terpilih, checkpoint dan hasil audit ada di [xai_cross_institution/README.md](xai_cross_institution/README.md). Mulai dari [ringkasan hasil](xai_cross_institution/RESULTS_BRIEF_ID.md).

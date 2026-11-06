@@ -1,0 +1,96 @@
+{
+  "reporting_only": true,
+  "new_analyses_posthoc": [
+    "leave-one-pair-out descriptive sensitivity",
+    "common-accepted-case visualization"
+  ],
+  "all_primary_decisions_unchanged": true,
+  "observed_hourly_values": 1116776,
+  "hourly_grid_slots": 1147296,
+  "usable_hourly_values": 1098098,
+  "source_training_windows": 227478,
+  "source_windows_per_epoch": 32768,
+  "neural_training_fits": 8,
+  "neural_epochs_all_fits": 201,
+  "neural_sample_exposures_all_fits": 6586368,
+  "forecast_origins_by_cohort": {
+    "source": 13937,
+    "target": 3179
+  },
+  "target_institution_year_cells": 15,
+  "explanation_origins_per_fit": 480,
+  "ig_history_origins_per_fit": 120,
+  "complete_primary_pairs": 7,
+  "parameter_counts": {
+    "ridge": 338,
+    "dlinear": 676,
+    "gru": 3426
+  },
+  "local_case": {
+    "id": 132,
+    "pair": 3,
+    "year": 2025,
+    "origin": "2025-04-15 00:00:00+00:00",
+    "observed_gb": [
+      0.006649143,
+      0.18357295
+    ],
+    "prediction_gb": [
+      0.32172522495373607,
+      1.4785685471932475
+    ],
+    "numerics": [
+      {
+        "reference": "Source calendar",
+        "horizon": 1,
+        "shapley_efficiency_error_gb": 1.1102230246251565e-16,
+        "ig_accepted": true,
+        "ig_nodes": 64,
+        "ig_completeness_error_gb": 6.9473315988943796e-12
+      },
+      {
+        "reference": "Source calendar",
+        "horizon": 6,
+        "shapley_efficiency_error_gb": 0.0,
+        "ig_accepted": true,
+        "ig_nodes": 64,
+        "ig_completeness_error_gb": 3.868305675780448e-11
+      },
+      {
+        "reference": "History hour median",
+        "horizon": 1,
+        "shapley_efficiency_error_gb": 6.938893903907228e-18,
+        "ig_accepted": true,
+        "ig_nodes": 64,
+        "ig_completeness_error_gb": 4.163336342344337e-17
+      },
+      {
+        "reference": "History hour median",
+        "horizon": 6,
+        "shapley_efficiency_error_gb": 0.0,
+        "ig_accepted": true,
+        "ig_nodes": 64,
+        "ig_completeness_error_gb": 6.38378239159465e-16
+      }
+    ]
+  },
+  "loo_points": {
+    "0": -0.039934645057044575,
+    "1": -0.012576600517195002,
+    "3": -0.011609442285842285,
+    "4": -0.02541705524988248,
+    "5": -0.002421898516155254,
+    "6": -0.005398923860799487,
+    "7": -0.03477662372144973
+  },
+  "common_case_operator_seed_rows": 627,
+  "common_case_origins_after_seed_average": 209,
+  "common_case_institution_year_cells": 29,
+  "runtime_seconds": {
+    "training": 324.33757996559143,
+    "forecast_evaluation": 9.717042922973633,
+    "attribution_evaluation": 184.67722511291504,
+    "diagnostics_analysis_and_overhead": 10.76356695650611,
+    "total": 529.4954149579862
+  }
+}

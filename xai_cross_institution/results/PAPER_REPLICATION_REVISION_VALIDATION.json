@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "pdf_sha256": "30bfb59d197035f52a596e4031326f0b59fc106b69d715170d5ce3aee4cf89b8",
+  "pages": 12,
+  "figures": 12,
+  "cited_bibliography_entries": 18,
+  "undefined_references": false,
+  "overfull_boxes": false,
+  "all_pages_rendered_and_visually_inspected": true,
+  "original_draft_preserved": "paper/archive_2026-11-06/",
+  "original_scientific_primary_unchanged": true,
+  "replication_primary": {
+    "mean": -0.007535076243646839,
+    "ci_low": -0.040152857932414986,
+    "ci_high": 0.024125086196251984,
+    "pairs": 30,
+    "bootstrap_valid": 1885,
+    "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+  },
+  "reporting_revision_only": true,
+  "venue_page_limit_not_selected": true
+}

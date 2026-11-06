@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "new_target_performance_used": false,
+  "old_cohort_max_q_difference": 0,
+  "toy_primary_point": 0.019999999999999997,
+  "toy_original_bootstrap_valid": 2000,
+  "toy_synchronized_valid": 2000,
+  "pair_only_and_shared_block_definitions_checked": true
+}

@@ -1,0 +1,299 @@
+{
+  "primary": {
+    "mean": -0.007535076243646839,
+    "ci_low": -0.040152857932414986,
+    "ci_high": 0.024125086196251984,
+    "pairs": 30,
+    "bootstrap_valid": 1885,
+    "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+  },
+  "main_sensitivity": {
+    "pair_only": {
+      "mean": -0.007535076243646839,
+      "ci_low": -0.0350306376566534,
+      "ci_high": 0.01882818899889661,
+      "pairs": 30,
+      "bootstrap_valid": 2000,
+      "reason": "pair_cluster_only_conditional_on_observed_periods"
+    },
+    "synchronized_blocks": {
+      "mean": -0.007535076243646839,
+      "ci_low": -0.04221782215579705,
+      "ci_high": 0.03131155394329124,
+      "pairs": 30,
+      "bootstrap_valid": 1872,
+      "bootstrap_attempted": 2000,
+      "reason": "synchronized_six_calendar_blocks_per_year"
+    }
+  },
+  "dense_budget_comparison": [
+    {
+      "horizon": 1,
+      "main_pairs": 30,
+      "dense_pairs": 30,
+      "common_pairs": 30,
+      "main_original_pair_block": {
+        "mean": -0.007535076243646839,
+        "ci_low": -0.040152857932414986,
+        "ci_high": 0.024125086196251984,
+        "pairs": 30,
+        "bootstrap_valid": 1885,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_original_pair_block": {
+        "mean": 0.00013741007922236,
+        "ci_low": -0.022940209447901115,
+        "ci_high": 0.024816511445681026,
+        "pairs": 30,
+        "bootstrap_valid": 2000,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_sensitivity": {
+        "pair_only": {
+          "mean": 0.00013741007922236,
+          "ci_low": -0.020997752993114845,
+          "ci_high": 0.021623714154824336,
+          "pairs": 30,
+          "bootstrap_valid": 2000,
+          "reason": "pair_cluster_only_conditional_on_observed_periods"
+        },
+        "synchronized_blocks": {
+          "mean": 0.00013741007922236,
+          "ci_low": -0.02584955964642427,
+          "ci_high": 0.02756232275072005,
+          "pairs": 30,
+          "bootstrap_valid": 1995,
+          "bootstrap_attempted": 2000,
+          "reason": "synchronized_six_calendar_blocks_per_year"
+        }
+      },
+      "common_pair_main": {
+        "mean": -0.007535076243646839,
+        "ci_low": -0.040152857932414986,
+        "ci_high": 0.024125086196251984,
+        "pairs": 30,
+        "bootstrap_valid": 1885,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "common_pair_dense": {
+        "mean": 0.00013741007922236,
+        "ci_low": -0.022940209447901115,
+        "ci_high": 0.024816511445681026,
+        "pairs": 30,
+        "bootstrap_valid": 2000,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      }
+    },
+    {
+      "horizon": 6,
+      "main_pairs": 30,
+      "dense_pairs": 30,
+      "common_pairs": 30,
+      "main_original_pair_block": {
+        "mean": -0.0034026292201894135,
+        "ci_low": -0.04166906696338154,
+        "ci_high": 0.031406003110604555,
+        "pairs": 30,
+        "bootstrap_valid": 1981,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_original_pair_block": {
+        "mean": -0.019709814850042504,
+        "ci_low": -0.05335286628865433,
+        "ci_high": 0.008976867207925308,
+        "pairs": 30,
+        "bootstrap_valid": 1988,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_sensitivity": {
+        "pair_only": {
+          "mean": -0.019709814850042504,
+          "ci_low": -0.05360805418245718,
+          "ci_high": 0.009828180850245274,
+          "pairs": 30,
+          "bootstrap_valid": 2000,
+          "reason": "pair_cluster_only_conditional_on_observed_periods"
+        },
+        "synchronized_blocks": {
+          "mean": -0.019709814850042504,
+          "ci_low": -0.05534006224013506,
+          "ci_high": 0.011550006968939541,
+          "pairs": 30,
+          "bootstrap_valid": 1975,
+          "bootstrap_attempted": 2000,
+          "reason": "synchronized_six_calendar_blocks_per_year"
+        }
+      },
+      "common_pair_main": {
+        "mean": -0.0034026292201894135,
+        "ci_low": -0.04166906696338154,
+        "ci_high": 0.031406003110604555,
+        "pairs": 30,
+        "bootstrap_valid": 1981,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "common_pair_dense": {
+        "mean": -0.019709814850042504,
+        "ci_low": -0.05335286628865433,
+        "ci_high": 0.008976867207925308,
+        "pairs": 30,
+        "bootstrap_valid": 1988,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      }
+    }
+  ],
+  "ig_cases": 14112,
+  "ig_failed": 690,
+  "forecast_mase": [
+    {
+      "model": "persistence",
+      "h1": 1.4082772163780748,
+      "h6": 2.427771982663676
+    },
+    {
+      "model": "daily",
+      "h1": 1.864200634018141,
+      "h6": 1.8242898344095113
+    },
+    {
+      "model": "weekly",
+      "h1": 1.6728070103518653,
+      "h6": 1.6739534493197763
+    },
+    {
+      "model": "ridge",
+      "h1": 30.822572095503787,
+      "h6": 57.323971086665004
+    },
+    {
+      "model": "dlinear",
+      "h1": 1.208184375638562,
+      "h6": 1.3749955457833614
+    },
+    {
+      "model": "gru",
+      "h1": 9.68241624830595,
+      "h6": 64.14954534036075
+    }
+  ],
+  "forecast_diagnostics": {
+    "post_hoc_descriptive": true,
+    "trigger": "Extreme new-cohort macro MASE observed after main analysis; inspect all institution-year values without modifying metric or membership.",
+    "institution_267_weekly_scale_gb": 7.50679573581669e-07,
+    "institution_267_weekly_scale_bytes": 750.679573581669,
+    "max_single_seed_mase": 5920.954825137086,
+    "all_target_cells_retained": true,
+    "original_metric_floor_unchanged": true,
+    "summary": [
+      {
+        "model": "daily",
+        "horizon": 1,
+        "cells": 63,
+        "mean_mase": 1.864200634018141,
+        "median_mase": 1.0883872999472062,
+        "max_mase": 17.043157456208952,
+        "mean_mae_gb": 2.197268831031281
+      },
+      {
+        "model": "daily",
+        "horizon": 6,
+        "cells": 63,
+        "mean_mase": 1.8242898344095113,
+        "median_mase": 1.1514146908622984,
+        "max_mase": 24.34488279765855,
+        "mean_mae_gb": 1.8963241044795467
+      },
+      {
+        "model": "dlinear",
+        "horizon": 1,
+        "cells": 63,
+        "mean_mase": 1.208184375638562,
+        "median_mase": 0.7471554507480805,
+        "max_mase": 10.288689396765408,
+        "mean_mae_gb": 1.2585429898009435
+      },
+      {
+        "model": "dlinear",
+        "horizon": 6,
+        "cells": 63,
+        "mean_mase": 1.3749955457833614,
+        "median_mase": 0.8759891862466542,
+        "max_mase": 16.602734713898712,
+        "mean_mae_gb": 1.3302941803058574
+      },
+      {
+        "model": "gru",
+        "horizon": 1,
+        "cells": 63,
+        "mean_mase": 9.68241624830595,
+        "median_mase": 0.8244951358837529,
+        "max_mase": 268.40247965236784,
+        "mean_mae_gb": 1.2369249736406336
+      },
+      {
+        "model": "gru",
+        "horizon": 6,
+        "cells": 63,
+        "mean_mase": 64.14954534036075,
+        "median_mase": 0.9956962822930567,
+        "max_mase": 1975.3546743694887,
+        "mean_mae_gb": 1.4789911469691275
+      },
+      {
+        "model": "persistence",
+        "horizon": 1,
+        "cells": 63,
+        "mean_mase": 1.4082772163780748,
+        "median_mase": 0.8708115247106335,
+        "max_mase": 14.982456844756532,
+        "mean_mae_gb": 1.239117968794004
+      },
+      {
+        "model": "persistence",
+        "horizon": 6,
+        "cells": 63,
+        "mean_mase": 2.427771982663676,
+        "median_mase": 1.69443272586617,
+        "max_mase": 28.29101885388282,
+        "mean_mae_gb": 2.084206298309224
+      },
+      {
+        "model": "ridge",
+        "horizon": 1,
+        "cells": 63,
+        "mean_mase": 30.822572095503787,
+        "median_mase": 0.7611687181487591,
+        "max_mase": 935.0697531244638,
+        "mean_mae_gb": 1.2456243219430199
+      },
+      {
+        "model": "ridge",
+        "horizon": 6,
+        "cells": 63,
+        "mean_mase": 57.323971086665004,
+        "median_mase": 0.8883216646358688,
+        "max_mase": 1764.283809910817,
+        "mean_mae_gb": 1.3222948389652218
+      },
+      {
+        "model": "weekly",
+        "horizon": 1,
+        "cells": 63,
+        "mean_mase": 1.6728070103518653,
+        "median_mase": 1.0276466911004185,
+        "max_mase": 13.514617141853638,
+        "mean_mae_gb": 2.1678766513116057
+      },
+      {
+        "model": "weekly",
+        "horizon": 6,
+        "cells": 63,
+        "mean_mase": 1.6739534493197763,
+        "median_mase": 1.0796502805045047,
+        "max_mase": 21.12256994108887,
+        "mean_mae_gb": 1.864835598437902
+      }
+    ]
+  },
+  "reporting_only": true
+}

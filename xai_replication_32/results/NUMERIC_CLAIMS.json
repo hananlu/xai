@@ -1,0 +1,22 @@
+{
+  "primary": {
+    "mean": -0.007535076243646839,
+    "ci_low": -0.040152857932414986,
+    "ci_high": 0.024125086196251984,
+    "pairs": 30,
+    "bootstrap_valid": 1885,
+    "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+  },
+  "primary_definition": "GRU frozen, h1, source-calendar Shapley Q, target-minus-source, paired institution/time blocks",
+  "quality_records": 705600,
+  "seed_averaged_rows": 302400,
+  "paired_primary_records": 1758,
+  "ig_cases": 14112,
+  "ig_failed": 690,
+  "forecast_metric_rows": 5080,
+  "target_institutions": 32,
+  "matched_pairs": 32,
+  "protocol": "PROTOCOL_REPLICATION.md",
+  "all_operators_controlled": true,
+  "causal_demand_claim": false
+}

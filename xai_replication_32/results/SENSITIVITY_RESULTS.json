@@ -1,0 +1,147 @@
+{
+  "main_original_pair_block": {
+    "mean": -0.007535076243646839,
+    "ci_low": -0.040152857932414986,
+    "ci_high": 0.024125086196251984,
+    "pairs": 30,
+    "bootstrap_valid": 1885,
+    "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+  },
+  "main_sensitivity": {
+    "pair_only": {
+      "mean": -0.007535076243646839,
+      "ci_low": -0.0350306376566534,
+      "ci_high": 0.01882818899889661,
+      "pairs": 30,
+      "bootstrap_valid": 2000,
+      "reason": "pair_cluster_only_conditional_on_observed_periods"
+    },
+    "synchronized_blocks": {
+      "mean": -0.007535076243646839,
+      "ci_low": -0.04221782215579705,
+      "ci_high": 0.03131155394329124,
+      "pairs": 30,
+      "bootstrap_valid": 1872,
+      "bootstrap_attempted": 2000,
+      "reason": "synchronized_six_calendar_blocks_per_year"
+    }
+  },
+  "dense_budget_comparison": [
+    {
+      "horizon": 1,
+      "main_pairs": 30,
+      "dense_pairs": 30,
+      "common_pairs": 30,
+      "main_original_pair_block": {
+        "mean": -0.007535076243646839,
+        "ci_low": -0.040152857932414986,
+        "ci_high": 0.024125086196251984,
+        "pairs": 30,
+        "bootstrap_valid": 1885,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_original_pair_block": {
+        "mean": 0.00013741007922236,
+        "ci_low": -0.022940209447901115,
+        "ci_high": 0.024816511445681026,
+        "pairs": 30,
+        "bootstrap_valid": 2000,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_sensitivity": {
+        "pair_only": {
+          "mean": 0.00013741007922236,
+          "ci_low": -0.020997752993114845,
+          "ci_high": 0.021623714154824336,
+          "pairs": 30,
+          "bootstrap_valid": 2000,
+          "reason": "pair_cluster_only_conditional_on_observed_periods"
+        },
+        "synchronized_blocks": {
+          "mean": 0.00013741007922236,
+          "ci_low": -0.02584955964642427,
+          "ci_high": 0.02756232275072005,
+          "pairs": 30,
+          "bootstrap_valid": 1995,
+          "bootstrap_attempted": 2000,
+          "reason": "synchronized_six_calendar_blocks_per_year"
+        }
+      },
+      "common_pair_main": {
+        "mean": -0.007535076243646839,
+        "ci_low": -0.040152857932414986,
+        "ci_high": 0.024125086196251984,
+        "pairs": 30,
+        "bootstrap_valid": 1885,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "common_pair_dense": {
+        "mean": 0.00013741007922236,
+        "ci_low": -0.022940209447901115,
+        "ci_high": 0.024816511445681026,
+        "pairs": 30,
+        "bootstrap_valid": 2000,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      }
+    },
+    {
+      "horizon": 6,
+      "main_pairs": 30,
+      "dense_pairs": 30,
+      "common_pairs": 30,
+      "main_original_pair_block": {
+        "mean": -0.0034026292201894135,
+        "ci_low": -0.04166906696338154,
+        "ci_high": 0.031406003110604555,
+        "pairs": 30,
+        "bootstrap_valid": 1981,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_original_pair_block": {
+        "mean": -0.019709814850042504,
+        "ci_low": -0.05335286628865433,
+        "ci_high": 0.008976867207925308,
+        "pairs": 30,
+        "bootstrap_valid": 1988,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "dense_sensitivity": {
+        "pair_only": {
+          "mean": -0.019709814850042504,
+          "ci_low": -0.05360805418245718,
+          "ci_high": 0.009828180850245274,
+          "pairs": 30,
+          "bootstrap_valid": 2000,
+          "reason": "pair_cluster_only_conditional_on_observed_periods"
+        },
+        "synchronized_blocks": {
+          "mean": -0.019709814850042504,
+          "ci_low": -0.05534006224013506,
+          "ci_high": 0.011550006968939541,
+          "pairs": 30,
+          "bootstrap_valid": 1975,
+          "bootstrap_attempted": 2000,
+          "reason": "synchronized_six_calendar_blocks_per_year"
+        }
+      },
+      "common_pair_main": {
+        "mean": -0.0034026292201894135,
+        "ci_low": -0.04166906696338154,
+        "ci_high": 0.031406003110604555,
+        "pairs": 30,
+        "bootstrap_valid": 1981,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      },
+      "common_pair_dense": {
+        "mean": -0.019709814850042504,
+        "ci_low": -0.05335286628865433,
+        "ci_high": 0.008976867207925308,
+        "pairs": 30,
+        "bootstrap_valid": 1988,
+        "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+      }
+    }
+  ],
+  "dense_main_intersection_exact": true,
+  "reused_operator_seed_records": 72576
+}

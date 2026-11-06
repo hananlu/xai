@@ -1,0 +1,23 @@
+[
+  {
+    "seed": 42,
+    "main_score_rows": 24192,
+    "added_score_rows": 72576,
+    "all_score_rows": 96768,
+    "added_histories": 6048
+  },
+  {
+    "seed": 123,
+    "main_score_rows": 24192,
+    "added_score_rows": 72576,
+    "all_score_rows": 96768,
+    "added_histories": 6048
+  },
+  {
+    "seed": 2026,
+    "main_score_rows": 24192,
+    "added_score_rows": 72576,
+    "all_score_rows": 96768,
+    "added_histories": 6048
+  }
+]

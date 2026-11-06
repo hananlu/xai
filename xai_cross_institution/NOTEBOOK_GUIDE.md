@@ -38,3 +38,7 @@ The new notebook does not add LIME, TreeSHAP or classification metrics to the fo
 ## Full local run, 6 November 2026
 
 `XAI_Full_Local_Run.ipynb` is a separate executed copy with full-training and batch-evaluation flags enabled. All 58 code cells completed without errors in approximately 8 minutes 49 seconds on the local CPU. This is separate from the light default validation above. See FULL_LOCAL_RUN.md and results/FULL_NOTEBOOK_RUN.json.
+
+## New-target replication
+
+The separate `../xai_replication_32/XAI_Replication_32.ipynb` has 52 cells, 31 code cells and seven embedded plots, executed with a real kernel and zero errors. It reuses original locked forecasters, verifies frozen inputs, recomputes local Shapley/IG and the main bootstrap, and reports the full completed 32-new-target batch and nested 64-origin sensitivity. Its default is an analysis/audit companion, not another training run. Read the original full-run notebook and the replication notebook together.

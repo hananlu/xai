@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "checks": {
+    "frozen_100_input_hashes": true,
+    "main_plan_nested": true,
+    "frozen_plan_equals_evaluated_main": true,
+    "dense_record_count": true,
+    "dense_case_plan_exact": true,
+    "reused_cases_preserved": true,
+    "added_case_nan_status": true,
+    "added_case_requeries": true,
+    "dense_primary_point_independent": true
+  },
+  "details": {
+    "main_roundtrip_max_abs_difference": 0.0,
+    "added_queries": 16,
+    "max_added_query_difference": 0.0,
+    "dense_h1_point_independent": 0.00013741007922235922,
+    "dense_h1_complete_pairs": 30
+  },
+  "post_evaluation_audit": true
+}

@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "sha256": "ee5fbd22f2d76902fd8e623c19bf6c66f20354044ea6cb321fa4c7d909fd1444",
+  "slides": 17,
+  "native_tables": 10,
+  "native_charts": 2,
+  "embedded_chart_workbooks": 2,
+  "speaker_notes": 17,
+  "all_slides_rendered_and_visually_inspected": true,
+  "first_party_import_passed": true,
+  "native_powerpoint_application_opened": false,
+  "final_filename": "XAI_Research_Results_v4.pptx"
+}

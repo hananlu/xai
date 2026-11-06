@@ -1,3 +1,9 @@
+# Conference manuscript: 7 pages including references
+
+The requested maximum is 7-8 pages. The current main PDF is **7 pages**, with **6 figures, 2 tables and 18 references**, using standard IEEE fonts/margins. The optional **4-page supplementary PDF** is separate and retains six extended diagnostic figures and two tables. See [page-limit revision notes](PAPER_PAGE_LIMIT_NOTES.md). The prior 12-page version is archived; all scientific results, source models and freezes are unchanged.
+
+---
+
 # Combined paper and original training study
 
 7 November 2026: the paper and editable slides now include the separately frozen [32-new-target replication](../xai_replication_32/README.md). Across both studies there are 80 unique institutions. The new primary is ΔQ -0.0075, nominal 95% interval [-0.0402,0.0241], 30 complete pairs. Dense 64-origin h1 is +0.0001, interval [-0.0229,0.0248]. Both remain inconclusive about degradation or equivalence. The stronger-looking original history-median secondary pattern does not recur as a zero-excluding interval in the new cohort. Source/model/ISP reuse and undefined-score exclusions remain explicit.
@@ -16,7 +22,7 @@ Status: full frozen study executed; manuscript and editable presentation prepare
 - `XAI_Results_and_Reproduction.ipynb`: earlier short results companion.
 
 - `RESULTS_BRIEF_ID.md`: findings, honest publication assessment, remaining author/venue decisions.
-- `paper/paper.pdf` and `paper/paper.tex`: English IEEE-style expanded anonymous draft, 12 pages, 12 figures and 18 cited references; editable overall TikZ pipeline and BibTeX source included. Adapt to the selected conference before submission.
+- `paper/paper.pdf` and `paper/paper.tex`: English IEEE-style expanded anonymous draft, 7 pages including references, 6 figures and 18 cited references; editable overall TikZ pipeline and BibTeX source included. Adapt to the selected conference before submission.
 - `presentation/XAI_Research_Results_v4.pptx`: 17 editable slides in Indonesian; opening, gap/goal, pipeline, results. Charts, tables, diagram and text remain native objects.
 - `LITERATURE_AND_GAP.md`: closest work, bounded novelty and distinct future-paper directions.
 - `FULL_PROTOCOL.md`, `ANALYSIS_CLARIFICATIONS.md`: frozen experimental and statistical decisions.

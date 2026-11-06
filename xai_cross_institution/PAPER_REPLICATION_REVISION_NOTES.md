@@ -1,3 +1,5 @@
+> Historical expanded-draft record: this note describes the archived 12-page version. The current main manuscript is seven pages including references; see PAPER_PAGE_LIMIT_NOTES.md and results/PAPER_PAGE_LIMIT_VALIDATION.json.
+
 # Combined manuscript, 7 November 2026
 
 The current draft is 12 pages with 12 figures, three tables and 18 cited references. It retains the original primary result and reports the separately frozen 32-new-target within-CESNET replication. Its complete overall TikZ pipeline, main LaTeX, replication section, BibTeX and vector figure sources are included. No scientific freeze, training, original endpoint or source checkpoint changed. The prior 9-page version is archived under paper/archive_2026-11-06. The original PAPER_REVISION_FACTS/VALIDATION files document that historical version; PAPER_REPLICATION_REVISION_VALIDATION identifies the current PDF.

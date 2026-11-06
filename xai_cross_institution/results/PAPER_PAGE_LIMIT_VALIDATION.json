@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "maximum_main_pages_including_references": 8,
+  "main_pages": 7,
+  "main_figures": 6,
+  "main_tables": 2,
+  "cited_references": 18,
+  "supplementary_pages": 4,
+  "supplementary_figures": 6,
+  "supplementary_tables": 2,
+  "main_pdf_sha256": "882fd0b6b8f3e43f342ae5628c54e6205340277f49724259e03e07851cd72552",
+  "supplementary_pdf_sha256": "14a4803b14806b37424847351c1500b5c67203ae98ddb0f13e7f88eb38ecb0c2",
+  "all_pages_rendered_and_visually_inspected": true,
+  "standard_ieee_font_and_margins": true,
+  "undefined_references": false,
+  "overfull_boxes": false,
+  "all_rounded_forecast_table_values_verified": true,
+  "scientific_frozen_100_inputs_unchanged": true,
+  "scientific_results_unchanged": true,
+  "expanded_12_page_draft_archived": "paper/archive_expanded_2026-11-07/"
+}

@@ -1,5 +1,9 @@
 # XAI network traffic projects — Farrel branch
 
+## Conference page limit
+
+The main manuscript is **7 pages including references**, within the requested 7-8-page limit. It retains six figures, two tables, all 18 references and the original/new-cohort outcomes. [Optional supplementary material](xai_cross_institution/paper/supplementary.pdf) is a separate four-page file with six additional diagnostic figures and two tables. The previous expanded draft is archived. Sources, figures, scientific results and model/protocol freezes remain available and unchanged.
+
 This branch contains the recovered forecasting project, the executed cross-institution study, its notebooks, source code, selected datasets, checkpoints, per-origin predictions, attribution results, paper sources and editable presentation. The existing root `XAI_Network_Traffic.ipynb` remains the original classification notebook.
 
 ## Main forecasting study
@@ -12,7 +16,7 @@ Start with [the full experimental notebook](xai_cross_institution/XAI_Complete_E
 |---|---|
 | [Full experiment notebook](xai_cross_institution/XAI_Complete_Experiment.ipynb) | 95 cells, 58 code cells, 22 plots; inline EDA, preprocessing, models, training loops, forecasting, Shapley/IG/occlusion, agreement, stability, latency and paired inference. Light default mode is executed. |
 | [Full local run notebook](xai_cross_institution/XAI_Full_Local_Run.ipynb) | Local full-training and batch-evaluation run; execution record and fresh-run snapshot are in `runs/2026-11-06/`. |
-| [Paper PDF](xai_cross_institution/paper/paper.pdf) | Expanded anonymous English working draft: 12 pages, 12 figures, overall TikZ pipeline and 18 references. |
+| [Paper PDF](xai_cross_institution/paper/paper.pdf) | Expanded anonymous English working draft: 7 pages including references, 6 figures, overall TikZ pipeline and 18 references. |
 | [LaTeX](xai_cross_institution/paper/paper.tex) / [BibTeX](xai_cross_institution/paper/references.bib) | Editable paper, complete TikZ pipeline, and all 18 cited bibliography entries; the manuscript builds directly from BibTeX. |
 | [Editable slides](xai_cross_institution/presentation/XAI_Research_Results_v4.pptx) | Opening, gap/goal, pipeline, findings and limitations. |
 | [Source](xai_cross_institution/src/) | Frozen core training/evaluation/analysis code and independent audits. |
@@ -29,7 +33,7 @@ The new primary contrast is **-0.0075**, nominal 95% interval **[-0.0402, 0.0241
 
 All scientific/dense audits passed. The new analysis notebook has 52 cells, 31 executed code cells, seven embedded plots and zero errors. Its default reads the completed batch and reproduces local arithmetic/primary inference; optional full evaluation runs on a copy. The actual added main/dense XAI batches took about 35 minutes on the local CPU, without retraining. Low-volume forecast-scale failures and undefined ranking cases remain visible.
 
-The combined paper now has **12 pages, 12 figures and 18 cited references**, with LaTeX/BibTeX/TikZ sources. The updated [editable PPT](xai_cross_institution/presentation/XAI_Research_Results_v4.pptx) has **17 slides**, ten native tables and two native charts with embedded workbooks. The previous 9-page paper is archived; original scientific freezes and the independent full local rerun remain unchanged. Conference page budget and authorship still need final selection; nothing has been submitted.
+The combined paper now has **7 pages including references, 6 figures and 18 cited references**, with LaTeX/BibTeX/TikZ sources. The updated [editable PPT](xai_cross_institution/presentation/XAI_Research_Results_v4.pptx) has **17 slides**, ten native tables and two native charts with embedded workbooks. The previous 9-page paper is archived; original scientific freezes and the independent full local rerun remain unchanged. Conference page budget and authorship still need final selection; nothing has been submitted.
 
 ## Run locally
 

@@ -1,3 +1,9 @@
+# Status terbaru: batas halaman konferensi
+
+Paper utama sekarang **7 halaman termasuk referensi**, dengan 6 figure, 2 tabel dan 18 referensi. Supplementary 4 halaman disimpan terpisah; detail tambahan tetap tersedia tanpa memperpanjang manuscript utama. Hasil eksperimen dan scientific freeze tidak berubah. Versi 12 halaman sebelumnya diarsipkan.
+
+---
+
 # Status terbaru: replikasi 32 target selesai
 
 7 November 2026. Studi gabungan mencakup 80 institusi unik dalam satu ISP. Replikasi 32 target baru, model terkunci, main/dense budget dan audit selesai; notebook baru 52 cells/31 code cells lolos eksekusi. Hasil primer baru -0,0075, nominal 95% CI [-0,0402; +0,0241], 30 pasangan lengkap. Budget 64 origin h1 memberi +0,0001, CI [-0,0229; +0,0248]. Tidak membuktikan degradasi atau equivalence. Pola sekunder history-median awal tidak berulang sebagai interval yang mengecualikan nol.

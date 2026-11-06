@@ -1,0 +1,11 @@
+{
+  "institutions": 12,
+  "stress_records_unique_conditions": 210672,
+  "max_reconstruction_error_gb": 5.329070518200751e-15,
+  "max_shift_identity_error_gb": 7.993605777301127e-15,
+  "profile_clean_ridge_max_imputed_mass_gb": 0.0,
+  "profile_clean_ridge_nonzero_shift_fraction": 1.0,
+  "profile_clean_ridge_positive_incremental_error_fraction": 0.49381977671451355,
+  "reserved_outcomes_scored": false,
+  "bootstrap_scope": "weeks conditional on selected same-network institutions; descriptive, multiple comparisons unadjusted"
+}

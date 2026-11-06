@@ -1,0 +1,292 @@
+{
+  "created": "2026-10-10T08:21:36.679995+00:00",
+  "modified": "2026-10-10T08:21:38.240801+00:00",
+  "id": 21945629,
+  "conceptrecid": "21945628",
+  "doi": "10.5281/zenodo.21945629",
+  "conceptdoi": "10.5281/zenodo.21945628",
+  "doi_url": "https://doi.org/10.5281/zenodo.21945629",
+  "metadata": {
+    "title": "CESNET-TimeSeries26: A Multi-Year Network Traffic Time Series Dataset for Annual Seasonality, Concept Drift, and Long-Term Anomaly Detection",
+    "doi": "10.5281/zenodo.21945629",
+    "publication_date": "2026-08-15",
+    "description": "<p><strong>CESNET-TimeSeries26</strong> is a large-scale network-traffic time-series dataset collected on the CESNET3 national research and education network. It contains per-entity time series for <strong>278,466 IP addresses</strong>, <strong>285 institutions</strong> and <strong>566 institution subnets</strong>, each provided at three aggregation levels (10&nbsp;minutes, 1&nbsp;hour, 1&nbsp;day), spanning <strong>2023-10-09 to 2026-06-30 (996 days, ~2.7 years)</strong>. A separate longitudinal part follows 135 IP addresses of a single subnet over <strong>4.5 years (2021-12-31 to 2026-07-09)</strong>.</p>\n<p>The dataset is intended for research on network-traffic forecasting, anomaly and outage detection, seasonality and concept-drift analysis, and for benchmarking time-series methods on real, irregular, heavily gapped operational data. It extends the 40-week <a href=\"https://zenodo.org/records/13382427\">CESNET-TimeSeries24 collection</a> to a multi-year span, enabling studies of annual seasonality, year-over-year drift, and model longevity.</p>\n<h3>Citation</h3>\n<p>Please cite the usage of our dataset as (final citation of the article will be added shortly):</p>\n<blockquote>\n<p>Koumar, J., Hynek, K., Je\u0159&aacute;bek, K., &Scaron;i&scaron;ka, P. CESNET-TimeSeries26: A Multi-Year Network Traffic Time Series Dataset for Annual Seasonality, Concept Drift, and Long-Term Anomaly Detection<br><br>@Article{cesnettimeseries24,<br>&nbsp;&nbsp;&nbsp; author={Koumar, Josef and Hynek, Karel and Je{\\v{r}}{\\'a}bek, Kamil and {\\v{S}}i{\\v{s}}ka, Pavel},<br>&nbsp;&nbsp;&nbsp; title={CESNET-TimeSeries26: A Multi-Year Network Traffic Time Series Dataset for Annual Seasonality, Concept Drift, and Long-Term Anomaly Detection},<br>&nbsp; &nbsp;&nbsp;year={2026},<br>}</p>\n</blockquote>\n<h3>Ethical statement</h3>\n<p>Since the dataset originates from a production network used by real users, privacy was a fundamental concern throughout our work. We used exclusively automated data processing with immediate anonymization. Therefore, we did not analyze or manually process non-anonymized data at any point, nor did we perform any procedure that would allow us to track users or reveal their identities.</p>\n<p>The publication of the dataset has been approved by the Committee for Ethics in Research of the Scientific Council of the Czech Technical University in Prague under reference number 0000-11/26/51902/EK\u010cVUT. The approval includes a waiver of explicit user consent for publishing the dataset. Moreover, all users of the CESNET3 network agreed to terms and conditions that define a monitoring process for the optimization and improvement of services (including related research) and allow sharing of the data with third parties after anonymization <a href=\"https://www.cesnet.cz/en/gdpr\">https://www.cesnet.cz/en/gdpr</a>.</p>\n<h3>Collection and aggregation</h3>\n<ul>\n<li><strong>Source:</strong> IP-flow monitoring of the CESNET3 network.</li>\n<li><strong>Entities:</strong> individual IP addresses, plus aggregates per institution and per institution subnet.</li>\n<li><strong>Aggregation levels:</strong> 10&nbsp;minutes, 1&nbsp;hour, 1&nbsp;day.</li>\n<li><strong>Time grid:</strong> shared per part and per level, given explicitly in <code>times/times_&lt;level&gt;.csv</code> as <code>id_time,time</code>. Series files reference <code>id_time</code> only; the mapping to wall-clock time is always the times table. The main grid has 140,636 ten-minute slots, 23,902 hourly slots and 996 daily slots.</li>\n<li><strong>Sparsity:</strong> only slots in which the entity was actually observed are present. Files are therefore of very different lengths and most series are sparse &mdash; see <em>Known properties</em>.</li>\n</ul>\n<h3>File structure</h3>\n<p>See the included figure <code>dataset_file_structure.png</code> for the full directory layout. Each part is also provided as a <code>.tar.gz</code> archive; SHA-256 checksums for all archives are in <code>SHA256SUMS.txt</code>.</p>\n<ul>\n<li><code>ip_addresses_full/</code> &mdash; all 278,466 IP series. Because of the file count, the per-level directories are split into 12 numbered shards (<code>agg_10_minutes/&lt;1..12&gt;/&lt;id_ip&gt;.csv</code>). The shard for a given <code>id_ip</code> is listed in <code>identifiers.csv</code>.</li>\n<li><code>ip_addresses_sample/</code> &mdash; a uniform random sample of 1,000 IP series (flat directories, no shards).</li>\n<li><code>ip_addresses_sample_gaps_20_00/</code> &hellip; <code>_100_80/</code> &mdash; five gap-stratified samples of 1,000 series each; see <em>Sample subsets</em>.</li>\n<li><code>institutions/</code>, <code>institution_subnets/</code> &mdash; aggregated series per institution (285) and per institution subnet (566).</li>\n<li><code>subnet_longitudinal/</code> &mdash; 135 IP series of a single subnet over 4.5 years, on its own longer time grid.</li>\n</ul>\n<h3>The size of the dataset</h3>\n<ul>\n<li><code>ip_addresses_full.tar.gz</code> &mdash; 435G (compressed 130G)</li>\n<li><code>ip_addresses_sample.tar.gz</code> &mdash; 1.7G (compressed 507M)</li>\n<li><code>ip_addresses_sample_gaps_100_80.tar.gz</code> &mdash; 683M (compressed 205M)</li>\n<li><code>ip_addresses_sample_gaps_80_60.tar.gz</code> &mdash; 3.2G (compressed 945M)</li>\n<li><code>ip_addresses_sample_gaps_60_40.tar.gz</code> &mdash; 5.2G (compressed 1.5G)</li>\n<li><code>ip_addresses_sample_gaps_40_20.tar.gz</code> &mdash; 7.1G (compressed 2.0G)</li>\n<li><code>ip_addresses_sample_gaps_20_00.tar.gz</code> &mdash; 9.6G (compressed 3.2G)</li>\n<li><code>institutions.tar.gz</code> &mdash; 4.3G (compressed 1.6G)</li>\n<li><code>institution_subnets.tar.gz</code> &mdash; 7.6G (compressed 2.7G)</li>\n<li><code>subnet_longitudinal.tar.gz</code> &mdash; 722M (compressed 249M)</li>\n</ul>\n<h3>Columns</h3>\n<p><strong>IP-level 10-minute files</strong> (<code>ip_addresses_*</code>):</p>\n<pre>id_time, n_flows, n_packets, n_bytes, n_dest_asn, n_dest_ports, n_dest_ip,\ntcp_udp_ratio_packets, tcp_udp_ratio_bytes, dir_ratio_packets, dir_ratio_bytes,\navg_duration, avg_ttl</pre>\n<p><strong>IP-level 1-hour and 1-day files</strong>, and <strong>all institution and institution-subnet files</strong>. The three destination-cardinality columns are expanded into sum / mean / standard deviation over the constituent 10-minute windows:</p>\n<pre>id_time, n_flows, n_packets, n_bytes,\nsum_n_dest_asn, average_n_dest_asn, std_n_dest_asn,\nsum_n_dest_ports, average_n_dest_ports, std_n_dest_ports,\nsum_n_dest_ip, average_n_dest_ip, std_n_dest_ip,\ntcp_udp_ratio_packets, tcp_udp_ratio_bytes, dir_ratio_packets, dir_ratio_bytes,\navg_duration, avg_ttl</pre>\n<p><strong>subnet_longitudinal</strong> keeps the same column set at all three levels:</p>\n<pre>id_time, n_flows, n_packets, n_bytes, n_dest_ip, n_dest_asn, n_dest_port,\ndir_ratio_packets, dir_ratio_bytes, avg_duration</pre>\n<p>Column meanings: <code>n_flows</code>, <code>n_packets</code>, <code>n_bytes</code> are volumetric counters; <code>n_dest_asn</code>, <code>n_dest_ports</code>, <code>n_dest_ip</code> are destination cardinalities; <code>tcp_udp_ratio_*</code> is the TCP share of TCP+UDP traffic (0&ndash;1); <code>dir_ratio_*</code> is the outbound share of total traffic (0&ndash;1); <code>avg_duration</code> is mean flow duration in seconds; <code>avg_ttl</code> is mean IP TTL. Numeric values are rounded to two decimal places.</p>\n<h3>Aggregation rule</h3>\n<p>The 1-hour and 1-day files are deterministic functions of the 10-minute content of the same series: volumetric counters are summed, destination cardinalities are given as sum, mean and standard deviation (sample standard deviation, <em>ddof</em>&nbsp;=&nbsp;1; zero when a window contains a single 10-minute datapoint), and all ratio and average columns are unweighted means. Values are rounded to two decimals. The 10-minute files are sorted by <code>id_time</code>, so re-aggregating them reproduces the published coarser levels exactly, independently of row order.</p>\n<h3>Identifiers and relationships</h3>\n<ul>\n<li><code>&lt;part&gt;/identifiers.csv</code> &mdash; entity ids belonging to that part; for <code>ip_addresses_full</code> it also gives the shard (<code>id_ip_folder</code>).</li>\n<li><code>ids_relationship.csv</code> &mdash; maps each of the 278,466 <code>id_ip</code> values to its <code>id_institution</code> and <code>id_institution_subnet</code>.</li>\n</ul>\n<p>Entity ids are pseudonymous integers; no IP addresses, institution names or other identifying information are published.</p>\n<h3>Sample subsets</h3>\n<p>Besides the full IP set, six subsets of 1,000 series each are provided for work that does not need all 278,466 entities:</p>\n<ul>\n<li><code>ip_addresses_sample</code> &mdash; uniform random sample, statistically indistinguishable from the full population with respect to data completeness.</li>\n<li>five <strong>gap-stratified</strong> subsets, selected by the fraction of missing 10-minute slots (<em>gap ratio</em>) computed against the nominal grid of 143,280 slots: <code>gaps_20_00</code> = [0.00, 0.20], <code>gaps_40_20</code> = (0.20, 0.40], <code>gaps_60_40</code> = (0.40, 0.60], <code>gaps_80_60</code> = (0.60, 0.80], <code>gaps_100_80</code> = (0.80, 1.00]. Every member satisfies its band interval.</li>\n</ul>\n<p>Subset files are byte-identical copies of the corresponding files in <code>ip_addresses_full</code>, so results obtained on a subset carry over unchanged.</p>\n<h3>Reference tables</h3>\n<ul>\n<li><code>weekends_and_holidays.csv</code> (515 rows) &mdash; Czech weekends and public holidays covering the collection period.</li>\n<li><code>school_terms_and_exams_periods.csv</code> (19 rows) &mdash; approximate Czech academic terms and examination periods. Most monitored entities belong to universities, so these periods explain much of the annual structure. Summer recess is the gap between the end of the summer examination period and the start of the winter term.</li>\n<li><code>outages.csv</code> (13 rows) &mdash; documented monitoring outages: 7 infrastructure-wide gaps in the main collection (the largest 2026-04-29 to 2026-05-15, ~15.9 days) and 6 subnet-local zero-traffic periods in the longitudinal part.</li>\n<li><code>europe_time_changes.csv</code> (9 rows) &mdash; daylight-saving transitions in the collection period, with the direction and offset of each clock change.</li>\n</ul>\n<h3>Known properties and usage notes</h3>\n<p>These are properties of operational data, not defects; ignoring them leads to wrong conclusions.</p>\n<ul>\n<li><strong>Most series are very sparse.</strong> The median series is present in roughly 5&nbsp;% of 10-minute slots, 14&nbsp;% of hourly slots and 58&nbsp;% of daily slots. Coarser aggregation looks denser only because a window counts as present when any sub-window carries data. The aggregation level chosen for an experiment therefore determines how severe the sparsity appears.</li>\n<li><strong>The time grid is not contiguous.</strong> The nominal grid would have 143,280 ten-minute slots; the published grid has 140,636, because network-wide outages (see <code>outages.csv</code>) are absent from the grid itself. Always resolve <code>id_time</code> through the times table rather than assuming a fixed step.</li>\n<li><strong>Daylight saving.</strong> At each spring-forward transition, two source measurement windows fall on one grid slot; they are merged (counters summed, other columns averaged). At each autumn transition the local clock repeats an hour. Work in UTC, or use <code>europe_time_changes.csv</code>.</li>\n<li><strong>A late-November-2023 onboarding step.</strong> About 34,700 series first appear on 2023-11-30, and network-wide active-address counts step up around 2023-11-25. This is a monitoring expansion, not a traffic change; it affects any trend fitted across that date.</li>\n<li><strong>subnet_longitudinal is only partly consistent with the rest.</strong> It uses the IP id namespace (its ids overlap <code>ip_addresses_full</code>) but has its own, longer time grid, so its <code>id_time</code> values are <em>not</em> comparable with the main parts. Its 1-hour and 1-day files also do not correspond exactly to its own 10-minute files, and for at least one series it covers a longer period than the main tree. Use it for long-horizon analysis of that one subnet, not for cross-part comparison.</li>\n</ul>\n<h3>Suggested uses</h3>\n<ul>\n<li>Forecasting on irregular, gapped operational time series (per-entity and aggregated).</li>\n<li>Annual and weekly seasonality, and calendar effects tied to the academic year.</li>\n<li>Concept drift and model longevity: how quickly a model trained on one period decays.</li>\n<li>Outage and anomaly detection, with documented ground-truth outages.</li>\n<li>Robustness studies across data completeness, using the gap-stratified subsets.</li>\n</ul>\n<h3>Reference tables</h3>\n<ul>\n<li><code>weekends_and_holidays.csv</code> (515 rows) &mdash; Czech weekends and public holidays covering the collection period.</li>\n<li><code>school_terms_and_exams_periods.csv</code> (19 rows) &mdash; approximate Czech academic terms and examination periods. Most monitored entities belong to universities, so these periods explain much of the annual structure. Summer recess is the gap between the end of the summer examination period and the start of the winter term.</li>\n<li><code>outages.csv</code> (13 rows) &mdash; documented monitoring outages: 7 infrastructure-wide gaps in the main collection (the largest 2026-04-29 to 2026-05-15, ~15.9 days) and 6 subnet-local zero-traffic periods in the longitudinal part.</li>\n<li><code>europe_time_changes.csv</code> (9 rows) &mdash; daylight-saving transitions in the collection period, with the direction and offset of each clock change.</li>\n</ul>\n<h3>Known properties and usage notes</h3>\n<p>These are properties of operational data, not defects; ignoring them leads to wrong conclusions.</p>\n<ul>\n<li><strong>Most series are very sparse.</strong> The median series is present in roughly 5&nbsp;% of 10-minute slots, 14&nbsp;% of hourly slots and 58&nbsp;% of daily slots. Coarser aggregation looks denser only because a window counts as present when any sub-window carries data. The aggregation level chosen for an experiment therefore determines how severe the sparsity appears.</li>\n<li><strong>Entity lifetimes are right-censored by the entity-selection procedure.</strong> Addresses were selected by activity within the collection window, so almost every series is present at the end of the collection: fewer than 40 of the 278,466 series stop anywhere in the 22 months before the final month. Lifetime variation is essentially <em>arrival</em>-driven, and end dates carry no information about when a device or address ceased to be used. <strong>Do not fit survival or churn models to per-entity lifetimes.</strong></li>\n<li><strong>The time grid is not contiguous.</strong> The nominal grid would have 143,280 ten-minute slots; the published grid has 140,636, because network-wide outages (see <code>outages.csv</code>) are absent from the grid itself. Always resolve <code>id_time</code> through the times table rather than assuming a fixed step.</li>\n<li><strong>Daylight saving.</strong> At each spring-forward transition, two source measurement windows fall on one grid slot; they are merged (counters summed, other columns averaged). At each autumn transition the local clock repeats an hour. Work in UTC, or use <code>europe_time_changes.csv</code>.</li>\n<li><strong>A late-November-2023 onboarding step.</strong> About 34,700 series first appear on 2023-11-30, and network-wide active-address counts step up around 2023-11-25. This is a monitoring expansion, not a traffic change; it affects any trend fitted across that date.</li>\n<li><strong>subnet_longitudinal is only partly consistent with the rest.</strong> It uses the IP id namespace (its ids overlap <code>ip_addresses_full</code>) but has its own, longer time grid, so its <code>id_time</code> values are <em>not</em> comparable with the main parts. Its 1-hour and 1-day files also do not correspond exactly to its own 10-minute files, and for at least one series it covers a longer period than the main tree. Use it for long-horizon analysis of that one subnet, not for cross-part comparison.</li>\n<li><strong><code>ip_addresses_full/identifiers.csv</code> contains repeated rows.</strong> It has 901,541 rows for 278,466 unique <code>(id_ip, id_ip_folder)</code> pairs &mdash; the folder-12 entries are duplicated. De-duplicate before use; the on-disk tree itself is correct and contains exactly 278,466 series per aggregation level.</li>\n</ul>\n<h3>Suggested uses</h3>\n<ul>\n<li>Forecasting on irregular, gapped operational time series (per-entity and aggregated).</li>\n<li>Annual and weekly seasonality, and calendar effects tied to the academic year.</li>\n<li>Concept drift and model longevity: how quickly a model trained on one period decays.</li>\n<li>Outage and anomaly detection, with documented ground-truth outages.</li>\n<li>Robustness studies across data completeness, using the gap-stratified subsets.</li>\n</ul>\n<h3>Column reference</h3>\n<p><strong>Table 1.</strong> Time-series metrics in the 10-minute files of the IP-address parts (<code>ip_addresses_full</code>, <code>ip_addresses_sample</code>, <code>ip_addresses_sample_gaps_*</code>). The longitudinal subnet part has a different and smaller column set &mdash; see Table 3.</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>id_time</code></td>\n<td>Unique identifier for each aggregation interval within the time series, used to segment the dataset into specific time periods for analysis. Resolve it through <code>times/times_&lt;level&gt;.csv</code>.</td>\n</tr>\n<tr>\n<td><code>n_flows</code></td>\n<td>Total number of flows observed in the aggregation interval, indicating the volume of distinct sessions or connections for the IP address.</td>\n</tr>\n<tr>\n<td><code>n_packets</code></td>\n<td>Total number of packets transmitted during the aggregation interval, reflecting the packet-level traffic volume for the IP address.</td>\n</tr>\n<tr>\n<td><code>n_bytes</code></td>\n<td>Total number of bytes transmitted during the aggregation interval, representing the data volume for the IP address.</td>\n</tr>\n<tr>\n<td><code>n_dest_ip</code></td>\n<td>Number of unique destination IP addresses contacted by the IP address during the aggregation interval, showing the diversity of endpoints reached.</td>\n</tr>\n<tr>\n<td><code>n_dest_asn</code></td>\n<td>Number of unique destination Autonomous System Numbers (ASNs) contacted during the aggregation interval, indicating the diversity of networks reached.</td>\n</tr>\n<tr>\n<td><code>n_dest_ports</code></td>\n<td>Number of unique destination transport-layer ports contacted during the aggregation interval, representing the variety of services accessed.</td>\n</tr>\n<tr>\n<td><code>tcp_udp_ratio_packets</code></td>\n<td>Ratio of packets sent using TCP versus UDP during the aggregation interval. In the interval \u27e80, 1\u27e9, where 1 means all packets were sent over TCP and 0 means all packets were sent over UDP.</td>\n</tr>\n<tr>\n<td><code>tcp_udp_ratio_bytes</code></td>\n<td>Ratio of bytes sent using TCP versus UDP during the aggregation interval, in \u27e80, 1\u27e9 with the same rule as <code>tcp_udp_ratio_packets</code>.</td>\n</tr>\n<tr>\n<td><code>dir_ratio_packets</code></td>\n<td>Ratio of packet directions (outbound versus inbound) during the aggregation interval. In the interval \u27e80, 1\u27e9, where 1 means all packets were sent outbound from the monitored IP address and 0 means all packets were inbound to it.</td>\n</tr>\n<tr>\n<td><code>dir_ratio_bytes</code></td>\n<td>Ratio of byte directions during the aggregation interval, in \u27e80, 1\u27e9 with the same rule as <code>dir_ratio_packets</code>.</td>\n</tr>\n<tr>\n<td><code>avg_duration</code></td>\n<td>Average duration of IP flows during the aggregation interval, measuring the typical session length, in seconds.</td>\n</tr>\n<tr>\n<td><code>avg_ttl</code></td>\n<td>Average Time To Live (TTL) of IP flows during the aggregation interval, providing insight into the lifespan of packets.</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 2.</strong> In the 1-hour and 1-day aggregations of the IP-address parts, and in all aggregations of <code>institutions</code> and <code>institution_subnets</code>, the three destination-cardinality columns of Table 1 are replaced by sum / average / standard deviation over the constituent 10-minute windows. The standard deviation is the sample standard deviation (<em>ddof</em> = 1) and is 0 where a window contains a single 10-minute datapoint.</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>sum_n_dest_ip</code></td>\n<td>Sum of the numbers of unique destination IP addresses.</td>\n</tr>\n<tr>\n<td><code>average_n_dest_ip</code></td>\n<td>Average number of unique destination IP addresses.</td>\n</tr>\n<tr>\n<td><code>std_n_dest_ip</code></td>\n<td>Standard deviation of the numbers of unique destination IP addresses.</td>\n</tr>\n<tr>\n<td><code>sum_n_dest_asn</code></td>\n<td>Sum of the numbers of unique destination ASNs.</td>\n</tr>\n<tr>\n<td><code>average_n_dest_asn</code></td>\n<td>Average number of unique destination ASNs.</td>\n</tr>\n<tr>\n<td><code>std_n_dest_asn</code></td>\n<td>Standard deviation of the numbers of unique destination ASNs.</td>\n</tr>\n<tr>\n<td><code>sum_n_dest_ports</code></td>\n<td>Sum of the numbers of unique destination transport-layer ports.</td>\n</tr>\n<tr>\n<td><code>average_n_dest_ports</code></td>\n<td>Average number of unique destination transport-layer ports.</td>\n</tr>\n<tr>\n<td><code>std_n_dest_ports</code></td>\n<td>Standard deviation of the numbers of unique destination transport-layer ports.</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 3.</strong> Columns of the longitudinal subnet part (<code>subnet_longitudinal</code>), identical at all three aggregation levels. This part has neither the <code>tcp_udp_ratio_*</code> columns nor <code>avg_ttl</code>, and its destination-port column is singular. All volumetric metrics reflect TCP traffic only.</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>id_time</code></td>\n<td>Aggregation-interval identifier on this part's own, longer time grid (2021-12-31 to 2026-07-09). <strong>Not comparable</strong> with <code>id_time</code> in the other parts.</td>\n</tr>\n<tr>\n<td><code>n_flows</code>, <code>n_packets</code>, <code>n_bytes</code></td>\n<td>Volumetric counters as in Table 1, but covering TCP traffic only.</td>\n</tr>\n<tr>\n<td><code>n_dest_ip</code>, <code>n_dest_asn</code>, <code>n_dest_port</code></td>\n<td>Destination cardinalities as in Table 1. Note the singular <code>n_dest_port</code>, unlike <code>n_dest_ports</code> in the IP-address parts.</td>\n</tr>\n<tr>\n<td><code>dir_ratio_packets</code>, <code>dir_ratio_bytes</code></td>\n<td>Direction ratios as in Table 1.</td>\n</tr>\n<tr>\n<td><code>avg_duration</code></td>\n<td>Average flow duration as in Table 1.</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 4.</strong> Content of <code>ids_relationship.csv</code> (278,466 rows).</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>id_ip</code></td>\n<td>ID of the IP address.</td>\n</tr>\n<tr>\n<td><code>id_institution</code></td>\n<td>ID of the institution which owns the IP address.</td>\n</tr>\n<tr>\n<td><code>id_institution_subnet</code></td>\n<td>ID of the institution subnet the IP address belongs to.</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 5.</strong> Content of <code>weekends_and_holidays.csv</code> (515 rows).</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>Date</code></td>\n<td>The date of the day, in format YYYY-MM-DD.</td>\n</tr>\n<tr>\n<td><code>Type</code></td>\n<td>The type of the day (<code>Weekend</code> or <code>Holiday</code>).</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 6.</strong> Content of <code>school_terms_and_exams_periods.csv</code> (19 rows).</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>Start</code></td>\n<td>The first day of the period, in format YYYY-MM-DD.</td>\n</tr>\n<tr>\n<td><code>End</code></td>\n<td>The last day of the period, inclusive, in format YYYY-MM-DD.</td>\n</tr>\n<tr>\n<td><code>Type</code></td>\n<td>The type of the academic period (<code>WinterTerm</code>, <code>WinterExams</code>, <code>SummerTerm</code> or <code>SummerExams</code>). Summer recess is the gap between the end of <code>SummerExams</code> and the start of the next <code>WinterTerm</code>; it is not listed as a row.</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 7.</strong> Content of <code>europe_time_changes.csv</code> (9 rows).</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>date</code></td>\n<td>The date of the daylight-saving transition, in format YYYY-MM-DD.</td>\n</tr>\n<tr>\n<td><code>transition</code></td>\n<td>The direction of the transition (<code>spring_forward</code> or <code>fall_back</code>).</td>\n</tr>\n<tr>\n<td><code>measured_from</code></td>\n<td>The dataset part in whose collection span the transition falls (<code>main</code> or <code>subnet_longitudinal</code>).</td>\n</tr>\n<tr>\n<td><code>local_clock_change</code></td>\n<td>The local wall-clock jump, e.g. 02:00 CET &rarr; 03:00 CEST.</td>\n</tr>\n<tr>\n<td><code>utc_offset_before</code></td>\n<td>The UTC offset of local time before the transition (+01:00 for CET, +02:00 for CEST).</td>\n</tr>\n<tr>\n<td><code>utc_offset_after</code></td>\n<td>The UTC offset of local time after the transition.</td>\n</tr>\n<tr>\n<td><code>offset_change_h</code></td>\n<td>The signed change of the UTC offset in hours (+1 for spring-forward, &minus;1 for fall-back).</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Table 8.</strong> Content of <code>outages.csv</code> (13 rows).</p>\n<table>\n<tbody>\n<tr>\n<th>Column name</th>\n<th>Description</th>\n</tr>\n</tbody>\n<tbody>\n<tr>\n<td><code>id</code></td>\n<td>Sequential ID of the outage.</td>\n</tr>\n<tr>\n<td><code>part</code></td>\n<td>The dataset part affected by the outage (<code>main</code> or <code>subnet_longitudinal</code>).</td>\n</tr>\n<tr>\n<td><code>scope</code></td>\n<td>The extent of the outage (<code>infrastructure-wide</code> or <code>subnet-local</code>).</td>\n</tr>\n<tr>\n<td><code>kind</code></td>\n<td>How the outage manifests in the data: <code>grid-gap</code> for windows absent from the shared time grid, <code>present-zero</code> for windows present in the grid but carrying zero traffic.</td>\n</tr>\n<tr>\n<td><code>last_data_before</code></td>\n<td>Timestamp of the last window carrying data before the outage, with explicit UTC offset.</td>\n</tr>\n<tr>\n<td><code>data_resumed</code></td>\n<td>Timestamp of the first window carrying data after the outage, with explicit UTC offset.</td>\n</tr>\n<tr>\n<td><code>duration</code></td>\n<td>The length of the outage in human-readable form, e.g. 15 d 21.0 h.</td>\n</tr>\n<tr>\n<td><code>n_windows_10min</code></td>\n<td>The number of 10-minute windows the outage spans.</td>\n</tr>\n</tbody>\n</table>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Koumar, Josef",
+        "affiliation": "Czech Technical University in Prague",
+        "orcid": "0000-0002-3643-9723"
+      },
+      {
+        "name": "Hynek, Karel",
+        "affiliation": "Czech Technical University in Prague",
+        "orcid": "0000-0002-8281-618X"
+      },
+      {
+        "name": "Je\u0159\u00e1bek, Kamil",
+        "affiliation": "CESNET, z\u00e1jmov\u00e9 sdru\u017een\u00ed pr\u00e1vnick\u00fdch osob",
+        "orcid": "0000-0002-5317-9222"
+      },
+      {
+        "name": "\u0160i\u0161ka, Pavel",
+        "affiliation": "CESNET, z\u00e1jmov\u00e9 sdru\u017een\u00ed pr\u00e1vnick\u00fdch osob"
+      }
+    ],
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "21945628"
+          }
+        }
+      ]
+    }
+  },
+  "title": "CESNET-TimeSeries26: A Multi-Year Network Traffic Time Series Dataset for Annual Seasonality, Concept Drift, and Long-Term Anomaly Detection",
+  "links": {
+    "self": "https://zenodo.org/api/records/21945629",
+    "self_html": "https://zenodo.org/records/21945629",
+    "preview_html": "https://zenodo.org/records/21945629?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.21945629",
+    "self_doi": "https://doi.org/10.5281/zenodo.21945629",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21945629",
+    "reserve_doi": "https://zenodo.org/api/records/21945629/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/21945628",
+    "parent_html": "https://zenodo.org/records/21945628",
+    "parent_doi": "https://doi.org/10.5281/zenodo.21945628",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21945628",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:21945629/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:21945629/sequence/default",
+    "files": "https://zenodo.org/api/records/21945629/files",
+    "media_files": "https://zenodo.org/api/records/21945629/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:21945629:260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:21945629:260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:21945629:260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:21945629:260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:21945629:260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:21945629:260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/full/%5E1200,/0/default.jpg"
+    },
+    "latest": "https://zenodo.org/api/records/21945629/versions/latest",
+    "latest_html": "https://zenodo.org/records/21945629/latest",
+    "versions": "https://zenodo.org/api/records/21945629/versions",
+    "draft": "https://zenodo.org/api/records/21945629/draft",
+    "access_links": "https://zenodo.org/api/records/21945629/access/links",
+    "access_grants": "https://zenodo.org/api/records/21945629/access/grants",
+    "access_users": "https://zenodo.org/api/records/21945629/access/users",
+    "access_request": "https://zenodo.org/api/records/21945629/access/request",
+    "access": "https://zenodo.org/api/records/21945629/access",
+    "communities": "https://zenodo.org/api/records/21945629/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/21945629/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/21945629/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/21945629/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/21945629/quota-increase",
+    "requests": "https://zenodo.org/api/records/21945629/requests"
+  },
+  "updated": "2026-10-10T08:21:38.240801+00:00",
+  "recid": "21945629",
+  "revision": 4,
+  "files": [
+    {
+      "id": "9d9f6263-d726-454b-add4-c9a9c1b5fe20",
+      "key": "ip_addresses_full_agg_10_minutes.tar.gz",
+      "size": 95279255639,
+      "checksum": "md5:350eceb8b105fbd0d7fab6b70e38f3fa",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_full_agg_10_minutes.tar.gz/content"
+      }
+    },
+    {
+      "id": "1a3b7216-2248-40c4-b58b-e9dfdee47503",
+      "key": "ip_addresses_sample_gaps_80_60.tar.gz",
+      "size": 991358248,
+      "checksum": "md5:b52b59d0c2c9e7ac2829c2f1e5b7b418",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_sample_gaps_80_60.tar.gz/content"
+      }
+    },
+    {
+      "id": "176e8395-7b45-4d24-996d-3dac3dc8199c",
+      "key": "ip_addresses_sample_gaps_40_20.tar.gz",
+      "size": 2095095734,
+      "checksum": "md5:97b6fca738bfac2a7601e0307b60a6a0",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_sample_gaps_40_20.tar.gz/content"
+      }
+    },
+    {
+      "id": "c9f7f3f7-f3b3-4408-9a03-e36228a85a79",
+      "key": "ip_addresses_sample_gaps_60_40.tar.gz",
+      "size": 1616822746,
+      "checksum": "md5:f8229131128ce5c406ad7fb749d31004",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_sample_gaps_60_40.tar.gz/content"
+      }
+    },
+    {
+      "id": "3d0341f0-e25c-4df0-a30b-ccfd426b5c92",
+      "key": "ip_addresses_sample_gaps_20_00.tar.gz",
+      "size": 3407226985,
+      "checksum": "md5:75eba6c9da696f051c7b760fa1eb05e7",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_sample_gaps_20_00.tar.gz/content"
+      }
+    },
+    {
+      "id": "e5df3be0-2b5b-4cea-a7b9-849ea4c29325",
+      "key": "ip_addresses_full_agg_1_day.tar.gz",
+      "size": 5229638049,
+      "checksum": "md5:19561ee3b0e90f3c2a30aa5e75f275f5",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_full_agg_1_day.tar.gz/content"
+      }
+    },
+    {
+      "id": "1eb44783-f18c-4460-93ee-9d4d98b3ef6a",
+      "key": "ip_addresses_full_agg_1_hour.tar.gz",
+      "size": 39052747776,
+      "checksum": "md5:8bb299f9446e419a8175c0b503f0fcc1",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_full_agg_1_hour.tar.gz/content"
+      }
+    },
+    {
+      "id": "134e8eb5-bba3-4593-b7ff-8fdf43847288",
+      "key": "SHA256SUMS.txt",
+      "size": 1546,
+      "checksum": "md5:0738dd57c0186ecba2bd079e52da1a69",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/SHA256SUMS.txt/content"
+      }
+    },
+    {
+      "id": "27d75158-e6e4-42eb-b1b2-a121e8891bb5",
+      "key": "europe_time_changes.csv",
+      "size": 768,
+      "checksum": "md5:709cd5094f4d1845d06a17d3e572e235",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/europe_time_changes.csv/content"
+      }
+    },
+    {
+      "id": "4bc6ba27-31e9-453c-85b8-827b29ea94f1",
+      "key": "ids_relationship.csv",
+      "size": 3865225,
+      "checksum": "md5:516810697f81768f0aae64b328493def",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ids_relationship.csv/content"
+      }
+    },
+    {
+      "id": "8f41d187-fe4b-44cf-9547-ac78c7298667",
+      "key": "school_terms_and_exams_periods.csv",
+      "size": 672,
+      "checksum": "md5:24e8b134d7ff1b8f2231db9f95ed5396",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/school_terms_and_exams_periods.csv/content"
+      }
+    },
+    {
+      "id": "2b88ebb8-7695-45d5-8ed1-9da369b5d004",
+      "key": "outages.csv",
+      "size": 1418,
+      "checksum": "md5:36166afc804b923bdc9a1a430ede20c8",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/outages.csv/content"
+      }
+    },
+    {
+      "id": "d2796562-3746-4b5f-a7fc-7b5cfea2ae24",
+      "key": "weekends_and_holidays.csv",
+      "size": 10311,
+      "checksum": "md5:3a43cb2063dbaaadf1a968b2b013e7fd",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/weekends_and_holidays.csv/content"
+      }
+    },
+    {
+      "id": "27e6b2c5-5b92-4247-ab33-00ae886b53b6",
+      "key": "subnet_longitudinal.tar.gz",
+      "size": 260678319,
+      "checksum": "md5:5e3fa0757da526ee231d17bcafde4eab",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/subnet_longitudinal.tar.gz/content"
+      }
+    },
+    {
+      "id": "c4696590-86f3-47a1-8ffa-57cb6981bcf6",
+      "key": "260908 EK-VR-C\u030cVUT-Approval 2026-11.pdf",
+      "size": 42284,
+      "checksum": "md5:b3851ef92c24a2dcc177b9a6629d27f5",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/260908%20EK-VR-C%CC%8CVUT-Approval%202026-11.pdf/content"
+      }
+    },
+    {
+      "id": "e89efedf-ec5f-411e-a96d-3633790bd1e3",
+      "key": "institutions.tar.gz",
+      "size": 1728712870,
+      "checksum": "md5:cf06f8036df9b5b9652cbab7c148f2c5",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/institutions.tar.gz/content"
+      }
+    },
+    {
+      "id": "7e3d5c6d-b41a-4799-b63d-a7b47ab76d65",
+      "key": "ip_addresses_sample_gaps_100_80.tar.gz",
+      "size": 214933108,
+      "checksum": "md5:2c50d80fd8b78416a7f960d34e001638",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_sample_gaps_100_80.tar.gz/content"
+      }
+    },
+    {
+      "id": "de55c278-a516-436a-99c8-8902659373f3",
+      "key": "institution_subnets.tar.gz",
+      "size": 2907842282,
+      "checksum": "md5:ae35a2b6eea0619b2ecc9c42b7ab0816",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/institution_subnets.tar.gz/content"
+      }
+    },
+    {
+      "id": "a09d134d-151e-4f82-a99d-d97a451b0508",
+      "key": "ip_addresses_sample.tar.gz",
+      "size": 531812651,
+      "checksum": "md5:807d390fb9ef364c94ff3f1f6fdc5b04",
+      "links": {
+        "self": "https://zenodo.org/api/records/21945629/files/ip_addresses_sample.tar.gz/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "543355"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 4303,
+    "unique_downloads": 298,
+    "views": 110,
+    "unique_views": 99,
+    "version_downloads": 4303,
+    "version_unique_downloads": 298,
+    "version_unique_views": 99,
+    "version_views": 110
+  },
+  "state": "done",
+  "submitted": true
+}

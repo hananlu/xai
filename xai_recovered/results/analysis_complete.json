@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "forecast_rows": 18,
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "xai_origins": 96
+}

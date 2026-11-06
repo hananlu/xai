@@ -1,0 +1,33 @@
+{
+  "reference_count": 26,
+  "all_references_cited": true,
+  "numbering": "first-citation order",
+  "keys_in_order": [
+    "survey",
+    "aichronolens",
+    "ntp_survey",
+    "network_lstm",
+    "cesnet",
+    "cesnet_comparison",
+    "which_deep",
+    "lstm",
+    "bahdanau",
+    "darnn",
+    "tft",
+    "patchtst",
+    "linear",
+    "aichronolens_journal",
+    "deexp",
+    "attention_not",
+    "attention_notnot",
+    "attention_benchmark",
+    "ts_benchmark",
+    "sanity",
+    "infidelity",
+    "ig",
+    "dynamask",
+    "learned_perturbations",
+    "timing",
+    "adam"
+  ]
+}

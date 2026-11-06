@@ -1,0 +1,139 @@
+{
+  "source": "https://zenodo.org/records/21945629",
+  "license": "CC-BY-4.0",
+  "archive": {
+    "record": 21945629,
+    "filename": "institutions.tar.gz",
+    "bytes": 1728712870,
+    "checksum": "md5:cf06f8036df9b5b9652cbab7c148f2c5",
+    "verified": true
+  },
+  "hourly_rows": 23902,
+  "native_10min_rows": 140636,
+  "time_start": "2023-10-09 00:00:00+00:00",
+  "time_end": "2026-06-30 21:00:00+00:00",
+  "coverage_counts": {
+    "0": 451,
+    "1": 4,
+    "2": 3,
+    "3": 3,
+    "4": 5,
+    "5": 19,
+    "6": 23417
+  },
+  "complete_hours": 23417,
+  "partial_or_absent_hours": 485,
+  "institutions_available": 285,
+  "institutions_eligible": 277,
+  "selected": [
+    {
+      "id": 28,
+      "raw_member": "institutions/agg_1_hour/28.csv",
+      "raw_sha256": "89ef111adf46bd713cde527428662662faaefeddf2bcc21f048ff5a4698c6a74",
+      "selected_file": "institution_28.csv.gz",
+      "selected_sha256": "a8ff45fea856e51bb7caf6c06a59c423c1fdbfd4d38f4fbaebc27e8cfaf860a0",
+      "train_median_gb": 0.341690557,
+      "stratum": 2
+    },
+    {
+      "id": 42,
+      "raw_member": "institutions/agg_1_hour/42.csv",
+      "raw_sha256": "b46e25de3899578f6aa896f22051da76e47f6e7c88719e02554fb9285878abb2",
+      "selected_file": "institution_42.csv.gz",
+      "selected_sha256": "1564081ef8bcafe25bb127f298791321afd0605be9eef5bf07c5f8085fb29c09",
+      "train_median_gb": 0.011421798,
+      "stratum": 0
+    },
+    {
+      "id": 68,
+      "raw_member": "institutions/agg_1_hour/68.csv",
+      "raw_sha256": "c9eb12dc7f01bf8102d63453bf6a395752ae441ab55374dfae046b7d0458aacf",
+      "selected_file": "institution_68.csv.gz",
+      "selected_sha256": "033942e7143e4cf456402ca6093ca306fdda5f811bc154d56565c77e4c1ea24d",
+      "train_median_gb": 8.07010051,
+      "stratum": 3
+    },
+    {
+      "id": 102,
+      "raw_member": "institutions/agg_1_hour/102.csv",
+      "raw_sha256": "abdcb0e2625254de456268e50f8c54615d3a7efed5a26896a3329bdc84b78f09",
+      "selected_file": "institution_102.csv.gz",
+      "selected_sha256": "468fdedbbfcc373656911792911927570bf278abb2dc317d6a6e0a14ade08b62",
+      "train_median_gb": 0.007381932,
+      "stratum": 0
+    },
+    {
+      "id": 104,
+      "raw_member": "institutions/agg_1_hour/104.csv",
+      "raw_sha256": "efb4e5257391282c5c4421ac4ea85d3330a2449f2d50090dfdde4bf695286c2e",
+      "selected_file": "institution_104.csv.gz",
+      "selected_sha256": "299614fa953307149988c92a482f1c8abab1b244623cfa77577c49c52802c8f3",
+      "train_median_gb": 0.595318832,
+      "stratum": 3
+    },
+    {
+      "id": 107,
+      "raw_member": "institutions/agg_1_hour/107.csv",
+      "raw_sha256": "1090249ebf04244e78b311eafa546a77b3339c8ee5d075bec6139bf5a7422e5f",
+      "selected_file": "institution_107.csv.gz",
+      "selected_sha256": "2d3a4898399485112670a4c995056bb5fd158374cfc875c87fc0a732129dad7d",
+      "train_median_gb": 0.0043685419999999996,
+      "stratum": 0
+    },
+    {
+      "id": 128,
+      "raw_member": "institutions/agg_1_hour/128.csv",
+      "raw_sha256": "e244752e2f0fcf6c67f374765507f7a4b15571518c25b2292885792deadd9137",
+      "selected_file": "institution_128.csv.gz",
+      "selected_sha256": "80cb25009e59f912cd8fcdc7ab3dc279331d790f35c599df0f33a60dbd748502",
+      "train_median_gb": 0.26858214599999997,
+      "stratum": 2
+    },
+    {
+      "id": 154,
+      "raw_member": "institutions/agg_1_hour/154.csv",
+      "raw_sha256": "bc4c2a5c76f9c765c5dcc7d4edde4b6dac8079e174b652dbd5ea065c7f46cdad",
+      "selected_file": "institution_154.csv.gz",
+      "selected_sha256": "20ed5e4e402b7776995ce05ad7b3748f836631005590c48e94c6b853f03ca2e0",
+      "train_median_gb": 0.0137129635,
+      "stratum": 1
+    },
+    {
+      "id": 155,
+      "raw_member": "institutions/agg_1_hour/155.csv",
+      "raw_sha256": "ec658dc4339b3f976f184d4e7a0b3d7c9bafa6bdbbaa0b3796c2a03dff80f91c",
+      "selected_file": "institution_155.csv.gz",
+      "selected_sha256": "5fbcbbec76654b86bbd6372a91fb180d88cce597d951698933b066d61792e33a",
+      "train_median_gb": 0.16010454899999998,
+      "stratum": 2
+    },
+    {
+      "id": 206,
+      "raw_member": "institutions/agg_1_hour/206.csv",
+      "raw_sha256": "b3c1d4047b450670a573ef1f4bdfbe66b230e3e50a67035aae7731a9c85a47bf",
+      "selected_file": "institution_206.csv.gz",
+      "selected_sha256": "88d2567ea48d5165ce0e8411fa014180995258cb1919826b1d475a7b2c8cec2b",
+      "train_median_gb": 0.028349064,
+      "stratum": 1
+    },
+    {
+      "id": 209,
+      "raw_member": "institutions/agg_1_hour/209.csv",
+      "raw_sha256": "68af138bff1dc7a8a2ca76dfec15a2c34df28840e20949d356c689c26259072f",
+      "selected_file": "institution_209.csv.gz",
+      "selected_sha256": "a9fdaadc35c68f1c3762d97ed768271bd8efd9a5906b97ea28ccf3d6ea77f657",
+      "train_median_gb": 1.0275977365,
+      "stratum": 3
+    },
+    {
+      "id": 254,
+      "raw_member": "institutions/agg_1_hour/254.csv",
+      "raw_sha256": "0067d8594177491d548f43726006b38337ab75078609e400bab21fba965ff7f5",
+      "selected_file": "institution_254.csv.gz",
+      "selected_sha256": "63f717c63d1142a15e5f4484e4b109dd9b1b9a0af33ab5ccf33b4e613de5000b",
+      "train_median_gb": 0.0309181345,
+      "stratum": 1
+    }
+  ],
+  "reserved_outcomes_scored": false
+}

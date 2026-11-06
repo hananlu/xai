@@ -1,0 +1,13 @@
+model,horizon,reference,mean,ci_low,ci_high,pairs,bootstrap_valid,reason
+dlinear,1,history_hour_median,-0.1044549685541022,-0.20990436689142852,-0.01483495165313118,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+dlinear,1,source_calendar,-0.031778923710507015,-0.1481523645803121,0.09408634730390779,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+dlinear,6,history_hour_median,-0.042835671717655635,-0.1317875311546706,0.03965453239207661,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+dlinear,6,source_calendar,-0.023104515102325997,-0.11723715511363834,0.07584425587105595,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+gru,1,history_hour_median,-0.06839902799056594,-0.14593774241891758,-0.0030407275645485967,7,1853,nominal_paired_pair_and_14day_block_bootstrap
+gru,1,source_calendar,-0.018876455601195535,-0.08913930523312447,0.05334453792169871,7,1853,nominal_paired_pair_and_14day_block_bootstrap
+gru,6,history_hour_median,0.03147082280784481,-0.04167003825224219,0.09582692579738722,7,1992,nominal_paired_pair_and_14day_block_bootstrap
+gru,6,source_calendar,-0.044825803032985424,-0.14281741496876327,0.048940152429370755,7,1992,nominal_paired_pair_and_14day_block_bootstrap
+ridge,1,history_hour_median,-0.08421069659122071,-0.17260747592859596,-0.012573353322250886,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+ridge,1,source_calendar,-0.035470008921422914,-0.1335613673616527,0.06189126216865236,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+ridge,6,history_hour_median,-0.054742893106026716,-0.1266638531657678,0.010885149728316803,7,2000,nominal_paired_pair_and_14day_block_bootstrap
+ridge,6,source_calendar,-0.02909215808056054,-0.11164314062719344,0.06102670187076585,7,2000,nominal_paired_pair_and_14day_block_bootstrap

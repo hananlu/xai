@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "cells": 95,
+  "executed_code_cells": 58,
+  "image_outputs": 22,
+  "error_outputs": 0,
+  "seconds": 10.168437416024972,
+  "full_retraining": false,
+  "full_batch_evaluation": false,
+  "execution_engine": "nbclient + real ipykernel, project Python 3.11",
+  "notebook": "XAI_Complete_Experiment.ipynb",
+  "source_reference": "https://github.com/hananlu/xai/blob/master/XAI_Network_Traffic.ipynb",
+  "role": "structure inspiration only",
+  "original_frozen_code_hashes_preserved": true,
+  "figures_visually_inspected": 22,
+  "full_training_branch_not_reexecuted": true
+}

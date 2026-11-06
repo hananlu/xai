@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-05T14:57:26.584781+00:00",
+  "status": "institution membership frozen before transfer fitting; full experimental protocol pending",
+  "source_training_audit_sha256": "04f9b8fbcd20125e0a9634ba73c6f317ff802dd16aa9ad7b10f6fe423b80bfb8",
+  "selection_uses": "2024-only saved coverage and median volume; no new forecast outcomes",
+  "development_ids": [
+    28,
+    42,
+    68,
+    102,
+    104,
+    107,
+    128,
+    154,
+    155,
+    206,
+    209,
+    254
+  ],
+  "eligible_excluding_development": 265,
+  "counts": {
+    "source": 32,
+    "validation": 8,
+    "target": 8
+  },
+  "target_outcomes_scored": false,
+  "same_ISP": true,
+  "rule": "4 equal-count strata by 2024 median volume; first 12 SHA256-ranked per stratum: 8 source, 2 validation, 2 target; salt xai-ci-2026-v1"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "institutions": 12,
+  "clean_metric_rows": 120,
+  "stress_records": 270864,
+  "all_selected_hashes_verified": true,
+  "prefit_hashes_verified": true,
+  "all_clean_model_and_baseline_MAEs_recalculated": true,
+  "checkpoint_prediction_max_difference_gb": 1.0658141036401503e-14,
+  "all_stress_absolute_errors_recalculated": true,
+  "reserved_outcomes_scored": false,
+  "scope": "artifact and numerical checks; not validation of novelty, deployment utility, or external-network generalization"
+}

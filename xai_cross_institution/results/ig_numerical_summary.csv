@@ -1,0 +1,13 @@
+model,reference,horizon,cases,accepted,max_completeness_error_gb
+dlinear,history_hour_median,1,360,326,0.0001274373243083382
+dlinear,history_hour_median,6,360,337,0.00014542774402773184
+dlinear,source_calendar,1,360,331,0.0004016703106413111
+dlinear,source_calendar,6,360,341,0.0003712735564112557
+gru,history_hour_median,1,360,334,8.267917227633426e-05
+gru,history_hour_median,6,360,335,0.0001246622862123778
+gru,source_calendar,1,360,354,0.0007327815200555143
+gru,source_calendar,6,360,342,0.003202194843309414
+ridge,history_hour_median,1,120,111,0.00018049663622929368
+ridge,history_hour_median,6,120,113,0.00011973340339054873
+ridge,source_calendar,1,120,111,0.000235304729292396
+ridge,source_calendar,6,120,115,5.679033232086281e-05

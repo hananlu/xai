@@ -1,0 +1,22 @@
+[
+  {
+    "mae": 21.77778272511092,
+    "rmse": 28.245328986328712,
+    "wape_pct": 28.058414892968326,
+    "model": "seasonal_week",
+    "seed": 0,
+    "horizon": 1,
+    "n": 5806,
+    "validation_mse_standardized": null
+  },
+  {
+    "mae": 21.782917095344814,
+    "rmse": 28.24755326005877,
+    "wape_pct": 28.055729983337635,
+    "model": "seasonal_week",
+    "seed": 0,
+    "horizon": 6,
+    "n": 5806,
+    "validation_mse_standardized": null
+  }
+]

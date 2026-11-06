@@ -1,0 +1,8 @@
+{
+  "frozen_utc": "2026-11-05T13:06:20.809255+00:00",
+  "files": {
+    "src/analyze_pilot.py": "fec0bb17111b2789211e91f0d31a612db0107ca87f6e24dabf45338001eb8f80",
+    "src/validate_pilot.py": "5be8167d563108675cff22f9c81f4ae27f96ec24d0f3eae5f1a8c96578835a8e",
+    "INTERPRETATION_CONTRACT.md": "d012898231354a7e870bf980b93012625befd93ee0d127764c72fe12e40f40ad"
+  }
+}

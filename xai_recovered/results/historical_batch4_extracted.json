@@ -1,0 +1,31 @@
+{
+  "status": "extracted_historical_not_reproduced",
+  "source": "recovered/13_colab_seqlen_multivariate.ipynb",
+  "source_sha256": "2451203c0356921ec0757e223e182c8cdd25c9a8569479fd54c0e39b33546756",
+  "seed": 42,
+  "note": "Derived from embedded outputs; not the missing original results_batch4.json. Not comparable to the new common-origin experiment.",
+  "results": [
+    {
+      "label": "seqlen_144_baseline",
+      "seq_len": 144,
+      "n_features": 1,
+      "rmse": 11810584531.811848,
+      "mae": 8877085779.4474,
+      "epochs": 29,
+      "time_s": 218.1,
+      "rmse_GB": 11.810584531811848,
+      "mae_GB": 8.877085779447398
+    },
+    {
+      "label": "seqlen_288",
+      "seq_len": 288,
+      "n_features": 1,
+      "rmse": 16385061201.25716,
+      "mae": 13408032035.684147,
+      "epochs": 27,
+      "time_s": 296.0,
+      "rmse_GB": 16.38506120125716,
+      "mae_GB": 13.408032035684148
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+"""Exploratory Ridge calibration and telemetry-loss pilot; see frozen protocol."""
+from pathlib import Path
+import json,hashlib,time,os
+os.environ.setdefault('OPENBLAS_NUM_THREADS','4')
+import numpy as np,pandas as pd
+from sklearn.linear_model import Ridge
+from scipy.stats import spearmanr
+ROOT=Path(__file__).resolve().parents[1]
+ALPHAS=[.1,1,10,100];SEEDS=[42,123,2026];HORIZONS=[1,6];L=168
+
+def missing(n,pattern,rng):
+ m=np.zeros((n,L),bool)
+ if pattern=='scattered':
+  for i in range(n):m[i,rng.choice(L,6,replace=False)]=True
+ elif pattern=='block':
+  starts=rng.integers(0,L-5,n)
+  for i,j in enumerate(starts):m[i,j:j+6]=True
+ elif pattern=='tail':m[:,-6:]=True
+ return m
+
+def fill(x,m,replacement,ref,mean):
+ z=x.copy()
+ if replacement=='zero':z[m]=0
+ elif replacement=='profile':z[m]=ref[m]
+ elif replacement=='ffill':
+  for j in range(L):z[:,j]=np.where(m[:,j],mean if j==0 else z[:,j-1],z[:,j])
+ return z
+
+def features(x,m,mu,sigma,aware):
+ z=(x-mu)/sigma
+ return np.concatenate([z,m.astype(float)],axis=1) if aware else z
+
+def main():
+ start=time.time();metrics=[];stress=[];checks=[];selected=json.loads((ROOT/'data/DATA_AUDIT.json').read_text())['selected'];models=[]
+ for item in selected:
+  ident=item['id'];d=pd.read_csv(ROOT/'data'/item['selected_file']);t=pd.DatetimeIndex(pd.to_datetime(d.time,utc=True));y=d.n_bytes.to_numpy(float)/1e9
+  valid=d.complete_hour.to_numpy(bool)&~d.conservative_artifact_flag.to_numpy(bool)&np.isfinite(y)&(y>=0)
+  tm=(t>=pd.Timestamp('2024-01-01',tz='UTC'))&(t<pd.Timestamp('2025-01-01',tz='UTC'))
+  mu=float(y[tm&valid].mean());sigma=float(y[tm&valid].std());assert sigma>0
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+  origins=np.arange(L-1,len(y)-6);ok=np.ones(len(origins),bool)
+  for k in range(L):ok&=valid[origins-k]
+  for h in HORIZONS:ok&=valid[origins+h]
+  origins=origins[ok]
+  X=np.stack([y[o-L+1:o+1] for o in origins]);ref=np.stack([profile[how[o-L+1:o+1]] for o in origins]);target=np.stack([y[origins+h] for h in HORIZONS],axis=1)
+  target_t=t[origins+1];last_target_t=t[origins+6]
+  tr=(target_t>=pd.Timestamp('2024-01-01',tz='UTC'))&(last_target_t<pd.Timestamp('2025-01-01',tz='UTC'))
+  va=(target_t>=pd.Timestamp('2025-01-01',tz='UTC'))&(last_target_t<pd.Timestamp('2025-02-01',tz='UTC'))
+  te=(target_t>=pd.Timestamp('2025-02-01',tz='UTC'))&(last_target_t<pd.Timestamp('2025-04-01',tz='UTC'))&(t[origins].hour%6==0)
+  assert tr.sum()>5000 and va.sum()>400 and te.sum()>100,(ident,tr.sum(),va.sum(),te.sum())
+  weekly_pairs=np.where(tm&valid)[0];weekly_pairs=weekly_pairs[weekly_pairs>=168];weekly_pairs=weekly_pairs[valid[weekly_pairs-168]]
+  mase=float(np.mean(abs(y[weekly_pairs]-y[weekly_pairs-168])));assert mase>0
+  # Fixed train corruption independent of targets. Two pattern types assigned per row.
+  rng=np.random.default_rng(ident+2026);mt=missing(int(tr.sum()),'scattered',rng);mb=missing(int(tr.sum()),'block',rng);choose=rng.random(int(tr.sum()))<.5;mt[choose]=mb[choose]
+  xt=fill(X[tr],mt,'profile',ref[tr],mu)
+  yp=target[te];orig=origins[te];dates=t[orig];xx=X[te];rr=ref[te];zeros=np.zeros_like(xx,bool)
+  baselines={'persistence':np.repeat(xx[:,-1,None],2,axis=1),'daily':np.stack([y[orig+h-24] for h in HORIZONS],1),'weekly':np.stack([y[orig+h-168] for h in HORIZONS],1)}
+  for name,pred in baselines.items():
+   for k,h in enumerate(HORIZONS):metrics.append(dict(id=ident,model=name,horizon=h,n=len(orig),mae_gb=float(abs(pred[:,k]-yp[:,k]).mean()),rmse_gb=float(np.sqrt(np.mean((pred[:,k]-yp[:,k])**2))),mase=float(abs(pred[:,k]-yp[:,k]).mean()/mase),negative_fraction=float((pred[:,k]<0).mean())))
+  for aware,name in [(False,'ridge_clean'),(True,'ridge_mask_aug')]:
+   trainx=features(X[tr],np.zeros_like(X[tr],bool),mu,sigma,aware);trainy=(target[tr]-mu)/sigma
+   if aware:trainx=np.concatenate([trainx,features(xt,mt,mu,sigma,aware)]);trainy=np.concatenate([trainy,trainy])
+   valx=features(X[va],np.zeros_like(X[va],bool),mu,sigma,aware)
+   fitted=[]
+   for k,h in enumerate(HORIZONS):
+    candidates=[]
+    for alpha in ALPHAS:
+     m=Ridge(alpha=alpha,solver='cholesky').fit(trainx,trainy[:,k]);err=float(np.mean(abs(m.predict(valx)*sigma+mu-target[va,k])));candidates.append((err,alpha,m))
+    err,alpha,m=min(candidates,key=lambda v:(v[0],v[1]));fitted.append(m);models.append(dict(id=ident,model=name,horizon=h,alpha=alpha,validation_mae_gb=err,n_train=int(tr.sum()),n_validation=int(va.sum()),n_pilot=int(te.sum())))
+   bx=features(xx,zeros,mu,sigma,aware);br=features(rr,zeros,mu,sigma,aware)
+   pred=np.stack([m.predict(bx)*sigma+mu for m in fitted],axis=1)
+   for k,h in enumerate(HORIZONS):metrics.append(dict(id=ident,model=name,horizon=h,n=len(orig),mae_gb=float(abs(pred[:,k]-yp[:,k]).mean()),rmse_gb=float(np.sqrt(np.mean((pred[:,k]-yp[:,k])**2))),mase=float(abs(pred[:,k]-yp[:,k]).mean()/mase),negative_fraction=float((pred[:,k]<0).mean())))
+   np.savez_compressed(ROOT/f'results/model_{ident}_{name}.npz',coef=np.stack([m.coef_ for m in fitted]),intercept=np.array([m.intercept_ for m in fitted]),mu=mu,sigma=sigma,profile=profile,pilot_origins=orig,clean_predictions=pred,targets=yp)
+   for seed in SEEDS:
+    for pattern in ['scattered','block','tail']:
+     rng=np.random.default_rng(seed+ident*10000);mask=missing(len(xx),pattern,rng)
+     # The seed does not change deterministic tail positions; retained and flagged, never independent repetitions.
+     recency=(mask*np.exp(-np.arange(L-1,-1,-1)[None,:]/24)).sum(1)/6
+     for replacement in ['zero','ffill','profile']:
+      zz=fill(xx,mask,replacement,rr,mu);fz=features(zz,mask,mu,sigma,aware)
+      for k,h in enumerate(HORIZONS):
+       m=fitted[k];p=m.predict(fz)*sigma+mu;c=(fz-br)*m.coef_[None,:]*sigma
+       recon=(m.predict(fz)-m.predict(br))*sigma;check=float(np.max(abs(c.sum(1)-recon)))
+       shift=(fz-bx)@m.coef_*sigma;shiftcheck=float(np.max(abs(shift-(p-pred[:,k]))))
+       assert check<1e-8 and shiftcheck<1e-8,(check,shiftcheck)
+       denom=np.sum(abs(c),axis=1);mass_imputed=(abs(c[:,:L])*mask).sum(1);mass_mask=abs(c[:,L:]).sum(1) if aware else np.zeros(len(xx));mass_observed=(abs(c[:,:L])*(~mask)).sum(1)
+       diagnostic=np.divide(mass_imputed+mass_mask,denom,out=np.zeros_like(denom),where=denom>0)
+       checks.append(dict(id=ident,model=name,horizon=h,seed=seed,pattern=pattern,replacement=replacement,reconstruction_max_gb=check,shift_identity_max_gb=shiftcheck))
+       for i in range(len(orig)):
+        stress.append(dict(id=ident,model=name,horizon=h,seed=seed,pattern=pattern,replacement=replacement,origin=str(dates[i]),deterministic_pattern=pattern=='tail',target_gb=float(yp[i,k]),clean_prediction_gb=float(pred[i,k]),corrupt_prediction_gb=float(p[i]),clean_abs_error_gb=float(abs(pred[i,k]-yp[i,k])),corrupt_abs_error_gb=float(abs(p[i]-yp[i,k])),incremental_error_sd=float((abs(p[i]-yp[i,k])-abs(pred[i,k]-yp[i,k]))/sigma),abs_shift_sd=float(abs(p[i]-pred[i,k])/sigma),attribution_mass_fraction=float(diagnostic[i]),mass_imputed_gb=float(mass_imputed[i]),mass_observed_gb=float(mass_observed[i]),mass_mask_gb=float(mass_mask[i]),recency_score=float(recency[i]),missing_fraction=6/168,value_displacement_sd=float(abs(zz[i]-xx[i]).sum()/sigma)))
+  print('Finished institution',ident,'counts',int(tr.sum()),int(va.sum()),int(te.sum()),flush=True)
+ pd.DataFrame(metrics).to_csv(ROOT/'results/clean_metrics.csv',index=False);pd.DataFrame(models).to_csv(ROOT/'results/model_selection.csv',index=False)
+ pd.DataFrame(stress).to_csv(ROOT/'results/stress_records.csv.gz',index=False,compression={'method':'gzip','mtime':0});pd.DataFrame(checks).to_csv(ROOT/'results/numerical_checks.csv',index=False)
+ (ROOT/'results/run_metadata.json').write_text(json.dumps(dict(runtime_seconds=time.time()-start,seeds=SEEDS,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),protocol_sha256=hashlib.sha256((ROOT/'PROTOCOL_PILOT.md').read_bytes()).hexdigest(),reserved_outcomes_scored=False),indent=2))
+ print('COMPLETE',len(stress),'stress records',flush=True)
+if __name__=='__main__':main()

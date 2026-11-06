@@ -1,0 +1,119 @@
+{
+  "status": "pass",
+  "checks": {
+    "FULL_PREFIT_HASHES": true,
+    "FULL_PREEVALUATION_HASHES": true,
+    "48_data_hashes": true,
+    "model_hashes": true,
+    "disjoint_membership": true,
+    "forecast_metric_recalculation": true,
+    "checkpoint_prediction_and_truth_requeries": true,
+    "permutation_shapley_oracle": true,
+    "ranking_quality_requeries": true,
+    "primary_point_independent": true,
+    "failed_ig_never_scored": true
+  },
+  "details": {
+    "prediction_rows": 684640,
+    "max_metric_difference": 0.0,
+    "max_prediction_difference": 1.4210854715202004e-13,
+    "max_shapley_difference": 4.884981308350689e-15,
+    "max_quality_difference": 0.0,
+    "selection_by_pair_year": [
+      {
+        "pair": 0,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 0,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 50
+      },
+      {
+        "pair": 1,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 1,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 2,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 206
+      },
+      {
+        "pair": 3,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 3,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 4,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 4,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 5,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 5,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 6,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 6,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      },
+      {
+        "pair": 7,
+        "year": 2025,
+        "selected": 32,
+        "common_eligible": 307
+      },
+      {
+        "pair": 7,
+        "year": 2026,
+        "selected": 32,
+        "common_eligible": 129
+      }
+    ],
+    "missing_pair_year": "pair 2 (source 160, target 192), 2026: no common eligible origins; no substitute pair or period.",
+    "forecast_target_institution_years": 15
+  },
+  "target_outcomes_scored": true,
+  "post_evaluation_audit": true
+}

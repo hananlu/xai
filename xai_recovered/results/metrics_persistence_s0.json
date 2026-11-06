@@ -1,0 +1,22 @@
+[
+  {
+    "mae": 10.346942723901481,
+    "rmse": 13.896861529787133,
+    "wape_pct": 13.33096282048286,
+    "model": "persistence",
+    "seed": 0,
+    "horizon": 1,
+    "n": 5806,
+    "validation_mse_standardized": null
+  },
+  {
+    "mae": 13.426850384501549,
+    "rmse": 17.683239851142222,
+    "wape_pct": 17.293372015576022,
+    "model": "persistence",
+    "seed": 0,
+    "horizon": 6,
+    "n": 5806,
+    "validation_mse_standardized": null
+  }
+]

@@ -1,0 +1,22 @@
+         model  horizon   mae_gb  rmse_gb     mase  negative_fraction
+         daily        1 0.507402 0.839881 1.122012           0.000000
+         daily        6 0.545219 0.872924 1.404523           0.000000
+   persistence        1 0.435210 0.707252 1.014180           0.000000
+   persistence        6 0.943875 1.329593 2.162044           0.000000
+   ridge_clean        1 0.347007 0.547920 0.829181           0.070973
+   ridge_clean        6 0.421906 0.636363 1.106816           0.070574
+ridge_mask_aug        1 0.347424 0.548895 0.829747           0.072967
+ridge_mask_aug        6 0.421317 0.636175 1.106460           0.069777
+        weekly        1 0.461459 0.767373 1.007774           0.000000
+        weekly        6 0.542896 0.851312 1.281930           0.000000
+{
+  "institutions": 12,
+  "stress_records_unique_conditions": 210672,
+  "max_reconstruction_error_gb": 5.329070518200751e-15,
+  "max_shift_identity_error_gb": 7.993605777301127e-15,
+  "profile_clean_ridge_max_imputed_mass_gb": 0.0,
+  "profile_clean_ridge_nonzero_shift_fraction": 1.0,
+  "profile_clean_ridge_positive_incremental_error_fraction": 0.49381977671451355,
+  "reserved_outcomes_scored": false,
+  "bootstrap_scope": "weeks conditional on selected same-network institutions; descriptive, multiple comparisons unadjusted"
+}

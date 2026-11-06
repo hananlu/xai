@@ -1,0 +1,8 @@
+{
+  "frozen_utc": "2026-11-05T12:57:41.415501+00:00",
+  "files": {
+    "PROTOCOL_PILOT.md": "0fb90cd6d0300a3f83b4800adb90863f67721f56170621be4e2bd30e4c61d551",
+    "src/prepare_data.py": "55ea8d3ab07512ca8c1006d0ab4cea6169b93c0344fd139ac877ff157a142d62",
+    "src/pilot.py": "3b73f7040fb85ffb9229991eda3c4b5d41fcc9313126f26f686283f20e275bde"
+  }
+}

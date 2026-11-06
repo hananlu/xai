@@ -1,0 +1,11 @@
+{
+  "scope": "post-hoc development numerical follow-up; original results retained",
+  "original_failed_cases": 12,
+  "followup_passed": 12,
+  "followup_failed": 0,
+  "max_completeness_error_gb": 1.1102230246251565e-16,
+  "max_l1_refinement_change_gb": 0.0,
+  "breakpoint_hints": "2049-point sign-change scan and Brent root refinement; not a certification of every possible zero crossing",
+  "target_institutions_used": false,
+  "source_sha256": "74c4a64e061611a20d20983e811566ece1782e1f376a13d00ff7ceab9c72f3c7"
+}

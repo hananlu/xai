@@ -1,0 +1,10 @@
+date,transition,measured_from,local_clock_change,utc_offset_before,utc_offset_after,offset_change_h
+2022-03-27,spring_forward,subnet_longitudinal,02:00 CET -> 03:00 CEST,+01:00,+02:00,1
+2022-10-30,fall_back,subnet_longitudinal,03:00 CEST -> 02:00 CET,+02:00,+01:00,-1
+2023-03-26,spring_forward,subnet_longitudinal,02:00 CET -> 03:00 CEST,+01:00,+02:00,1
+2023-10-29,fall_back,main,03:00 CEST -> 02:00 CET,+02:00,+01:00,-1
+2024-03-31,spring_forward,main,02:00 CET -> 03:00 CEST,+01:00,+02:00,1
+2024-10-27,fall_back,main,03:00 CEST -> 02:00 CET,+02:00,+01:00,-1
+2025-03-30,spring_forward,main,02:00 CET -> 03:00 CEST,+01:00,+02:00,1
+2025-10-26,fall_back,main,03:00 CEST -> 02:00 CET,+02:00,+01:00,-1
+2026-03-29,spring_forward,main,02:00 CET -> 03:00 CEST,+01:00,+02:00,1

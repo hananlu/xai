@@ -1,0 +1,23 @@
+[
+  {
+    "name": "fault_evidence_2026",
+    "url": "https://mdpi-res.com/d_attachment/processes/processes-14-03341/article_deploy/processes-14-03341.pdf",
+    "bytes": 2793965,
+    "sha256": "73523c68fbf358633ab825ac765af17bd74eda050c9a76ee5eea5ddc18b61247",
+    "status": "downloaded"
+  },
+  {
+    "name": "repair_verification_2026",
+    "url": "https://mdpi-res.com/d_attachment/applsci/applsci-16-05450/article_deploy/applsci-16-05450.pdf",
+    "bytes": 2735789,
+    "sha256": "a262d95fad5e80e79a278df75cc90c5c2858cc45d222b45ecf390eb4d439d3f0",
+    "status": "downloaded"
+  },
+  {
+    "name": "sequential_audit_2026",
+    "url": "https://arxiv.org/pdf/2611.03928",
+    "bytes": 306231,
+    "sha256": "550a4f1656894ae9f98d007a029aed2d33287651dc1cc6e891b844aa16f22aa5",
+    "status": "downloaded"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "prefit_hashes_unchanged": true,
+  "development_ids_disjoint_from_new_48": true,
+  "forecast_metric_rows_recalculated": 64,
+  "max_saved_metric_difference": 0.0,
+  "original_ig_failures_retained": 12,
+  "adaptive_followup_passes": 12,
+  "target_institutions_used": false,
+  "scope": "Artifact/numerical validation; no confirmatory transfer or novelty claim"
+}

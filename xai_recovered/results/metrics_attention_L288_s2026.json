@@ -1,0 +1,32 @@
+[
+  {
+    "mae": 10.349182929105345,
+    "rmse": 13.90110841801334,
+    "wape_pct": 13.333849092600126,
+    "model": "attention_L288",
+    "seed": 2026,
+    "horizon": 1,
+    "n": 5806,
+    "validation_mse_standardized": 0.22957930238777133,
+    "epochs": 12,
+    "best_epoch": 6,
+    "training_s": 79.78797698020935,
+    "device": "cpu",
+    "parameters": 5634
+  },
+  {
+    "mae": 13.43547369485051,
+    "rmse": 17.684198659560693,
+    "wape_pct": 17.304478575163703,
+    "model": "attention_L288",
+    "seed": 2026,
+    "horizon": 6,
+    "n": 5806,
+    "validation_mse_standardized": 0.22957930238777133,
+    "epochs": 12,
+    "best_epoch": 6,
+    "training_s": 79.78797698020935,
+    "device": "cpu",
+    "parameters": 5634
+  }
+]

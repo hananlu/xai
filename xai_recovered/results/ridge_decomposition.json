@@ -1,0 +1,13 @@
+{
+  "status": "exploratory_post_hoc",
+  "reference": "training mean volume",
+  "refitted": false,
+  "max_reconstruction_discrepancy_GB": 1.9301495626677934e-05,
+  "last_lag_coefficient_h1": 0.4133511781692505,
+  "last_lag_coefficient_h6": 0.3543625473976135,
+  "intercept_GB": [
+    106.26833973692528,
+    106.1869018852354
+  ],
+  "interpretation": "Exact fitted linear-model contribution relative to training mean; correlated lag coefficients are not causal importance."
+}

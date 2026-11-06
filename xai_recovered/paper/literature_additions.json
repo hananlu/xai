@@ -1,0 +1,128 @@
+[
+  {
+    "key": "network_lstm",
+    "bibliography": "A. Lazaris and V. K. Prasanna, ``An LSTM Framework for Modeling Network Traffic,'' in \\emph{Proc. IFIP/IEEE IM Workshops (AnNet)}, 2019, pp. 848--853. \\url{https://alazaris.github.io/assets/annet_2019.pdf}.",
+    "category": "Network forecasting",
+    "url": "https://alazaris.github.io/assets/annet_2019.pdf",
+    "relevance": "Tier-1 ISP LSTM and grouping; different sub-minute task."
+  },
+  {
+    "key": "ntp_survey",
+    "bibliography": "O. Aouedi, V. A. Le, K. Piamrat, and Y. Ji, ``Deep Learning on Network Traffic Prediction: Recent Advances, Analysis, and Future Directions,'' \\emph{ACM Computing Surveys}, vol. 57, no. 6, art. 151, 2025, doi: 10.1145/3703447.",
+    "category": "Network survey",
+    "url": "https://doi.org/10.1145/3703447",
+    "relevance": "Survey and model taxonomy; publisher-deposited author list and 2025 date verified."
+  },
+  {
+    "key": "cesnet_comparison",
+    "bibliography": "J. Koumar, T. Smole\\v{n}, K. Je\\v{r}\\'abek, and T. \\v{C}ejka, ``Comparative Analysis of Deep Learning Models for Real-World ISP Network Traffic Forecasting,'' arXiv:2503.17410, 2025. \\url{https://arxiv.org/abs/2503.17410}.",
+    "category": "Network benchmark",
+    "url": "https://arxiv.org/abs/2503.17410",
+    "relevance": "CESNET forecasting and accuracy/efficiency across granularities; cited as preprint."
+  },
+  {
+    "key": "which_deep",
+    "bibliography": "E. M. A. Babai, A. M. A. Babai, and K. Okamura, ``Which Deep Learner? A Systematic Evaluation of Advanced Deep Forecasting Models Accuracy and Efficiency for Network Traffic Prediction,'' arXiv:2601.02694v2, 2026. \\url{https://arxiv.org/abs/2601.02694v2}.",
+    "category": "Network benchmark",
+    "url": "https://arxiv.org/abs/2601.02694v2",
+    "relevance": "Multi-dataset network evaluation; November 3, 2026 revision, explicitly a preprint."
+  },
+  {
+    "key": "lstm",
+    "bibliography": "S. Hochreiter and J. Schmidhuber, ``Long Short-Term Memory,'' \\emph{Neural Computation}, vol. 9, no. 8, pp. 1735--1780, 1997, doi: 10.1162/neco.1997.9.8.1735.",
+    "category": "Implemented foundation",
+    "url": "https://doi.org/10.1162/neco.1997.9.8.1735",
+    "relevance": "Recurrent backbone; bibliographic metadata checked against publisher deposit."
+  },
+  {
+    "key": "bahdanau",
+    "bibliography": "D. Bahdanau, K. Cho, and Y. Bengio, ``Neural Machine Translation by Jointly Learning to Align and Translate,'' in \\emph{Proc. ICLR}, 2015. \\url{https://arxiv.org/abs/1409.0473}.",
+    "category": "Attention foundation",
+    "url": "https://arxiv.org/abs/1409.0473",
+    "relevance": "Additive alignment antecedent; NLP setting, not traffic evidence."
+  },
+  {
+    "key": "darnn",
+    "bibliography": "Y. Qin, D. Song, H. Chen, W. Cheng, G. Jiang, and G. Cottrell, ``A Dual-Stage Attention-Based Recurrent Neural Network for Time Series Prediction,'' in \\emph{Proc. IJCAI}, 2017. \\url{https://arxiv.org/abs/1704.02971}.",
+    "category": "Architecture context",
+    "url": "https://arxiv.org/abs/1704.02971",
+    "relevance": "Input and temporal attention; not implemented in the reconstructed benchmark."
+  },
+  {
+    "key": "tft",
+    "bibliography": "B. Lim, S. \\\"O. Ar\\i k, N. Loeff, and T. Pfister, ``Temporal Fusion Transformers for Interpretable Multi-horizon Time Series Forecasting,'' \\emph{International Journal of Forecasting}, vol. 37, no. 4, pp. 1748--1764, 2021, doi: 10.1016/j.ijforecast.2021.03.012.",
+    "category": "Architecture context",
+    "url": "https://arxiv.org/abs/1912.09363",
+    "relevance": "Gating, feature selection and attention; a literature comparator, not an executed model."
+  },
+  {
+    "key": "patchtst",
+    "bibliography": "Y. Nie, N. H. Nguyen, P. Sinthong, and J. Kalagnanam, ``A Time Series Is Worth 64 Words: Long-term Forecasting with Transformers,'' in \\emph{Proc. ICLR}, 2023. \\url{https://arxiv.org/abs/2211.14730}.",
+    "category": "Architecture context",
+    "url": "https://arxiv.org/abs/2211.14730",
+    "relevance": "Patching and channel independence; long-horizon results do not transfer automatically."
+  },
+  {
+    "key": "aichronolens_journal",
+    "bibliography": "P. Fern\\'andez P\\'erez, C. Fiandrino, E. P\\'erez G\\'omez, H. Mohammadalizadeh, M. Fiore, and J. Widmer, ``AIChronoLens: AI/ML Explainability for Time Series Forecasting in Mobile Networks,'' \\emph{IEEE Transactions on Mobile Computing}, vol. 24, no. 8, pp. 7757--7772, 2025, doi: 10.1109/TMC.2025.3554035.",
+    "category": "Direct network XAI",
+    "url": "https://dspace.networks.imdea.org/handle/20.500.12761/1917",
+    "relevance": "Journal extension; temporal explanations and forecast-error diagnosis."
+  },
+  {
+    "key": "deexp",
+    "bibliography": "S. Moghadas Gholian, C. Fiandrino, N. Vallina-Rodr\\'iguez, M. Fiore, and J. Widmer, ``DeExp: Revealing Model Vulnerabilities for Spatio-Temporal Mobile Traffic Forecasting With Explainable AI,'' \\emph{IEEE Transactions on Mobile Computing}, vol. 24, no. 6, pp. 5245--5263, 2025, doi: 10.1109/TMC.2025.3531544.",
+    "category": "Direct network XAI",
+    "url": "https://dspace.networks.imdea.org/handle/20.500.12761/1889",
+    "relevance": "Spatial influence and adversarial vulnerability; not the current replacement experiment."
+  },
+  {
+    "key": "attention_benchmark",
+    "bibliography": "D. Bari\\'c, P. Fumi\\'c, D. Horvati\\'c, and T. Lipic, ``Benchmarking Attention-Based Interpretability of Deep Learning in Multivariate Time Series Predictions,'' \\emph{Entropy}, vol. 23, no. 2, art. 143, 2021, doi: 10.3390/e23020143.",
+    "category": "Time-series attention audit",
+    "url": "https://doi.org/10.3390/e23020143",
+    "relevance": "Synthetic processes distinguish predictive performance from interpretation correctness."
+  },
+  {
+    "key": "ts_benchmark",
+    "bibliography": "A. A. Ismail, M. Gunady, H. Corrada Bravo, and S. Feizi, ``Benchmarking Deep Learning Interpretability in Time Series Predictions,'' in \\emph{Advances in Neural Information Processing Systems}, vol. 33, 2020. \\url{https://proceedings.neurips.cc/paper/2020/hash/47a3893cc405396a5c30d91320572d6d-Abstract.html}.",
+    "category": "Temporal attribution benchmark",
+    "url": "https://proceedings.neurips.cc/paper/2020/hash/47a3893cc405396a5c30d91320572d6d-Abstract.html",
+    "relevance": "Temporal saliency rescaling and synthetic evaluation; TSR not implemented here."
+  },
+  {
+    "key": "sanity",
+    "bibliography": "J. Adebayo, J. Gilmer, M. Muelly, I. Goodfellow, M. Hardt, and B. Kim, ``Sanity Checks for Saliency Maps,'' in \\emph{Advances in Neural Information Processing Systems}, vol. 31, 2018. \\url{https://arxiv.org/abs/1810.03292}.",
+    "category": "Explanation validation",
+    "url": "https://arxiv.org/abs/1810.03292",
+    "relevance": "Visual appeal is insufficient; its model/label randomization tests were not run here."
+  },
+  {
+    "key": "infidelity",
+    "bibliography": "C.-K. Yeh, C.-Y. Hsieh, A. S. Suggala, D. I. Inouye, and P. Ravikumar, ``On the (In)fidelity and Sensitivity of Explanations,'' in \\emph{Advances in Neural Information Processing Systems}, vol. 32, 2019. \\url{https://arxiv.org/abs/1901.09392}.",
+    "category": "Explanation evaluation",
+    "url": "https://arxiv.org/abs/1901.09392",
+    "relevance": "Sensitivity and fidelity are distinct; our shift metric is not its infidelity objective."
+  },
+  {
+    "key": "learned_perturbations",
+    "bibliography": "J. Enguehard, ``Learning Perturbations to Explain Time Series Predictions,'' in \\emph{Proc. ICML}, PMLR 202, 2023, pp. 9329--9342. \\url{https://proceedings.mlr.press/v202/enguehard23a.html}.",
+    "category": "Temporal perturbations",
+    "url": "https://proceedings.mlr.press/v202/enguehard23a.html",
+    "relevance": "Learned masks and replacements; our median replacements remain limited diagnostics."
+  },
+  {
+    "key": "timing",
+    "bibliography": "H. Jang, C. Kim, and E. Yang, ``TIMING: Temporality-Aware Integrated Gradients for Time Series Explanation,'' in \\emph{Proc. ICML}, PMLR 267, 2025, pp. 26877--26895. \\url{https://proceedings.mlr.press/v267/jang25a.html}.",
+    "category": "Temporal IG and evaluation",
+    "url": "https://proceedings.mlr.press/v267/jang25a.html",
+    "relevance": "Directional contributions and temporal paths; not a demonstrated fix for our integration failures."
+  },
+  {
+    "key": "adam",
+    "bibliography": "D. P. Kingma and J. Ba, ``Adam: A Method for Stochastic Optimization,'' in \\emph{Proc. ICLR}, 2015. \\url{https://arxiv.org/abs/1412.6980}.",
+    "category": "Implemented optimizer",
+    "url": "https://arxiv.org/abs/1412.6980",
+    "relevance": "Optimizer actually used; does not establish convergence of the present fits."
+  }
+]

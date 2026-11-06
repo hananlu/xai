@@ -1,0 +1,37 @@
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 28 counts 6673 400 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 42 counts 7031 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 68 counts 7212 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 102 counts 6673 400 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 104 counts 7212 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 107 counts 7212 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 128 counts 7212 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 154 counts 7212 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 155 counts 7212 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 206 counts 7038 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 209 counts 7036 567 209
+/Users/farrelardya/Documents/Codex/2026-11-05/ca/outputs/xai_research_v2/src/pilot.py:40: Pandas4Warning: DatetimeIndex.dayofweek is deprecated and will be removed in a future version. Use DatetimeIndex.day_of_week instead.
+  how=t.dayofweek.to_numpy()*24+t.hour.to_numpy();profile=np.array([np.median(y[tm&valid&(how==k)]) if (tm&valid&(how==k)).any() else mu for k in range(168)])
+Finished institution 254 counts 7212 567 209
+COMPLETE 270864 stress records

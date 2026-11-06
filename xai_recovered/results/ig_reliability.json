@@ -1,0 +1,5 @@
+{
+  "status": "provisional_nonconverged",
+  "note": "Primary 32-interval IG fails numerical completeness in some cases; do not treat its rankings as validated attribution.",
+  "followup_max_residual_GB_at_2048": 2.702357288873909
+}

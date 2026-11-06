@@ -1,0 +1,29 @@
+[
+  {
+    "name": "cesnet26_2026",
+    "url": "https://arxiv.org/pdf/2610.14799",
+    "bytes": 2497655,
+    "sha256": "b877bd08ac6177475fdb7e6a470b8bf1f6feee4537f1dd3fb6c54c0d326bac97",
+    "status": "downloaded"
+  },
+  {
+    "name": "mcal_2026",
+    "url": "https://arxiv.org/pdf/2603.04831",
+    "bytes": 2118168,
+    "sha256": "fa0a1f9380bdd96a3a5c813fde05874aed8edb4cb1c24eb9bb1034c5e1af63da",
+    "status": "downloaded"
+  },
+  {
+    "name": "incomplete_2018",
+    "url": "https://ceur-ws.org/Vol-2068/exss10.pdf",
+    "bytes": 663326,
+    "sha256": "ef8d9c74b9708fff118719c5fa7ecc01e58fdcf48e4122e3958ed91ee6d8ed5b",
+    "status": "downloaded"
+  },
+  {
+    "name": "fault_evidence_2026",
+    "url": "https://www.mdpi.com/2227-9717/14/20/3341/pdf",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "name": "aichronolens_2025",
+    "url": "https://dspace.networks.imdea.org/bitstream/handle/20.500.12761/1917/xai-aichronolens_tmc_dspace.pdf?sequence=1",
+    "bytes": 6171315,
+    "sha256": "40528f6169a32cf74d94b9ac1d30a6768f04f36d09d9e245b7e863051293bb0b",
+    "status": "downloaded"
+  },
+  {
+    "name": "deexp_2025",
+    "url": "https://dspace.networks.imdea.org/bitstream/handle/20.500.12761/1889/2025_moghadas_tmc_deexp.pdf?sequence=1",
+    "bytes": 4261180,
+    "sha256": "656007fd2ef4d5e5b299e0d1e1124c6f8bfdab450e3b5803f4bf4d242a9632ad",
+    "status": "downloaded"
+  },
+  {
+    "name": "aggregated_2025",
+    "url": "https://opendl.ifip-tc6.org/db/conf/networking/networking2025/1571141805.pdf",
+    "bytes": 1760835,
+    "sha256": "c0c9d533e40e182a3eb8fc4785c3cda25fbb028b7c294fa51ae46d9eb00ad897",
+    "status": "downloaded"
+  },
+  {
+    "name": "ib_forecast_2026",
+    "url": "https://arxiv.org/pdf/2607.28124",
+    "bytes": 4271341,
+    "sha256": "4d743bbbbf0670e437bc85e964687a0d2d78e2ef8014c5043baae1174891a8b9",
+    "status": "downloaded"
+  },
+  {
+    "name": "cesnet_comparison_2025",
+    "url": "https://arxiv.org/pdf/2503.17410",
+    "bytes": 353937,
+    "sha256": "6a551867923781f4a5461077855a327da71d4ae3f95e45931171f415eaa7fa7b",
+    "status": "downloaded"
+  },
+  {
+    "name": "which_deep_2026",
+    "url": "https://arxiv.org/pdf/2601.02694v2",
+    "bytes": 1932050,
+    "sha256": "0ab8f24f55a211a24f4a9090c674fc6b30b88a307cf4ef8c0447e33376d4b8d0",
+    "status": "downloaded"
+  },
+  {
+    "name": "timing_2025",
+    "url": "https://raw.githubusercontent.com/mlresearch/v267/main/assets/jang25a/jang25a.pdf",
+    "bytes": 5656700,
+    "sha256": "4ad76fa9005997089096ba5918492307afdd004af37ebd1e35537953db1bf8dc",
+    "status": "downloaded"
+  },
+  {
+    "name": "attention_benchmark_2021",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7912396/pdf/entropy-23-00143.pdf",
+    "status": "failed",
+    "error": "Response is not PDF"
+  },
+  {
+    "name": "learn_perturb_2023",
+    "url": "https://proceedings.mlr.press/v202/enguehard23a/enguehard23a.pdf",
+    "bytes": 1363541,
+    "sha256": "f36c36489af682eca33f4101bb9d3efe728fbab7c045a2f00603d565c1b9f737",
+    "status": "downloaded"
+  }
+]

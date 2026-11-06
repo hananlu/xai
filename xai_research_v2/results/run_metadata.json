@@ -1,0 +1,11 @@
+{
+  "runtime_seconds": 40.48047614097595,
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "source_sha256": "4ec749498ad42b095d323b13a8bbb70e41ae4fe5761166d467f0e45879471d9c",
+  "protocol_sha256": "0fb90cd6d0300a3f83b4800adb90863f67721f56170621be4e2bd30e4c61d551",
+  "reserved_outcomes_scored": false
+}

@@ -1,0 +1,9 @@
+{
+  "ig_status": "provisional_nonconverged",
+  "attention_h1_mae_GB": 10.339638647256878,
+  "ridge_h1_mae_GB": 8.868859879677194,
+  "attention_h6_mae_GB": 13.335738192076095,
+  "ig_shift_GB": 30.90555182616744,
+  "attention_shift_GB": 9.852660880702185,
+  "random_shift_GB": 7.817092343647447
+}

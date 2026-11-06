@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "kind": [
+    "dlinear",
+    "gru"
+  ],
+  "epochs_max": 8,
+  "seed": 42,
+  "source_training_windows": 27596,
+  "development_only": true,
+  "target_institutions_used": false,
+  "runtime_seconds": 3.917998790740967,
+  "source_sha256": "6ad70f372fde714a6402bdb95c80a4376e12302073767382418641924e9a171e"
+}

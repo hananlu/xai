@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "membership_disjoint": true,
+  "development_excluded": true,
+  "volume_strata": 4,
+  "target_outcomes_scored": false,
+  "split_sha256": "9e1fd2882f308b3e9c59e4958b634ee061300b9bc24463effb5d81798bd22cd4"
+}

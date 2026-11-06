@@ -1,0 +1,14 @@
+id,part,scope,kind,last_data_before,data_resumed,duration,n_windows_10min
+1,subnet_longitudinal,subnet-local,present-zero,2022-01-11 12:43:49+0100,2022-01-12 12:43:49+0100,23.8 h,143
+2,subnet_longitudinal,subnet-local,present-zero,2022-03-14 22:53:49+0100,2022-03-15 13:33:49+0100,14.5 h,87
+3,subnet_longitudinal,subnet-local,present-zero,2022-05-18 21:53:49+0200,2022-05-19 21:43:49+0200,23.7 h,142
+4,subnet_longitudinal,subnet-local,present-zero,2022-12-11 17:13:49+0100,2022-12-14 10:23:49+0100,2 d 17.0 h,390
+5,subnet_longitudinal,subnet-local,present-zero,2022-12-28 09:53:49+0100,2023-01-02 14:33:49+0100,5 d 4.5 h,747
+6,subnet_longitudinal,subnet-local,present-zero,2023-04-12 01:33:49+0200,2023-04-14 05:43:49+0200,2 d 4.0 h,312
+7,main,infrastructure-wide,grid-gap,2025-10-05 11:57:19+0200,2025-10-05 13:09:41+0200,1.0 h,6
+8,main,infrastructure-wide,grid-gap,2025-10-05 14:13:22+0200,2025-10-06 05:54:23+0200,15.5 h,93
+9,main,infrastructure-wide,grid-gap,2025-10-07 08:17:46+0200,2025-10-07 10:07:46+0200,1.7 h,10
+10,main,infrastructure-wide,grid-gap,2026-03-06 15:07:46+0100,2026-03-08 18:17:46+0100,2 d 3.0 h,306
+11,main,infrastructure-wide,grid-gap,2026-04-24 07:50:46+0200,2026-04-24 09:38:41+0200,1.7 h,10
+12,main,infrastructure-wide,grid-gap,2026-04-29 10:38:41+0200,2026-05-15 07:46:30+0200,15 d 21.0 h,2286
+13,main,infrastructure-wide,grid-gap,2026-05-22 11:56:30+0200,2026-05-22 13:16:30+0200,1.2 h,7

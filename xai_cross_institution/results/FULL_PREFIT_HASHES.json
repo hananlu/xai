@@ -1,0 +1,12 @@
+{
+  "frozen_utc": "2026-11-05T15:59:58.681454+00:00",
+  "target_outcomes_scored": false,
+  "files": {
+    "FULL_PROTOCOL.md": "d463f0b7c8ed1dd74b73d2b8c6db504eb7d96d80703f7e490f855072442fdb60",
+    "INSTITUTION_SPLIT.csv": "9e1fd2882f308b3e9c59e4958b634ee061300b9bc24463effb5d81798bd22cd4",
+    "MATCHED_PAIRS.csv": "3d2a964a9cd90efa5082a14adc84537137fbd2fbf1509902cb86118784039d95",
+    "src/data_common.py": "101aebf20626a8a908e03c717556939d12726ec38ad06555e94ff5dc55c55b6f",
+    "src/neural_feasibility.py": "6ad70f372fde714a6402bdb95c80a4376e12302073767382418641924e9a171e",
+    "src/train_full.py": "dc2baa77e29893c9efaf73e270e7d249a6906dbab8ce69ed83a76866c92ef5c2"
+  }
+}

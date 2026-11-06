@@ -1,0 +1,45 @@
+{
+  "status": "training_complete",
+  "runtime_seconds": 324.33757996559143,
+  "source_institutions": 32,
+  "validation_institutions": 8,
+  "target_institutions_fitted": 0,
+  "source_windows": 227478,
+  "normalization_mean": 0.4941546320915222,
+  "normalization_std": 0.9291831851005554,
+  "models": [
+    {
+      "file": "dlinear_123.pt",
+      "sha256": "3f01df65df1bea72522bf76f7a09612b9f80fa1468857636de41a6f960e99c17"
+    },
+    {
+      "file": "dlinear_2026.pt",
+      "sha256": "eb9ac47201f020a3392dd6921117287de6a45a0cac9643af24e232cea3b3e748"
+    },
+    {
+      "file": "dlinear_42.pt",
+      "sha256": "141989627e0ca9fd07d120cca91e8afd0d44378d524c18ab108ff878bc0af975"
+    },
+    {
+      "file": "gru_123.pt",
+      "sha256": "d1f57bf5127f697ebf590b540f1a8195ea6b1a65e8eb5362399f82341a02bf4c"
+    },
+    {
+      "file": "gru_2026.pt",
+      "sha256": "d5968a4db70b1b99ffbc7a882673b760af7dcda3ff744b2a8bcb41e689c43749"
+    },
+    {
+      "file": "gru_42.pt",
+      "sha256": "1721a04bcb8432f60a511d48a08dbf7592e893a469700df6082bffea723853b5"
+    },
+    {
+      "file": "ridge_0.npz",
+      "sha256": "1d34ad31da9df36c05667048f384d2cb5ec4b0170d7e551c62fe50e63c4d2cae"
+    },
+    {
+      "file": "source_profile.npy",
+      "sha256": "d8646b718a3da3c29bcd93def3c785387fce22d0ac91c6b56c6aa3fe88302603"
+    }
+  ],
+  "source_sha256": "3bff723d5f1576bdaeec9fc3f572c7449a387fa9a48802c415165b1250797031"
+}

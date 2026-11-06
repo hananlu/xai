@@ -1,0 +1,24 @@
+[
+  {
+    "mae": 8.868859879677194,
+    "rmse": 11.805798589733168,
+    "wape_pct": 11.426606338791839,
+    "model": "ridge",
+    "seed": 0,
+    "horizon": 1,
+    "n": 5806,
+    "validation_mse_standardized": 0.16852959990501404,
+    "alpha": 100
+  },
+  {
+    "mae": 11.074807584162436,
+    "rmse": 14.526497490153877,
+    "wape_pct": 14.26401293447895,
+    "model": "ridge",
+    "seed": 0,
+    "horizon": 6,
+    "n": 5806,
+    "validation_mse_standardized": 0.16852959990501404,
+    "alpha": 100
+  }
+]

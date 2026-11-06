@@ -1,0 +1,33 @@
+{
+  "status": "completed_research_draft",
+  "target_outcomes_scored": true,
+  "protocol_unchanged_after_target_inspection": true,
+  "primary": {
+    "mean": -0.018876455601195535,
+    "ci_low": -0.08913930523312447,
+    "ci_high": 0.05334453792169871,
+    "pairs": 7,
+    "bootstrap_valid": 1853,
+    "reason": "nominal_paired_pair_and_14day_block_bootstrap"
+  },
+  "forecast_prediction_rows": 684640,
+  "attribution_quality_records": 168000,
+  "ig_cases": 3360,
+  "ig_failed": 210,
+  "scientific_audit": "pass",
+  "paper_pages": 5,
+  "paper_references": 18,
+  "presentation": {
+    "slides": 12,
+    "native_charts": 2,
+    "embedded_workbooks": 2,
+    "notes": 12
+  },
+  "publication_status": "not submitted",
+  "remaining_author_decisions": [
+    "target conference",
+    "author names and affiliations"
+  ],
+  "external_network_replication": false,
+  "native_powerpoint_save_reopen_test": false
+}

@@ -1,0 +1,19 @@
+# Local environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+
+# LaTeX build auxiliaries; source and final PDFs are tracked
+*.aux
+*.log
+*.out
+*.blg
+*.bbl
+*.fls
+*.fdb_latexmk
+
+# Local notebooks create reruns/exports here; committed run snapshots are in runs/
+/work/

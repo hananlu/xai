@@ -1,0 +1,30 @@
+{
+  "source": "https://zenodo.org/records/21945629",
+  "license": "CC-BY-4.0",
+  "archive": {
+    "record": 21945629,
+    "filename": "institutions.tar.gz",
+    "bytes": 1728712870,
+    "checksum": "md5:cf06f8036df9b5b9652cbab7c148f2c5",
+    "verified": true
+  },
+  "hourly_rows": 23902,
+  "native_10min_rows": 140636,
+  "time_start": "2023-10-09 00:00:00+00:00",
+  "time_end": "2026-06-30 21:00:00+00:00",
+  "coverage_counts": {
+    "0": 451,
+    "1": 4,
+    "2": 3,
+    "3": 3,
+    "4": 5,
+    "5": 19,
+    "6": 23417
+  },
+  "complete_hours": 23417,
+  "partial_or_absent_hours": 485,
+  "institutions_available": 285,
+  "institutions_eligible": 277,
+  "reserved_outcomes_scored": false
+}
+Selected IDs [28, 42, 68, 102, 104, 107, 128, 154, 155, 206, 209, 254]

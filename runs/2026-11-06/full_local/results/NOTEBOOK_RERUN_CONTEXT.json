@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "implementation": "inline notebook mirror",
+  "fresh_holdout": false,
+  "training_requested": true,
+  "evaluation_requested": true,
+  "completed_steps": [
+    "training",
+    "forecasts",
+    "attributions",
+    "analysis"
+  ],
+  "warning": "Clone contains baseline artifacts; only completed_steps are recomputed."
+}

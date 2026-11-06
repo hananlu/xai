@@ -1,0 +1,23 @@
+{
+  "frozen_utc": "2026-11-05T16:10:49.989103+00:00",
+  "target_outcomes_scored": false,
+  "files": {
+    "FULL_PROTOCOL.md": "d463f0b7c8ed1dd74b73d2b8c6db504eb7d96d80703f7e490f855072442fdb60",
+    "ANALYSIS_CLARIFICATIONS.md": "8f570015107fb8f8773374533c03212a0b7f9838d240eed019caaef4a1d4075b",
+    "INSTITUTION_SPLIT.csv": "9e1fd2882f308b3e9c59e4958b634ee061300b9bc24463effb5d81798bd22cd4",
+    "MATCHED_PAIRS.csv": "3d2a964a9cd90efa5082a14adc84537137fbd2fbf1509902cb86118784039d95",
+    "src/validate_development.py": "9553ecfc5f0eb3fef1d02a9d8e10c4c0585123529b21a8fef7dd37f1b7737251",
+    "src/development_feasibility.py": "ef2e6e5b5f849d89c6c23d660b294e5ee521c5c82497b9f50a265398cfc29750",
+    "src/neural_feasibility.py": "6ad70f372fde714a6402bdb95c80a4376e12302073767382418641924e9a171e",
+    "src/benchmark_common.py": "baa9fb707392911702448b6dcf773c927434ef68239dafd7e1e28b1f123767e1",
+    "src/data_common.py": "101aebf20626a8a908e03c717556939d12726ec38ad06555e94ff5dc55c55b6f",
+    "src/evaluate_attributions.py": "c85c7b9548fedbb023e210d62da2f77812a5141d77c8a34a58b3ce69009f424e",
+    "src/validate_response_endpoint.py": "c975fc7b8bed9db955a2897f0b63d8b38d50fbcdbdf71dc99eade64fdad026c3",
+    "src/refine_ig_development.py": "74c4a64e061611a20d20983e811566ece1782e1f376a13d00ff7ceab9c72f3c7",
+    "src/train_full.py": "dc2baa77e29893c9efaf73e270e7d249a6906dbab8ce69ed83a76866c92ef5c2",
+    "src/calibrate_metrics.py": "456d86e2aac1fe32585c9e0fbaec07971ec4290339a1b711cea492928657be41",
+    "src/evaluate_forecasts.py": "bf449255985ea0db8ed34561e54ce01baad78773e9950c66bc3e80b3f4ca1e31",
+    "src/prepare_full_data.py": "6b2ac8d12806ad98c98569bf42ed7bd8d9e25b98ebaf0da897d4c58da9d2dba0",
+    "src/analyze_full.py": "8e9f6197ae5da875ce9dd45ef6b7ef1400335fd47e452127e65e13a1e8028c38"
+  }
+}

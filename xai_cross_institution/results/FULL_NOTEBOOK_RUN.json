@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "cells": 95,
+  "executed_code_cells": 58,
+  "error_outputs": 0,
+  "seconds": 529.4954149579862,
+  "full_retraining": true,
+  "full_batch_evaluation": true,
+  "execution_engine": "nbclient real ipykernel Python 3.11, local CPU"
+}

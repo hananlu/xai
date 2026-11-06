@@ -1,0 +1,58 @@
+[
+  {
+    "model": "ridge",
+    "seed": 0,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 30
+  },
+  {
+    "model": "dlinear",
+    "seed": 42,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 33
+  },
+  {
+    "model": "dlinear",
+    "seed": 123,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 33
+  },
+  {
+    "model": "dlinear",
+    "seed": 2026,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 39
+  },
+  {
+    "model": "gru",
+    "seed": 42,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 29
+  },
+  {
+    "model": "gru",
+    "seed": 123,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 17
+  },
+  {
+    "model": "gru",
+    "seed": 2026,
+    "case_origins": 480,
+    "quality_records": 24000,
+    "ig_cases": 480,
+    "ig_failed": 29
+  }
+]

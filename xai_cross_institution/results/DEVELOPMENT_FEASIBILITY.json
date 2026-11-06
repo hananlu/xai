@@ -1,0 +1,47 @@
+{
+  "status": "development_feasibility_complete",
+  "runtime_seconds": 0.8929557800292969,
+  "roles": {
+    "102": "source",
+    "42": "validation",
+    "107": "development_holdout",
+    "206": "source",
+    "254": "validation",
+    "154": "development_holdout",
+    "28": "source",
+    "128": "validation",
+    "155": "development_holdout",
+    "104": "source",
+    "209": "validation",
+    "68": "development_holdout"
+  },
+  "source_training_windows": 27596,
+  "model_selection": [
+    {
+      "horizon": 1,
+      "alpha": 10,
+      "validation_macro_log_mae": 0.15246350903261804
+    },
+    {
+      "horizon": 6,
+      "alpha": 100,
+      "validation_macro_log_mae": 0.16821519476507177
+    }
+  ],
+  "forecast_metric_rows": 64,
+  "attribution_cases": 384,
+  "ig_failed_cases": 12,
+  "ig_node_counts": {
+    "64": 355,
+    "1024": 16,
+    "512": 7,
+    "256": 5,
+    "128": 1
+  },
+  "max_shapley_efficiency_error_gb": 3.552713678800501e-15,
+  "max_gradient_check_scaled_error": 4.951895744200004e-10,
+  "target_institutions_used": false,
+  "confirmatory": false,
+  "source_sha256": "ef2e6e5b5f849d89c6c23d660b294e5ee521c5c82497b9f50a265398cfc29750",
+  "protocol_sha256": "dce1e60e8187f235fdd5c6affa14095b22547b0ac81f3502d1bfe386151df45c"
+}

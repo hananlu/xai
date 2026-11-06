@@ -8,13 +8,15 @@ Status: full frozen study executed; manuscript and editable presentation prepare
 - `XAI_Results_and_Reproduction.ipynb`: earlier short results companion.
 
 - `RESULTS_BRIEF_ID.md`: findings, honest publication assessment, remaining author/venue decisions.
-- `paper/paper.pdf` and `paper/paper.tex`: English IEEE-style anonymous draft, 18 cited references. Adapt to the selected conference before submission.
+- `paper/paper.pdf` and `paper/paper.tex`: English IEEE-style expanded anonymous draft, 9 pages, 8 figures and 18 cited references; editable overall TikZ pipeline and BibTeX source included. Adapt to the selected conference before submission.
 - `presentation/XAI_Research_Results_v2.pptx`: 12 editable slides in Indonesian; opening, gap/goal, pipeline, results. Charts, tables, diagram and text remain native objects.
 - `LITERATURE_AND_GAP.md`: closest work, bounded novelty and distinct future-paper directions.
 - `FULL_PROTOCOL.md`, `ANALYSIS_CLARIFICATIONS.md`: frozen experimental and statistical decisions.
 - `results/NUMERIC_CLAIMS.json`, `results/FINAL_VALIDATION.json`: authoritative headline estimates and final integrity/arithmetic audit.
 
 Full training and batch evaluation were also executed locally on 6 November 2026 in `XAI_Full_Local_Run.ipynb` (58 code cells, no errors). See `FULL_LOCAL_RUN.md` and `results/LOCAL_REPRODUCTION_COMPARISON.json` for the fresh-run record and baseline comparisons.
+
+See `PAPER_REVISION_NOTES.md` for the 6 November paper expansion, runtime explanation and remaining validity limitations.
 
 ## Main finding
 

@@ -21,7 +21,7 @@ Transfer forecast sudah diteliti oleh TransMUSE; XAI forecasting jaringan oleh A
 
 ## Yang sudah tersedia
 
-- Draft paper Inggris 5 halaman, 18 referensi, source LaTeX.
+- Draft paper Inggris diperluas menjadi 9 halaman, 8 figure, 18 referensi; source LaTeX, TikZ pipeline, dan BibTeX tersedia.
 - PPT 12 slide editable: opening; research gap/goal; pipeline; hasil dan batas.
 - Dataset turunan 48 institusi, checkpoint, prediction per origin, attribution allocations, semua numerical rejection, protocol/hash manifests dan scripts.
 - Audit akhir lolos: 48 data hash, model hash, semua forecast metrics, re-query checkpoint/label, Shapley permutation checks, dan titik estimasi primer.

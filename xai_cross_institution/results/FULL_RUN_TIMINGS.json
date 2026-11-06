@@ -1,0 +1,17 @@
+{
+  "training": {
+    "runtime_seconds": 324.33757996559143,
+    "source_file": "runs/2026-11-06/full_local/results/TRAINING_COMPLETE.json",
+    "source_sha256": "f0b67ad8b70df0249e75555fded81a6d74ba85bdd378ebde695db38971201d4a"
+  },
+  "forecast_evaluation": {
+    "runtime_seconds": 9.717042922973633,
+    "source_file": "runs/2026-11-06/full_local/results/FORECAST_EVALUATION.json",
+    "source_sha256": "8ba3be0c463fee28be4370c799c58cd161ce1fd75d8b12d98fb81c195bd86ffd"
+  },
+  "attribution_evaluation": {
+    "runtime_seconds": 184.67722511291504,
+    "source_file": "runs/2026-11-06/full_local/results/ATTRIBUTION_COMPLETE.json",
+    "source_sha256": "143b1aea24e2c9da7646a3caad4c2ee0fe5e354a6e2a2a43ee35703654718e67"
+  }
+}

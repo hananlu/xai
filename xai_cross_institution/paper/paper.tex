@@ -3,9 +3,10 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
+\usepackage{placeins}
 \graphicspath{{../figures/}}
 \title{Cross-Institution Reliability of Temporal Attributions in Network Traffic Forecasting}
-\author{\IEEEauthorblockN{Anonymous research draft}\IEEEauthorblockA{Author information and conference formatting to be completed before submission}}
+\author{\IEEEauthorblockN{Anonymous research draft}\IEEEauthorblockA{Expanded empirical draft, 6 November 2026; authors and venue to be finalized}}
 \begin{document}\maketitle
 \begin{abstract}
 A traffic forecaster can transfer to a new institution without establishing that its temporal explanations remain useful. We examine this distinction using a frozen protocol on 48 institutions from CESNET-TimeSeries26: 32 for source training, eight for validation, and eight unseen targets. Ridge, DLinear, and gated recurrent forecasters predict hourly traffic at one- and six-hour endpoints from one week of history. We separate forecast error, numerical attribution checks, and ranking alignment under two controlled history replacements. Exact seven-group Shapley allocations, occlusion, recency, and numerically screened integrated gradients are evaluated with two attribution references. The prespecified primary contrast is target-minus-source Shapley ranking alignment for the frozen one-hour GRU. Across seven complete matched pairs, the difference is $-0.0189$ with a nominal paired block-bootstrap 95\% interval of $[-0.0891,0.0533]$. This does not establish either systematic degradation or equivalence. Ridge, DLinear, and GRU achieve similar one-hour target MASE (0.681, 0.682, and 0.684), whereas 210 of 3,360 integrated-gradient cases fail the fixed numerical acceptance checks. These findings support an auditable, reference-explicit evaluation of attribution transfer; they do not establish a universally superior explainer or cross-network causal reliability.
@@ -20,6 +21,13 @@ Transferable traffic prediction is established research: TransMUSE studies trans
 We use a public multi-year traffic dataset~\cite{cesnet26,dataset}. We retain source-only fitting, unseen validation institutions, fixed target institutions, timestamp-matched explanation cases, repeated neural seeds, and a prespecified primary comparison. Our contribution is an empirical audit design and its executed evidence, rather than a new attribution algorithm. Specifically, we provide (i) a reproducible institution-disjoint benchmark with explicit missingness and effective sample counts; (ii) separate checks of numerical attribution behavior and controlled-operator ranking alignment; and (iii) a paired transfer estimate with reference, horizon, model, and bias-calibration analyses clearly designated as secondary.
 
 The primary result is inconclusive about systematic ranking degradation. We retain it despite stronger nominal secondary contrasts under a different attribution reference; those remain exploratory.
+
+Figure~\ref{fig:pipeline} summarizes the data flow, deployment arms, and three distinct evaluation branches.
+
+\begin{figure*}[t]\centering
+\resizebox{\textwidth}{!}{\input{pipeline_overall.tex}}
+\caption{Overall executed pipeline, including fitting/validation separation, both deployment arms, eligible future inputs, distinct accuracy/numerical/ranking branches, references and operators, case-selection budgets, and the prespecified inferential unit. The hash freeze is a local audit trail, not external preregistration. Replacement responses are controlled diagnostics, not identified causal demand effects.}\label{fig:pipeline}
+\end{figure*}
 
 \section{Related Work and Scope}
 \subsection{Forecasting and network explanations}
@@ -43,21 +51,33 @@ Twelve institutions used in earlier development are excluded from this study's m
 \subsection{Chronology and observed sample}
 Source training targets occur in 2024. Hyperparameters use the eight validation institutions during January--March 2025. Final target endpoints lie in the UTC intervals [8 April, 1 July) in 2025 and 2026, with forecast origins at hours divisible by six. The source and target explanation origins are intersected per pair and year, then up to 16 evenly spaced eligible origins are chosen without observing errors or explanation scores. IG uses four evenly spaced origins from that selection.
 
+The selected hourly files contain 1,147,296 institution-hour grid slots, including 1,116,776 finite observed byte-volume values. These values span all selected file timestamps; they are not all used for training. Complete-history and period restrictions yield 227,478 overlapping source-training windows. Table~\ref{tab:units} distinguishes raw data volume, repeated computations, and the unit supporting transfer inference. Large row counts should not be interpreted as independent institutional replications.
+
+\begin{table}[t]\centering
+\caption{Data and computation units in the executed study. Overlapping windows, repeated seeds, references and operator queries do not increase the number of independent institutions.}\label{tab:units}
+\begin{tabular}{lr}\toprule
+Quantity & Count\\\midrule
+Selected institutions (source/validation/target)&32/8/8\\
+Observed institution-hour values (all periods)&1,116,776\\
+Eligible overlapping source-training windows&227,478\\
+Sampled neural windows per epoch&32,768\\
+Eligible target forecast origins (both years)&3,179\\
+Target institution-year forecast cells&15\\
+XAI histories per fitted model&480\\
+IG history subset per fitted model&120\\
+Complete institution pairs for primary inference&7\\\bottomrule
+\end{tabular}\end{table}
+
 The resulting selection contains 480 institution-origin cases per fitted model, rather than the planned maximum 512. Pair 2 (source 160, target 192) has no common eligible origins in 2026; its 2025 cases remain in descriptive outputs, while the two-year primary estimate uses seven complete pairs. Target forecasting has 15 available institution-year cells. In 2026, selected target institutions have only 50 or 129 eligible origins per available cell, versus 206 or 307 in 2025. These unequal counts arise from observed availability and the complete-history rule, not outcome-based pruning. Results describe eligible observations, not uninterrupted coverage of either calendar interval.
 
-\begin{figure}[t]\centering
-\begin{tikzpicture}[node distance=3mm, every node/.style={font=\footnotesize,align=center}, box/.style={draw,rounded corners=1pt,minimum width=7.8cm,minimum height=7mm},arr/.style={-{Latex[length=1.5mm]}}]
-\node[box] (a) {Official hourly traffic + native coverage audit};
-\node[box,below=of a] (b) {Frozen institutions: 32 source / 8 validation / 8 target};
-\node[box,below=of b] (c) {2024 fitting $\rightarrow$ unseen-institution validation};
-\node[box,below=of c] (d) {Frozen 2025/2026 forecasts + timestamp-matched histories};
-\node[box,below=of d] (e) {Two references $\rightarrow$ seven-group attribution + IG checks};
-\node[box,below=of e] (f) {Independent replacements $\rightarrow$ ranking score $Q$};
-\node[box,below=of f] (g) {Paired institution/block inference + exclusion reporting};
-\foreach \x/\y in {a/b,b/c,c/d,d/e,e/f,f/g}\draw[arr] (\x)--(\y);
-\end{tikzpicture}
-\caption{Executed pipeline. Target outcomes are opened only after the full protocol, code, membership, and analysis rules are hashed. Hashing is a local audit trail, not an external preregistration.}\label{fig:pipeline}
-\end{figure}
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_coverage_learning.pdf}
+\caption{Observed sample availability and original validation curves. (a) Eligible target forecast origins per institution/year; ``none'' is an absent eligible cell, not zero traffic. (b,c) Every neural seed/learning-rate training trace. Curve labels are seed and learning rate; checkpoint selection uses validation, not targets. The incomplete panel and overlapping histories limit inference despite the large number of raw observations.}\label{fig:coverage}
+\end{figure*}
+
+Figure~\ref{fig:coverage} makes the availability imbalance explicit. The 2026 target cells contain substantially fewer eligible origins than their 2025 counterparts; institution 192 has none in 2026. A complete-case contrast therefore applies to the retained eligible regimes, not necessarily to missing or interrupted traffic periods.
+
+
+
 
 \subsection{Predictors and fitting}
 Inputs are 168 hourly GB values transformed by $\log(1+x)$. Models predict endpoints $h\in\{1,6\}$ directly, not the six intermediate hours. The deployed output is
@@ -66,7 +86,7 @@ F_h(x)=\exp\!\left(\max\{0,z_h(\log(1+x))\}\right)-1.
 \end{equation}
 All attributions include this transformation, clipping, and any source-trained normalization. A ridge model fits separate horizon heads with $\alpha\in\{0.1,1,10,100\}$; validation selects $0.1$ for both. DLinear has a 25-hour moving-average decomposition and two linear 168-to-2 maps. The GRU uses one layer with 32 hidden units and a correction to the last log input. The implementation and initializations are included with the checkpoints.
 
-Neural training uses source-only scalar log-input mean and standard deviation, Adam, batch size 256, log-space MSE, gradient clipping at 1, and 1,024 sampled windows per source institution per epoch. A maximum of 30 epochs and patience five control stopping. Validation selects between learning rates $10^{-3}$ and $3\cdot10^{-4}$ using seed 42; seeds 123 and 2026 reuse the chosen setting. Selected rates are $3\cdot10^{-4}$ for DLinear and $10^{-3}$ for GRU. There are 227,478 eligible source windows and zero target institutions in gradient fitting. Training took approximately 318 seconds on a four-thread CPU run, excluding extraction and evaluation. Persistence, daily, and weekly seasonal forecasts supply additional baselines.
+Neural training uses source-only scalar log-input mean and standard deviation, Adam, batch size 256, log-space MSE, gradient clipping at 1, and 1,024 sampled windows per source institution per epoch. A maximum of 30 epochs and patience five control stopping. Validation selects between learning rates $10^{-3}$ and $3\cdot10^{-4}$ using seed 42; seeds 123 and 2026 reuse the chosen setting. Selected rates are $3\cdot10^{-4}$ for DLinear and $10^{-3}$ for GRU. There are 227,478 eligible source windows and zero target institutions in gradient fitting. The original training took approximately 318 seconds on a four-thread CPU run, excluding extraction and evaluation. A complete independent local notebook rerun took 324 seconds for training; the workload is detailed in Section~\ref{sec:runtime}. Persistence, daily, and weekly seasonal forecasts supply additional baselines.
 
 A secondary calibrated arm adds a per-institution, per-year, per-horizon median log residual from eligible 1--8 April observations. At least 24 examples are required; otherwise the offset is zero and flagged. Both source and target arms receive this treatment. This is bias calibration using local observations, not zero-shot transfer or neural fine-tuning. The frozen arm remains primary.
 
@@ -117,27 +137,35 @@ DLinear&0.471&0.682&0.503&0.812\\
 GRU&0.470&0.684&0.607&0.909\\\bottomrule
 \end{tabular}\end{table}
 
-Ridge, DLinear, and GRU are close at one hour. At six hours, Ridge and DLinear have lower descriptive MASE than GRU. These data do not support increasing model complexity solely for accuracy in this setup. Bias calibration changes one-hour MASE to 0.673, 0.676, and 0.683 for Ridge, DLinear, and GRU, respectively; their six-hour values become 0.818, 0.818, and 0.905. Calibration is not uniformly beneficial across horizons. We make no inferential claim about these small changes.
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_forecast.pdf}
+\caption{Frozen target forecasting. Bar heights are equal available institution-year macro MASE, after neural-seed averaging; black dots show the 15 underlying institution-year cells. Lower is better. The dispersion is descriptive; neither dots nor repeated training seeds are treated as independent network replications or model-ranking significance tests.}\label{fig:forecast}
+\end{figure*}
+
+Ridge, DLinear, and GRU are close at one hour. Figure~\ref{fig:forecast} shows that this similar average coexists with substantial institution-year heterogeneity. At six hours, Ridge and DLinear have lower descriptive MASE than GRU. These data do not support increasing model complexity solely for accuracy in this setup. Bias calibration changes one-hour MASE to 0.673, 0.676, and 0.683 for Ridge, DLinear, and GRU, respectively; their six-hour values become 0.818, 0.818, and 0.905. Calibration is not uniformly beneficial across horizons. We make no inferential claim about these small changes.
+
+\subsection{A concrete forecast and its temporal explanation}
+To show what the allocations mean, we use institution 132, pair 3, at its earliest selected 2025 origin (15 April, 00:00 UTC), under frozen GRU seed 42. This rule uses metadata, not error or attribution quality. The one-hour forecast is 0.322 GB versus an observed 0.00665 GB; at six hours, the forecast is 1.479 GB versus 0.184 GB. This example therefore illustrates an overestimated forecast, rather than assuming that a visually plausible explanation implies predictive success.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_local_case.pdf}
+\caption{Metadata-selected local example: institution 132, 15 April 2025, frozen GRU seed 42. Top: original history and the two attribution references. Bottom: signed one-hour daily credits for exact group Shapley and numerically accepted IG. D1 is oldest, D7 newest. Each panel explains a different prediction contrast; neither ranks future accuracy or identifies the cause of observed traffic.}\label{fig:local}
+\end{figure*}
+
+Both local IG contrasts meet the fixed numerical checks at 64 nodes. The source-calendar allocation places considerable positive credit on the oldest and most recent days, while the history-median contrast changes the allocation scale and pattern (Fig.~\ref{fig:local}). The exact game identity and accepted path integral do not imply that the forecast is accurate. This is a direct reason to report the accuracy, numerical and ranking branches separately.
 
 \subsection{Primary attribution transfer estimate}
 The primary comparison contains 369 paired origin/operator records before the complete-pair restriction. Seven pairs support both operators in both years. Their equally weighted mean source $Q$ is 0.7006 and target $Q$ is 0.6817, giving a target-minus-source contrast of $-0.0189$. The nominal 95\% interval is $[-0.0891,0.0533]$ from 1,853 valid bootstrap draws out of 2,000. This interval includes zero and changes of either sign. A lack of a detected decrease is not an equivalence or non-inferiority result: no equivalence margin was prespecified.
 
-\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{primary_complete_pairs.pdf}\caption{Primary setting, complete pairs only. Each point averages the two years equally within its operator. Pair 2 is excluded because it has no eligible 2026 counterpart. Operator-specific signs vary; these points are descriptive components, not separate hypothesis tests.}\label{fig:pairs}\end{figure}
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_primary_sensitivity.pdf}
+\caption{Primary setting. (a) Complete-pair operator components, with the two years weighted equally; pair 2 is excluded. (b) The frozen primary contrast and its nominal 95\% interval. (c) Post-hoc leave-one-pair-out point estimates; these are descriptive sensitivity checks, not seven extra hypothesis tests or confidence intervals.}\label{fig:pairs}
+\end{figure*}
 
-Figure~\ref{fig:pairs} illustrates why aggregation needs care. Pair 0 has an interpolation contrast of $+0.209$ but a rotation contrast near $+0.006$; pair 1 has $-0.224$ and $+0.110$, respectively. This is evidence of dependence on the selected controlled operator. It is not evidence that either operator reveals true institutional causes.
+Figure~\ref{fig:pairs} illustrates why aggregation needs care. Pair 0 has an interpolation contrast of $+0.209$ but a rotation contrast near $+0.006$; pair 1 has $-0.224$ and $+0.110$, respectively. This is evidence of dependence on the selected controlled operator. It is not evidence that either operator reveals true institutional causes. A post-hoc leave-one-pair-out diagnostic ranges from $-0.0399$ to $-0.0024$. All seven omitted-pair point estimates remain negative, but their movement relative to the small pooled contrast shows that the magnitude depends on a small panel. This diagnostic does not narrow the original interval, establish equivalence, or rescue an inconclusive primary finding.
 
 \subsection{Secondary reference sensitivity}
-\begin{table}[t]\centering\caption{Exploratory one-hour Shapley target-minus-source $Q$. Seven complete pairs; nominal 95\% intervals, unadjusted for multiple comparisons.}\label{tab:secondary}
-\begin{tabular}{llrrr}\toprule
-Model&Reference&Difference&Lower&Upper\\\midrule
-Ridge&Source calendar&$-0.035$&$-0.134$&0.062\\
-DLinear&Source calendar&$-0.032$&$-0.148$&0.094\\
-GRU&Source calendar&$-0.019$&$-0.089$&0.053\\
-Ridge&History median&$-0.084$&$-0.173$&$-0.013$\\
-DLinear&History median&$-0.104$&$-0.210$&$-0.015$\\
-GRU&History median&$-0.068$&$-0.146$&$-0.003$\\\bottomrule
-\end{tabular}\end{table}
-The source-calendar one-hour intervals include zero for all three models. Under the history-hour-median reference, the three nominal intervals fall below zero (Table~\ref{tab:secondary}). These are exploratory results, and the references explain distinct prediction contrasts. They do not justify replacing the primary hypothesis after observing results or declaring the median reference defective. Six-hour contrasts also vary: the GRU history-median estimate is positive ($+0.031$), with an interval spanning zero. The full twelve-cell table is supplied in the artifact.
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_secondary_forest.pdf}
+\caption{All twelve frozen Shapley secondary model/horizon/reference contrasts. Seven complete pairs; nominal paired bootstrap 95\% intervals with no multiplicity adjustment. Source-calendar GRU h1 is the prespecified primary setting; a stronger-looking alternate reference is not promoted after observing the targets.}\label{fig:secondary}
+\end{figure*}
+The source-calendar one-hour intervals include zero for all three models. Under the history-hour-median reference, the three nominal intervals fall below zero (Fig.~\ref{fig:secondary}). These are exploratory results, and the references explain distinct prediction contrasts. They do not justify replacing the primary hypothesis after observing results or declaring the median reference defective. Six-hour contrasts also vary: the GRU history-median estimate is positive ($+0.031$), with an interval spanning zero. The twelve-cell table is supplied in the artifact and visualized in Fig.~\ref{fig:secondary}.
 
 \subsection{Numerical audit and score availability}
 Exact Shapley efficiency residuals are at most $3.56\cdot10^{-15}$ GB. Independent enumeration of all permutations on sampled Ridge, DLinear, and GRU cases agrees with the subset formula. This confirms the implemented finite game arithmetic on the audited cases; it does not validate the scientific semantics of the reference.
@@ -150,7 +178,31 @@ GRU&1,440&1,365&75\\\midrule
 Total&3,360&3,150&210\\\bottomrule\end{tabular}\end{table}
 IG passes the fixed checks in 93.75\% of cases (Table~\ref{tab:ig}). Failures can occur even for log-space Ridge because the attributed GB function contains nonlinear transformations and a clipping boundary. We did not relax tolerances or increase the quadrature limit after evaluating targets. These failures establish numerical non-acceptance under this procedure, not theoretical invalidity of IG. Comparisons of IG rankings require common accepted cases; we avoid an all-case superiority claim from its smaller subset.
 
-Across non-IG methods, each has 53,760 operator-score records, of which 51,944 are defined. The 1,816 non-discriminating records per method have insufficient oracle--random separation. Of 6,720 IG operator records, 6,137 are scored after numerical and denominator screening. These records are repeated model/reference/horizon/operator evaluations, not independent samples. Final paired averages additionally require complete neural seeds and timestamp-matched source and target scores. Consequently, neither 168,000 total records nor 3,360 IG checks should be presented as the inferential sample size.
+Across non-IG methods, each has 53,760 operator-score records, of which 51,944 are defined. The 1,816 non-discriminating records per method have insufficient oracle--random separation. Of 6,720 IG operator records, 6,137 are scored after numerical and denominator screening. Figure~\ref{fig:ig} further disaggregates numerical acceptance by reference and horizon; pooled rejection alone hides these differences.
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{paper_ig_audit.pdf}
+\caption{Accepted IG numerical checks by model, reference and endpoint. Numerators and denominators include repeated neural seeds; they are numerical workloads, not independent subjects. ``Calendar'' and ``history'' denote the two attribution references.}\label{fig:ig}
+\end{figure}
+
+These records are repeated model/reference/horizon/operator evaluations, not independent samples. Final paired averages additionally require complete neural seeds and timestamp-matched source and target scores. Consequently, neither 168,000 total records nor 3,360 IG checks should be presented as the inferential sample size.
+
+\subsection{Common accepted cases: an exploratory comparison}
+A matched visualization compares Shapley and IG only where both have a defined $Q$ on the same history/reference/operator, and all three GRU seeds meet these requirements. For frozen GRU h1 with the source-calendar reference, this leaves 627 operator/seed records, or 209 history/operator units after seed averaging, across 29 available institution-year cells from the matched source and target institutions. We then average within institution-year for display.
+
+\begin{figure}[t]\centering\includegraphics[width=\columnwidth]{paper_common_cases.pdf}
+\caption{Exploratory common-case comparison of frozen GRU h1 source-calendar Shapley and IG. Each point is one available institution-year mean after requiring all three valid seeds and averaging only shared history/operator cases. The diagonal marks equal $Q$. Agreement on this screened subset does not establish universal superiority or explain rejected cases.}\label{fig:common}
+\end{figure}
+
+Most displayed means are close to the equality line (Fig.~\ref{fig:common}), although individual cells differ. This restricted subset is not interchangeable with the all-case primary endpoint: numerical acceptance and oracle-gap screening can change the population being summarized. No new inferential superiority claim is made from the plot.
+
+\subsection{Computational scale and full rerun}\label{sec:runtime}
+A full notebook reproduction on an Apple M5 laptop with 16 GB RAM and four CPU threads completed in 529.5 seconds. Training consumed 324.3 seconds, forecast evaluation 9.7 seconds, attribution evaluation 184.7 seconds, and the remaining 10.8 seconds covered notebook diagnostics, analysis and overhead. These figures describe this implementation on this machine, not a hardware benchmark or a projected cloud runtime.
+
+The short runtime has concrete causes. DLinear has 676 trainable parameters and GRU 3,426; Ridge has 338 fitted coefficients/intercepts across its two heads. Each neural epoch samples 32,768 windows, rather than making a full pass through all 227,478 eligible source windows. Across eight seed/learning-rate training fits, 201 executed epochs produce 6,586,368 sampled window exposures, including repetitions. This is computational exposure, not 6.59 million independent observations.
+
+Attribution is also deliberately coarse and sampled: seven day groups require only 128 coalition evaluations per game, and the 5,040 ordering utilities are looked up from cached coalition responses. They are not 5,040 independent neural forward passes per explanation. The full attribution audit uses 480 histories per fitted model, with IG restricted to 120. Thus a fast run is compatible with complete execution of this specified benchmark; it does not establish that a broader benchmark has been exhausted.
+
+Every code cell in the full-run notebook completed without error. All six neural parameter state dictionaries reproduced exactly; binary checkpoint hashes differ because metadata includes newly measured training runtimes. The primary point, interval and valid-draw count reproduced exactly. A separate audit rechecked data/code hashes, all saved forecast metrics, representative checkpoint and attribution queries, and the primary point. Reproduction strengthens confidence in implementation consistency; it does not provide new independent institutions or an untouched test set.
 
 \section{Discussion and Limitations}
 The results support a qualified operational interpretation. Similar average forecast errors do not certify stable attribution rankings across institutions. At the same time, the primary experiment does not demonstrate a systematic transfer penalty. Reference sensitivity and numerical exclusions show why a single saliency visualization or pooled score can be misleading, while the paired analysis prevents the much larger number of queries from becoming a fictitious sample size.
@@ -163,6 +215,11 @@ Third, the two replacements are controlled stress tests rather than validated dr
 
 Fourth, the model and explainer families are intentionally limited. We have not benchmarked foundation forecasters, specialized temporal explainers, or latent concept methods such as TimeSAE. Seven daily groups sacrifice intra-day detail. IG uses a finite quadrature budget and a smaller fixed origin subset. The exploratory intervals are not multiplicity-corrected. No alternative setting with a stronger result is promoted to the main endpoint.
 
+Finally, the sample budget itself is a substantive limitation. Only 16 shared origins per available pair-year enter the full attribution audit, and four enter IG. The source histories are highly overlapping; many observed rows and repeated queries cannot compensate for only seven complete pairs. Invalid bootstrap draws are omitted under the frozen rule, so the reported percentile interval is conditional on producing complete operator cells. Its finite-sample coverage is not guaranteed. The post-hoc leave-one-pair-out and common-case plots make sensitivity visible but do not solve these limitations.
+
+A separately specified cohort of previously unevaluated institutions could increase deployment replication within CESNET, while still leaving the single-ISP limitation. The most useful external evidence would be an independently collected network or a newly reserved evaluation period, followed by a prespecified explanation-budget/grouping sensitivity study, a validated conditional replacement mechanism, and specialized temporal-explainer baselines. Expanding a sampling budget on already-opened targets can be a labeled exploratory diagnostic, but should not replace the original primary estimate or be advertised as a new confirmatory holdout. The current study is a reproducible bounded empirical audit, not a completed demonstration of cross-network reliability.
+
+
 \section{Reproducibility and Conclusion}
 The accompanying artifact includes the frozen protocol, analysis clarifications, membership and matching tables, source and derived data hashes, 48 selected hourly series, model checkpoints, predictions, attribution allocations, numerical failure records, and analysis scripts. The pre-fit and pre-evaluation manifests remain immutable; their historical ``unscored'' fields describe the moment of freezing. A separate completion and validation record marks outcomes as scored. This is an auditable local sequence, not a public preregistration. The original dataset remains attributable to its creators under CC BY 4.0.
 
@@ -170,24 +227,7 @@ Final checks verify data/model hashes, recompute all forecast metrics, re-query 
 
 We find no conclusive systematic reduction in the prespecified attribution ranking score when transferring the frozen one-hour GRU to unseen institutions. Exploratory reference-dependent differences and a 6.25\% IG numerical rejection rate motivate explicit contrast definitions, controlled-operator reporting, and exclusion audits. The contribution is an executed reliability benchmark with bounded conclusions.
 
-\begin{thebibliography}{99}
-\bibitem{transmuse} L. Xu et al., ``TransMUSE: Transferable traffic prediction in multi-service edge networks,'' \emph{Computer Networks}, vol. 221, art. 109518, 2023, doi:10.1016/j.comnet.2022.109518.
-\bibitem{aichrono} P. Fern\'andez et al., ``AIChronoLens: AI/ML explainability for time series forecasting in mobile networks,'' \emph{IEEE Trans. Mobile Computing}, 2025, doi:10.1109/TMC.2025.3554035.
-\bibitem{timesae} K. Oublal, Q. Bouniot, Q. Gan, S. Cl\'emen\c{c}on, and Z. Akata, ``TimeSAE: Causal sparse decoding for faithful explanations of black-box time series models,'' ICML, 2026, arXiv:2601.09776v2.
-\bibitem{cesnet26} J. Koumar, K. Hynek, K. Je\v{r}\'abek, and P. \v{S}i\v{s}ka, ``CESNET-TimeSeries26: A multi-year network traffic time series dataset for annual seasonality, concept drift, and long-term anomaly detection,'' arXiv:2610.14799, 2026.
-\bibitem{dataset} J. Koumar, K. Hynek, K. Je\v{r}\'abek, and P. \v{S}i\v{s}ka, ``CESNET-TimeSeries26,'' Zenodo, 2026, doi:10.5281/zenodo.21945629. CC BY 4.0.
-\bibitem{dlinear} A. Zeng, M. Chen, L. Zhang, and Q. Xu, ``Are transformers effective for time series forecasting?'' \emph{AAAI}, vol. 37, no. 9, pp. 11121--11128, 2023.
-\bibitem{gru} K. Cho et al., ``Learning phrase representations using RNN encoder--decoder for statistical machine translation,'' \emph{EMNLP}, 2014, arXiv:1406.1078.
-\bibitem{comparison} J. Koumar, T. Smole\v{n}, K. Je\v{r}\'abek, and T. \v{C}ejka, ``Comparative analysis of deep learning models for real-world ISP network traffic forecasting,'' arXiv:2503.17410, 2025.
-\bibitem{aggregated} A. Knapi\'nska and K. Walkowiak, ``Explaining aggregated network traffic predictors,'' \emph{IFIP Networking}, 2025. \url{https://opendl.ifip-tc6.org/db/conf/networking/networking2025/1571141805.pdf}.
-\bibitem{deexp} S. Moghadas Gholian et al., ``DeExp: Revealing model vulnerabilities for spatio-temporal mobile traffic forecasting with explainable AI,'' \emph{IEEE Trans. Mobile Computing}, 2025. \url{https://hdl.handle.net/20.500.12761/1889}.
-\bibitem{ig} M. Sundararajan, A. Taly, and Q. Yan, ``Axiomatic attribution for deep networks,'' \emph{ICML}, PMLR 70, pp. 3319--3328, 2017.
-\bibitem{shap} S. M. Lundberg and S.-I. Lee, ``A unified approach to interpreting model predictions,'' \emph{NeurIPS}, vol. 30, 2017.
-\bibitem{manyshap} M. Sundararajan and A. Najmi, ``The many Shapley values for model explanation,'' \emph{ICML}, PMLR 119, pp. 9269--9278, 2020.
-\bibitem{baselines} P. Sturmfels, S. Lundberg, and S.-I. Lee, ``Visualizing the impact of feature attribution baselines,'' \emph{Distill}, 2020, doi:10.23915/distill.00022.
-\bibitem{sanity} J. Adebayo et al., ``Sanity checks for saliency maps,'' \emph{NeurIPS}, vol. 31, 2018.
-\bibitem{perturb} J. Enguehard, ``Learning perturbations to explain time series predictions,'' \emph{ICML}, PMLR 202, pp. 9329--9342, 2023.
-\bibitem{interprettime} H. Turb\'e et al., ``Evaluation of post-hoc interpretability methods in time-series classification,'' \emph{Nature Machine Intelligence}, 2023, doi:10.1038/s42256-023-00620-w.
-\bibitem{timing} H. Jang, C. Kim, and E. Yang, ``TIMING: Temporality-aware integrated gradients for time series explanation,'' \emph{ICML}, PMLR 267, pp. 26877--26895, 2025.
-\end{thebibliography}
+\IEEEtriggeratref{7}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 \end{document}

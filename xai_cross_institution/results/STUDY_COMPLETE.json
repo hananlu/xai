@@ -15,7 +15,7 @@
   "ig_cases": 3360,
   "ig_failed": 210,
   "scientific_audit": "pass",
-  "paper_pages": 5,
+  "paper_pages": 9,
   "paper_references": 18,
   "presentation": {
     "slides": 12,
@@ -29,5 +29,8 @@
     "author names and affiliations"
   ],
   "external_network_replication": false,
-  "native_powerpoint_save_reopen_test": false
+  "native_powerpoint_save_reopen_test": false,
+  "paper_figures": 8,
+  "paper_revision_date": "2026-11-06",
+  "paper_primary_analysis_unchanged": true
 }

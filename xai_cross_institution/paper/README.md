@@ -1,14 +1,20 @@
 # Paper source
 
-- `paper.tex`: source matching the delivered five-page PDF. It currently uses an explicit `thebibliography` section so the submitted draft is directly reproducible with two pdflatex passes.
-- `references.bib`: all 18 cited works as reusable BibTeX entries, with the same citation keys as paper.tex. Where final volume/pages were not verified, they are not invented.
-- `paper.pdf`: anonymous draft; no submission has occurred.
+- `paper.tex`: expanded empirical manuscript, revised 6 November 2026. It uses IEEEtran and the reusable BibTeX database below.
+- `references.bib`: all 18 cited works, using the manuscript's citation keys. Unverified final volume/page details are not invented.
+- `pipeline_overall.tex`: editable TikZ source for the complete pipeline, included by the manuscript.
+- `paper.pdf`: rendered anonymous working draft; target conference, authors and final page limit remain to be set.
+- `archive_2026-11-05/`: earlier five-page PDF/TeX retained for comparison. Its explicit bibliography matches that archived draft.
 
-To switch to BibTeX for a venue template, replace the thebibliography block with:
+From this paper directory run:
 
-```tex
-\bibliographystyle{IEEEtran}
-\bibliography{references}
+```sh
+pdflatex paper.tex
+bibtex paper
+pdflatex paper.tex
+pdflatex paper.tex
 ```
 
-Then run pdflatex, bibtex, and pdflatex twice. Venue templates can change page counts. Figures are under `../figures/`. The technical content and primary study remain unchanged by providing this bibliography source.
+Dependencies: IEEEtran, TikZ, placeins, and standard AMS/graphics/hyperref packages. Scientific vector figures are under `../figures/`; regenerate the revised assets with `python src/build_paper_revision.py` from the project root. Exact reporting numbers and source timings are in `results/PAPER_REVISION_FACTS.json` and `results/FULL_RUN_TIMINGS.json`.
+
+The revision clarifies sampling, operator semantics, numerical exclusions and the measured full rerun. New leave-one-pair-out/common-case visualizations are descriptive and post-hoc; the frozen primary experiment is unchanged. See `../PAPER_REVISION_NOTES.md`. No submission has occurred.

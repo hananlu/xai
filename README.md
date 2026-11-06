@@ -12,8 +12,8 @@ Start with [the full experimental notebook](xai_cross_institution/XAI_Complete_E
 |---|---|
 | [Full experiment notebook](xai_cross_institution/XAI_Complete_Experiment.ipynb) | 95 cells, 58 code cells, 22 plots; inline EDA, preprocessing, models, training loops, forecasting, Shapley/IG/occlusion, agreement, stability, latency and paired inference. Light default mode is executed. |
 | [Full local run notebook](xai_cross_institution/XAI_Full_Local_Run.ipynb) | Local full-training and batch-evaluation run; execution record and fresh-run snapshot are in `runs/2026-11-06/`. |
-| [Paper PDF](xai_cross_institution/paper/paper.pdf) | Anonymous English research draft. |
-| [LaTeX](xai_cross_institution/paper/paper.tex) / [BibTeX](xai_cross_institution/paper/references.bib) | Editable paper and all 18 cited bibliography entries; see paper README for BibTeX conversion. |
+| [Paper PDF](xai_cross_institution/paper/paper.pdf) | Expanded anonymous English working draft: 9 pages, 8 figures, overall TikZ pipeline and 18 references. |
+| [LaTeX](xai_cross_institution/paper/paper.tex) / [BibTeX](xai_cross_institution/paper/references.bib) | Editable paper, complete TikZ pipeline, and all 18 cited bibliography entries; the manuscript builds directly from BibTeX. |
 | [Editable slides](xai_cross_institution/presentation/XAI_Research_Results_v2.pptx) | Opening, gap/goal, pipeline, findings and limitations. |
 | [Source](xai_cross_institution/src/) | Frozen core training/evaluation/analysis code and independent audits. |
 | [Data](xai_cross_institution/data/) / [models](xai_cross_institution/models/) | 48 selected hourly institutional series, provenance hashes and trained checkpoints. |

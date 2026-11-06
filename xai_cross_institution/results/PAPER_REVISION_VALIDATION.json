@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "revision_date": "2026-11-06",
+  "paper_pages": 9,
+  "figures": 8,
+  "bibliography_entries": 18,
+  "bibliography_keys_match": true,
+  "undefined_references": false,
+  "overfull_boxes": false,
+  "all_pages_rendered_and_visually_inspected": true,
+  "primary_result_bytes_unchanged": true,
+  "frozen_code_and_protocol_hashes_preserved": true,
+  "new_data_fitting": false,
+  "new_inferential_primary": false,
+  "new_reporting_diagnostics": "post-hoc/descriptive, clearly labeled",
+  "pdf_sha256": "7e979ea4ef0defeeb098f4bd78e566d87630666f8fb9b6616e0ece2cb4581e97",
+  "reporting_source_sha256": "62a840b8d8bd4bb063cd508b0bd7b817a9f45febd33fa485bc37794fe41eee84"
+}

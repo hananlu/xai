@@ -57,3 +57,7 @@ Historical pilot results are identified separately from the full 48-institution 
 Main data: **CESNET-TimeSeries26**, Josef Koumar, Karel Hynek, Kamil Jeřábek, Pavel Šiška (2026), [Zenodo DOI 10.5281/zenodo.21945629](https://doi.org/10.5281/zenodo.21945629), CC BY 4.0. See [data attribution and modifications](xai_cross_institution/DATA_ATTRIBUTION.md). Earlier recovered capture references have their own upstream provenance; a blanket license for those files is not asserted here.
 
 All selected institutions belong to one ISP. Q measures controlled-operator ranking alignment, not causal demand truth. Missingness, finite numerical budgets, the small number of effective pairs and limited explainer/model families constrain the conclusions. Author information and venue formatting remain to be finalized.
+
+## Remaining submission work
+
+The [readiness review](xai_cross_institution/SUBMISSION_READINESS_REVIEW.md) prioritizes an existing-output common-case comparison across explainers, a parameter-randomization control, and a sharper closest-work comparison. External-network evidence and realistic traffic replacements remain scope limits. The reference page now contains no figures; the main manuscript remains seven pages including references. No new experiment or stronger claim is asserted in this review.

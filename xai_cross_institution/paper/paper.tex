@@ -1,6 +1,7 @@
 \documentclass[conference]{IEEEtran}
 \usepackage{amsmath,amssymb,booktabs,graphicx,url}
 \usepackage[hidelinks]{hyperref}
+\usepackage{placeins}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
 \graphicspath{{../figures/}}
@@ -80,6 +81,12 @@ We check $\sum_j\phi_j=F(x)-F(r)$ in double precision. Occlusion ranks the absol
 
 IG integrates raw-GB gradients along the straight reference-to-input path~\cite{ig}, using 32, 64, 128, 256 and at most 512 Gauss--Legendre nodes. Acceptance requires both completeness error and successive L1 refinement change below $10^{-8}$ GB plus $10^{-3}$ times the absolute prediction contrast or L1 attribution, respectively. Rejected cases remain recorded and receive no IG ranking score. Numerical acceptance does not establish on-manifold paths, correct demand causes or useful rankings.
 
+Figure~\ref{fig:local} illustrates the two attribution contrasts; Section~V evaluates the forecast and numerical outcome separately.
+
+\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_local_case.pdf}
+\caption{Metadata-selected original-cohort example: institution 132, 15 April 2025, frozen GRU seed 42. Top: history and references. Bottom: signed h1 daily Shapley/accepted-IG allocations, oldest day first. Numerical acceptance and exact allocation do not imply forecast success or causal demand attribution.}\label{fig:local}
+\end{figure*}
+
 \subsection{Controlled ranking-response game}
 Two replacement templates are distinct from attribution references: within-day straight-line interpolation between observed endpoints, and cyclic one-day rotation of the observed week. They suppress variation or exchange day blocks without future labels, but need not be natural traffic draws. Their log-input RMS displacement is retained.
 
@@ -147,9 +154,7 @@ In the original study, 51,944/53,760 operator-score records are defined for each
 
 A concrete example separates numerical validity from accuracy (Fig.~\ref{fig:local}): institution 132 at its earliest selected 2025 origin, 15 April 00:00 UTC, frozen GRU seed 42. This metadata-based rule does not choose forecast success. Predicted h1 is 0.322 GB versus observed 0.00665 GB; h6 is 1.479 versus 0.184 GB. Both reference-specific local IG allocations pass at 64 nodes, yet the forecast is overestimated. The attribution pattern changes with reference because the prediction contrast changes.
 
-\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{paper_local_case.pdf}
-\caption{Metadata-selected original-cohort example. Top: history and references. Bottom: signed h1 daily Shapley/accepted-IG allocations, oldest day first. Numerical acceptance and exact allocation do not imply forecast success or causal demand attribution.}\label{fig:local}
-\end{figure*}
+
 
 \section{Discussion, Reproducibility and Limitations}
 The expanded evidence supports a bounded conclusion: the fixed primary test does not detect systematic transfer degradation, while neither a zero-containing interval nor more queries proves equivalence or reliability for excluded regimes. Reference choice, numerical screening and oracle-gap availability change what is summarized. The original reference-specific secondary pattern does not recur in the larger cohort; selecting it as the headline would misrepresent the full evidence.
@@ -165,7 +170,8 @@ On a four-thread Apple M5 CPU, the original full rerun takes 529.5 seconds, incl
 \section{Conclusion}
 An institution-disjoint forecasting benchmark benefits from separate accuracy, numerical and ranking evidence. Across an original target cohort and a separately frozen larger cohort, primary intervals do not establish degradation or equivalence. Undefined ranking games and low-volume forecast failures constrain the apparent informative-case result. The conference contribution is a reproducible empirical attribution-reliability audit with explicit references, controlled operators, effective denominators and bounded within-network conclusions.
 
-\IEEEtriggeratref{15}
+\FloatBarrier
+\IEEEtriggeratref{7}
 \bibliographystyle{IEEEtran}
 \begingroup
 \interlinepenalty=10000

@@ -74,3 +74,7 @@ Paper rebuild from the `paper` directory: `pdflatex paper.tex` twice (IEEEtran a
 - All institutions belong to one ISP. Missingness, model choice, seven day groups and finite numerical budget limit generalization.
 
 No paper has been submitted or externally published. Author names, affiliations, target venue and its disclosure/format requirements still need to be finalized by the authors.
+
+## Submission readiness and layout
+
+The current seven-page main paper keeps all figures before the reference page. See [readiness review](SUBMISSION_READINESS_REVIEW.md) for the remaining evidence/reporting priorities: a common-case explainer comparison using existing outputs, an additional parameter-randomization sanity control, clearer closest-work differentiation, and scope limits for one ISP and controlled replacements. No additional experiment is claimed by the review.

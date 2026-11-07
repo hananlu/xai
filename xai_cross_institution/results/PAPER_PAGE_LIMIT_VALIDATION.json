@@ -1,5 +1,9 @@
 {
   "status": "pass",
+  "reference_pages": [
+    7
+  ],
+  "no_figures_on_reference_pages": true,
   "maximum_main_pages_including_references": 8,
   "main_pages": 7,
   "main_figures": 6,
@@ -8,7 +12,7 @@
   "supplementary_pages": 4,
   "supplementary_figures": 6,
   "supplementary_tables": 2,
-  "main_pdf_sha256": "882fd0b6b8f3e43f342ae5628c54e6205340277f49724259e03e07851cd72552",
+  "main_pdf_sha256": "d2c453ad4ed4f9a3787654acbba69daad62ff1e5e7a1e5e1582b6debcabf379f",
   "supplementary_pdf_sha256": "14a4803b14806b37424847351c1500b5c67203ae98ddb0f13e7f88eb38ecb0c2",
   "all_pages_rendered_and_visually_inspected": true,
   "standard_ieee_font_and_margins": true,

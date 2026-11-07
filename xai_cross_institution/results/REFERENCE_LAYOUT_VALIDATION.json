@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "reference_pages": [
+    7
+  ],
+  "figure_caption_pages": [
+    2,
+    4,
+    5,
+    6
+  ],
+  "no_figures_on_reference_pages": true,
+  "local_case_moved_before_primary_results": true,
+  "main_pages": 7,
+  "all_final_pages_visually_inspected": true,
+  "pdf_sha256": "d2c453ad4ed4f9a3787654acbba69daad62ff1e5e7a1e5e1582b6debcabf379f",
+  "scientific_results_unchanged": true
+}

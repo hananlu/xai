@@ -9,3 +9,7 @@ The full prior 12-page draft and its editable source are preserved under paper/a
 No experiment, model, metric, primary endpoint or scientific freeze changes. The forecast table's rounded values were checked against saved outputs; all 100 new-cohort frozen input hashes remain unchanged. Every final PDF page was rendered and visually inspected, with no unresolved references or overfull boxes.
 
 Build main from paper/: pdflatex paper; bibtex paper; pdflatex paper; pdflatex paper. Build supplementary: pdflatex supplementary twice. The supplementary source generator tools/build_supplementary.py reads the archived expanded source; tools/validate_paper_page_limit.py enforces the eight-page ceiling and verifies retained results.
+
+## Reference-page layout correction
+
+The local attribution figure now appears earlier in the manuscript. A float barrier before the bibliography prevents queued two-column figures from drifting into the references. The paper remains seven pages; all six figures occur before the reference page. Results and frozen scientific inputs are unchanged. See results/REFERENCE_LAYOUT_VALIDATION.json.

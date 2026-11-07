@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "scope": "presentation only; no new experiments",
+  "main_pdf_sha256": "18e11c0e819a4117adc3bf31b0f7c6d5bdd0ca1f906a7136a75fa34f88150095",
+  "main_pages": 8,
+  "main_figures": 6,
+  "main_tables": 3,
+  "cited_references": 18,
+  "reference_page": 8,
+  "all_eight_pages_rendered_and_visually_reviewed": true,
+  "final_label_only_change_other_pages_pixel_identical": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "forecast_table_checked_against_saved_metrics": true,
+  "common_case_values_and_counts_unchanged": true,
+  "rounded_q_checked_against_saved_macro": true,
+  "conference_checks_7_frozen_files_unchanged": true,
+  "original_replication_100_frozen_files_unchanged": true,
+  "overfull_boxes": false,
+  "undefined_references": false,
+  "standard_ieee_font_and_margins": true,
+  "pipeline_source": "paper/pipeline_overall.tex",
+  "supplementary_unchanged": true,
+  "presentation_unchanged": true
+}

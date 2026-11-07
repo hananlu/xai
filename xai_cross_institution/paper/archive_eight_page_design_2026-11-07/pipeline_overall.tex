@@ -1,0 +1,57 @@
+% Editable, monochrome workflow. Orthogonal connectors; results stay in Results.
+\begin{tikzpicture}[
+  x=1cm,y=1cm,font=\small,
+  block/.style={draw=black!65,line width=.45pt,align=left,inner sep=6pt},
+  wide/.style={block,text width=16.1cm},
+  col/.style={block,text width=4.75cm,minimum height=1.35cm},
+  flow/.style={-{Latex[length=1.7mm,width=1.1mm]},line width=.5pt},
+  stage/.style={font=\small\bfseries,anchor=west}
+]
+\node[wide,minimum height=.85cm] (data) at (0,0)
+{\textbf{Observed traffic}\quad CESNET-TimeSeries26: hourly bytes $\rightarrow$ GB\\
+Complete 168-hour histories and observed endpoints; coverage audit; no imputation.};
+
+\node[col] (source) at (-5.65,-1.65)
+{\textbf{Source fitting}\\32 institutions; 2024\\Normalization; calendar reference};
+\node[col] (val) at (0,-1.65)
+{\textbf{Validation}\\8 institutions; Jan--Mar 2025\\Select hyperparameters and epochs};
+\node[col] (target) at (5.65,-1.65)
+{\textbf{Target selection and matching}\\8 original; 32 additional targets\\2024 descriptors; no target fitting};
+\draw[flow] (data.south) -- (0,-.78) -| (source.north);
+\draw[flow] (0,-.78) -- (val.north);
+\draw[flow] (0,-.78) -| (target.north);
+
+\node[block,text width=7.55cm,minimum height=1.2cm] (lock) at (-4.275,-3.55)
+{\textbf{Lock predictors and preprocessing}\\Ridge, DLinear, GRU; three neural seeds\\Reuse the same source checkpoints for both cohorts};
+\node[block,text width=7.55cm,minimum height=1.2cm] (cases) at (4.275,-3.55)
+{\textbf{Build matched evaluation cases}\\Shared source/target origins; Apr--Jun 2025 and 2026\\Freeze extension before its scoring; original result known};
+\draw[flow] (source.south) -- (source.south |- 0,-2.52) -| (lock.north);
+\draw[flow] (val.south) -- (0,-2.52) -| (lock.north);
+\draw[flow] (target.south) -- (target.south |- 0,-2.52) -| (cases.north);
+
+\node[wide,minimum height=.95cm] (deploy) at (0,-5.25)
+{\textbf{Deploy at $h=1$ and $h=6$ hours}\quad log inputs $\rightarrow$ locked predictor $\rightarrow$ clipped GB output\\Frozen arm defines the primary analysis; local residual calibration is secondary.};
+\draw[flow] (lock.south) -- (deploy.north -| lock.south);
+\draw[flow] (cases.south) -- (deploy.north -| cases.south);
+
+\node[col,minimum height=1.9cm] (accuracy) at (-5.65,-7.4)
+{\textbf{Forecast accuracy}\\Compare with observed endpoints\\MAE / RMSE in GB; MASE\\Retain low-volume scale effects};
+\node[col,minimum height=1.9cm] (attr) at (0,-7.4)
+{\textbf{Temporal allocations}\\7 daily groups; 2 references\\Exact Shapley; IG; occlusion\\Recency; numerical checks};
+\node[col,minimum height=1.9cm] (response) at (5.65,-7.4)
+{\textbf{Ranking alignment}\\Interpolation and day rotation\\Enumerate replacement responses\\Score $Q$; retain undefined cases};
+\draw[flow] (deploy.south) -- (0,-6.05) -| (accuracy.north);
+\draw[flow] (0,-6.05) -- (attr.north);
+\draw[flow] (0,-6.05) -| (response.north);
+\draw[flow] (attr.east) -- (response.west);
+
+\node[wide,minimum height=1.05cm] (report) at (0,-9.55)
+{\textbf{Report cohorts separately}\quad effective sample sizes, exclusions and forecast distributions\\Primary: frozen GRU / h1 / source-calendar Shapley, paired $\Delta Q=Q_{\rm target}-Q_{\rm source}$.\\Average matched year/operator cells and complete pairs; pair + calendar-block uncertainty.};
+\draw[flow] (accuracy.south) -- (report.north -| accuracy.south);
+\draw[flow] (attr.south) -- (report.north);
+\draw[flow] (response.south) -- (report.north -| response.south);
+
+\node[wide,dashed,minimum height=.9cm] (checks) at (0,-11.3)
+{\textbf{Additional checks}\quad denser timestamps and uncertainty sensitivities (extension plan);\\\textbf{post-hoc:} common-case explainer comparison; learned-head then GRU parameter resets.};
+\draw[flow] (report.south) -- (checks.north);
+\end{tikzpicture}

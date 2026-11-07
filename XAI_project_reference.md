@@ -1,3 +1,7 @@
+Status 8 November 2026: main paper menjadi **7 halaman termasuk seluruh referensi**, pipeline diperkecil, 6 figures/3 tabel/18 referensi tetap ada. Semua angka hasil tetap; supplementary 6 halaman dan deck tidak berubah. Versi 8 halaman diarsipkan.
+
+---
+
 # Status terbaru: versi konferensi dengan dua tambahan terfokus
 
 7 November 2026. Perbandingan explainer pada common cases dan kontrol learned-layer randomization sudah dijalankan serta diaudit. Main paper **8 halaman termasuk referensi**, 6 figures/3 tabel/18 referensi; supplementary 6 halaman terpisah, 7 figures/2 tabel. Semua grafik sebelum halaman referensi. Notebook terbaru 62 cells/37 code cells/8 plot tanpa error; PPT editable 19 slide. Hasil primer dan seluruh scientific freeze awal tetap utuh. Tambahan diberi label post-hoc dan dibatasi pada kasus comparable; tidak menambahkan klaim kausal atau generalisasi lintas ISP.

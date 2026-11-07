@@ -1,0 +1,1 @@
+Archived eight-page manuscript and source from commit 7362192634b5fb0a26e79765abe47adbb2cbf46e. The current main paper is seven pages including references. This historical source snapshot uses the canonical project figures; it is not a standalone build directory.

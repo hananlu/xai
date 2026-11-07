@@ -1,6 +1,6 @@
 {
   "status": "pass",
-  "main_pages": 8,
+  "main_pages": 7,
   "main_figures": 6,
   "main_tables": 3,
   "cited_references": 18,
@@ -8,16 +8,17 @@
   "supplementary_figures": 7,
   "supplementary_tables": 2,
   "reference_pages": [
-    8
+    7
   ],
   "no_figures_on_reference_pages": true,
   "all_pages_rendered_and_visually_inspected": true,
   "rounded_common_case_table_verified": true,
-  "main_pdf_sha256": "18e11c0e819a4117adc3bf31b0f7c6d5bdd0ca1f906a7136a75fa34f88150095",
+  "main_pdf_sha256": "107f34b8823aa6d7f62548c39f2bdc0a1d911aa95a362412a0346f71813fd351",
   "supplementary_pdf_sha256": "2cd81f3fe3009ae77771a8200f742f5eaf55fc51c27984fc585bd56ffd1b1e7a",
   "primary_estimands_unchanged": true,
   "post_hoc_additions_clearly_labeled": true,
   "independent_control_audits_pass": true,
   "previous_visual_revision_pdf_sha256": "be118191798c54f7906a2bd7c7d6f45bcd1acdfff0133ce8ba03a6acbab51c85",
-  "visual_revision": "Monochrome orthogonal pipeline and three regrouped booktabs tables"
+  "visual_revision": "Compact pipeline, condensed repeated narrative, seven pages including references",
+  "previous_eight_page_pdf_sha256": "18e11c0e819a4117adc3bf31b0f7c6d5bdd0ca1f906a7136a75fa34f88150095"
 }

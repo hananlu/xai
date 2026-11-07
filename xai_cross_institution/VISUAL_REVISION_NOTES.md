@@ -1,3 +1,7 @@
+Current version: **seven pages including references**, with a smaller pipeline and unchanged result tables. See [seven-page revision notes](SEVEN_PAGE_REVISION_NOTES.md). The description below is prior revision history.
+
+---
+
 # Paper visual revision — 7 November 2026
 
 The main paper remains eight pages including references, six figures, three tables and 18 citations. This revision changes presentation only.

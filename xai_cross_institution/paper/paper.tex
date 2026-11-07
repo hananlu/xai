@@ -2,6 +2,7 @@
 \usepackage{amsmath,amssymb,booktabs,graphicx,url}
 \usepackage[hidelinks]{hyperref}
 \usepackage{placeins}
+\setcounter{dbltopnumber}{3}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
 \graphicspath{{../figures/}}
@@ -9,20 +10,20 @@
 \author{\IEEEauthorblockN{Anonymous research draft}\IEEEauthorblockA{Conference draft; authors and venue to be finalized}}
 \begin{document}\raggedbottom\maketitle
 \begin{abstract}
-Forecast accuracy does not establish that temporal explanations remain useful at unseen institutions. We audit this distinction on CESNET-TimeSeries26 using 32 source institutions, eight validation institutions and two target cohorts: eight original targets and 32 subsequently reserved targets. The latter cohort reuses the locked source models, yielding 80 unique institutions within one ISP. Ridge, DLinear and GRU predict one- and six-hour endpoints from one week of history. We separate forecast error, numerical attribution checks and ranking alignment under controlled history replacements. The original primary target-minus-source Shapley contrast for frozen one-hour GRU is $-0.0189$, nominal 95\% interval $[-0.0891,0.0533]$, across seven complete pairs. The new-cohort contrast is $-0.0075$, interval $[-0.0402,0.0241]$, across 30 pairs; a prespecified denser timestamp budget also spans zero. Neither establishes degradation or equivalence. Original reference-specific secondary intervals below zero do not recur in the new cohort. Extreme relative forecast errors on nearly constant traffic and undefined ranking games further limit complete-case inference. Common-case comparisons expose similar Shapley/occlusion alignment, while a post-hoc learned-layer control shows conditional parameter sensitivity. The contribution is an empirical reliability audit with explicit references, controls and effective denominators.
+Forecast accuracy does not establish explanation reliability at unseen institutions. We audit CESNET-TimeSeries26 using 32 source and eight validation institutions, eight original targets and 32 subsequently reserved targets: 80 unique institutions within one ISP. Both cohorts reuse locked Ridge, DLinear and GRU predictors of one- and six-hour endpoints from weekly histories. We separate forecast error, attribution numerics and ranking alignment under controlled history replacements. The primary frozen one-hour GRU target-minus-source Shapley contrast is $-0.0189$, nominal 95\% interval $[-0.0891,0.0533]$, across seven original pairs; the additional cohort gives $-0.0075$, interval $[-0.0402,0.0241]$, across 30 pairs. A prespecified denser timestamp budget also spans zero. Neither establishes degradation or equivalence; original reference-specific secondary intervals below zero do not recur. Nearly constant traffic produces extreme relative forecast errors, while undefined ranking games limit complete-case inference. Post-hoc common-case comparisons show similar Shapley/occlusion alignment; learned-layer resets show conditional parameter sensitivity. The contribution is an empirical reliability audit with explicit references, controls and effective denominators.
 \end{abstract}
 \begin{IEEEkeywords}network traffic forecasting, explainability, institution transfer, temporal attribution, evaluation\end{IEEEkeywords}
 
 \section{Introduction}
-Network traffic forecasting supports resource planning, but prediction and explanation require different evidence. Forecast error compares a prediction with a future observation. Temporal attribution allocates a prediction contrast over historical inputs. A ranking test measures response to a specified replacement of those inputs. Accuracy, an attribution identity and ranking alignment therefore cannot certify one another. This distinction matters when a pooled forecaster serves an institution absent from fitting.
+Network traffic forecasting supports resource planning, but prediction and explanation require different evidence. Forecast error compares predictions with future observations; attribution allocates a prediction contrast over history; ranking tests measure response to specified replacements. These measurements cannot certify one another, particularly when a pooled forecaster serves institutions absent from fitting.
 
 Transfer forecasting~\cite{transmuse}, network forecasting explanations~\cite{aichrono} and explanation generalization under shift~\cite{timesae} are established research. Our question is narrower: under an institution-disjoint network deployment protocol, what evidence supports the reliability of temporal attribution rankings, and how does that evidence depend on references, operators and score availability?
 
 We study public institutional traffic~\cite{cesnet26,dataset} with source-only fitting, unseen validation institutions, timestamp-matched source/target cases and a fixed primary contrast. After the original eight-target result, we freeze an additional 32-target cohort before scoring it. Sources and models remain shared, so the estimates are reported separately. Our contributions are (i) an executed deployment benchmark separating accuracy, numerical validity and operator-response alignment; (ii) explicit attribution references, common-case explainer comparisons, numerical/parameter checks and paired uncertainty; and (iii) a new-target within-network replication with prespecified sampling-density and uncertainty sensitivities. We contribute empirical evidence and controls, rather than a new attribution algorithm.
 
-Both primary intervals contain zero. The stronger-looking original secondary pattern under a history-median reference does not recur as an interval excluding zero in the larger cohort. We retain these outcomes and the excluded low-volume regimes. Figure~\ref{fig:pipeline} gives the complete workflow; supplementary material preserves the extended diagnostics and reproduction details.
+Both primary intervals contain zero; the original history-median secondary pattern does not recur in the larger cohort. Figure~\ref{fig:pipeline} summarizes the workflow; the supplement retains extended diagnostics.
 
-\begin{figure*}[t]\centering
+\begin{figure*}[!t]\centering
 \resizebox{\textwidth}{!}{\input{pipeline_overall.tex}}
 \caption{Study workflow. Both target cohorts reuse locked source predictors; the additional cohort is frozen after the original result and before its own scoring. Accuracy, numerical checks and ranking alignment answer separate questions. Dashed box distinguishes additional checks; parameter resets and common-case comparisons are post-hoc.}\label{fig:pipeline}
 \end{figure*}
@@ -118,18 +119,29 @@ After both cohort outcomes, we fixed two additional analyses before computing th
 Second, adapt learned-layer randomization sanity checks~\cite{sanity} to central daily Shapley. Select the earliest frozen IG origin per pair/year/cohort (126 histories), with three trained seeds and three fixed randomization replicates. Reinitialize the head, then copy that model and reinitialize GRU weights while retaining the same randomized head. Source normalization, references, clipping and the fixed last-input residual route remain unchanged; no fitting occurs. Record flat/clipped outcomes. On common nonflat comparisons across both stages, measure seven-day absolute-rank Spearman similarity and half-L1 distance between signed L1-normalized allocations. Average seed/replicate records within history, available years within institution, then institutions equally. There is no pass threshold or inferential superiority test. These controls are post-hoc and do not replace the frozen transfer endpoint.
 
 \section{Results}
+\begin{figure*}[!t]\centering\includegraphics[width=.9\textwidth]{replication_uncertainty.pdf}
+\caption{Separate original/new h1 contrasts and prespecified new-cohort uncertainty sensitivities. Pair-only intervals condition on observed periods. Sources, models and ISP overlap; these are not independent network replications. All displayed nominal intervals include zero.}\label{fig:uncertainty}
+\end{figure*}
+\begin{figure*}[!t]\centering\includegraphics[width=.9\textwidth]{replication_density.pdf}
+\caption{Prespecified 16-to-64-origin sensitivity, using original pair/within-pair block intervals. Own and common-complete-pair panels coincide here (30 pairs). Main cases are reused exactly; added cases are queried separately.}\label{fig:density}
+\end{figure*}
+\begin{figure*}[!t]\centering\includegraphics[width=.9\textwidth]{replication_forecast_scales.pdf}
+\caption{Post-hoc forecast-scale diagnostic retaining all new-target institution-year cells. Both axes are logarithmic. Nearly constant low-volume series can have extreme relative errors; no metric capping, floor change or case exclusion is applied.}\label{fig:scales}
+\end{figure*}
+\begin{figure*}[!t]\centering\includegraphics[width=.9\textwidth]{replication_denominators.pdf}
+\caption{Defined h1 source-calendar Shapley score fractions by 2024 volume stratum, combining seeds and both operators. Undefined response denominators remain in the audit. More queried timestamps do not guarantee informative rankings for every institution.}\label{fig:denom}
+\end{figure*}
+\begin{figure*}[!t]\centering\includegraphics[width=.9\textwidth]{conference_parameter_sensitivity.pdf}
+\caption{Post-hoc cascading learned-layer control. Dots are institution means; horizontal marks are equal-institution means, with no confidence intervals. Each metric uses the same comparable records across stages. Normalization, references and the fixed residual route remain. Flat/undefined records are counted; changing patterns supports conditional parameter sensitivity, not a universal pass criterion.}\label{fig:parameters}
+\end{figure*}
 \subsection{Primary transfer contrasts and replication}
 Original source and target mean $Q$ are 0.7006 and 0.6817 across seven complete pairs: $\Delta Q=-0.0189$, nominal interval $[-0.0891,0.0533]$, 1,853/2,000 valid draws. The new-cohort primary is $-0.0075$, interval $[-0.0402,0.0241]$, 30 complete pairs, 1,885 valid draws. Figure~\ref{fig:uncertainty} reports them separately with every prespecified new-cohort uncertainty family. None establishes systematic degradation or equivalence; no equivalence/non-inferiority margin was specified.
 
-\begin{figure*}[t]\centering\includegraphics[width=.96\textwidth]{replication_uncertainty.pdf}
-\caption{Separate original/new h1 contrasts and prespecified new-cohort uncertainty sensitivities. Pair-only intervals condition on observed periods. Sources, models and ISP overlap; these are not independent network replications. All displayed nominal intervals include zero.}\label{fig:uncertainty}
-\end{figure*}
+
 
 New pair-only resampling gives $[-0.0350,0.0188]$ (2,000 valid draws); synchronized calendar blocks give $[-0.0422,0.0313]$ (1,872 valid). Dense h1 is $+0.0001$, interval $[-0.0229,0.0248]$ (2,000 valid), while dense h6 is $-0.0197$, interval $[-0.0534,0.0090]$ (1,988 valid). Main h6 is $-0.0034$, interval $[-0.0417,0.0314]$. All main/dense comparisons retain the same 30 complete pairs, so point changes here do not come from different pair membership (Fig.~\ref{fig:density}).
 
-\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{replication_density.pdf}
-\caption{Prespecified 16-to-64-origin sensitivity, using original pair/within-pair block intervals. Own and common-complete-pair panels coincide here (30 pairs). Main cases are reused exactly; added cases are queried separately.}\label{fig:density}
-\end{figure*}
+
 
 The original h1 history-median secondary intervals fall below zero for all three forecasters; all twelve fixed new-cohort model/horizon/reference Shapley intervals include zero. This does not formally test a cohort difference, but the original reference-specific zero-excluding pattern does not recur. The supplementary material retains the original secondary forest, operator components and post-hoc leave-one-pair-out diagnostic.
 
@@ -158,18 +170,14 @@ Average seeds first, then all available institution-year cells: 15 original and 
 
 After observing extreme new-cohort MASE, we added a descriptive all-cell scale diagnostic (Fig.~\ref{fig:scales}), retaining the metric, floor and membership. Target 267 has a 2024 weekly scale of about 751 bytes. GRU seed 2026 h6 yields approximately 0.004445 GB MAE in 2025, hence MASE about 5,921. Small absolute errors can dominate a mean of relative ratios. Descriptive h1 median institution-year MASE is 0.761 for Ridge, 0.747 for DLinear and 0.824 for GRU; medians do not replace the frozen means.
 
-\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{replication_forecast_scales.pdf}
-\caption{Post-hoc forecast-scale diagnostic retaining all new-target institution-year cells. Both axes are logarithmic. Nearly constant low-volume series can have extreme relative errors; no metric capping, floor change or case exclusion is applied.}\label{fig:scales}
-\end{figure*}
+
 
 \subsection{Attribution validity and effective denominators}
 The original numerical audit rejects 210/3,360 IG checks; the new main audit rejects 690/14,112. These are numerical cases across references, horizons and seeds, not independent subjects. Original Shapley efficiency residuals are at most $3.56\cdot10^{-15}$ GB; independent permutation enumeration agrees with subset arithmetic on audited cases. Failed IG cases never receive ranking scores.
 
 In the original study, 51,944/53,760 operator-score records are defined for each non-IG method; accepted/defined IG has 6,137/6,720 records. The new audit retains 705,600 ranking records, including undefined values. New pair 4 (source 281, target 267) has no complete three-seed paired primary scores. Together with pair 1's absent 2026 cell, this leaves 30 primary pairs. Figure~\ref{fig:denom} shows that unavailable rankings concentrate in lower-volume strata. A complete-case mean therefore cannot certify explanations for flat, clipped response games.
 
-\begin{figure*}[t]\centering\includegraphics[width=.9\textwidth]{replication_denominators.pdf}
-\caption{Defined h1 source-calendar Shapley score fractions by 2024 volume stratum, combining seeds and both operators. Undefined response denominators remain in the audit. More queried timestamps do not guarantee informative rankings for every institution.}\label{fig:denom}
-\end{figure*}
+
 
 The supplementary local example illustrates the distinction: both reference-specific IG allocations pass numerical checks for institution 132, yet h1 is overestimated (0.322 versus 0.00665 GB).
 
@@ -205,27 +213,23 @@ Copied-model predictions/allocations reproduce exactly. Among 567 seed/replicate
 
 Mean absolute-rank similarity is 0.716/0.719 (source/target) after head reset, and 0.119/0.162 after head+GRU reset (Fig.~\ref{fig:parameters}). Signed normalized-pattern distances range from 0.531 to 0.620 and are not monotonic across stages. The results support parameter dependence on the comparable panel, while retained residual structure and flat randomized outcomes limit interpretation. They do not certify physical correctness, forecast quality or universal attribution reliability; operator-normalized $Q$ is not expected to decrease when the model and its response game both change.
 
-\begin{figure*}[t]\centering\includegraphics[width=\textwidth]{conference_parameter_sensitivity.pdf}
-\caption{Post-hoc cascading learned-layer control. Dots are institution means; horizontal marks are equal-institution means, with no confidence intervals. Each metric uses the same comparable records across stages. Normalization, references and the fixed residual route remain. Flat/undefined records are counted; changing patterns supports conditional parameter sensitivity, not a universal pass criterion.}\label{fig:parameters}
-\end{figure*}
+
 
 \section{Discussion, Reproducibility and Limitations}
-The focused additions show absolute alignment above the random-order mean and conditional sensitivity to learned parameters, without a superiority claim. The expanded evidence supports a bounded conclusion: the fixed primary test does not detect systematic transfer degradation, while neither a zero-containing interval nor more queries proves equivalence or reliability for excluded regimes. Reference choice, numerical screening and oracle-gap availability change what is summarized. The original reference-specific secondary pattern does not recur in the larger cohort; selecting it as the headline would misrepresent the full evidence.
+Common-case alignment and parameter sensitivity support a bounded conclusion: the primary test detects no systematic transfer degradation, but zero-containing intervals do not establish equivalence or reliability in excluded regimes. References, numerical screening and oracle-gap availability affect what is summarized. The original reference-specific secondary pattern does not recur.
 
-All institutions share one ISP. Source anchors and trained models also overlap across cohorts; we neither pool them as independent replications nor identify a causal effect of institutional novelty. Complete-history selection may favor regular regimes and excludes interrupted observations. Missing periods, common academic calendars and only two years limit bootstrap coverage; 14-day blocks cannot guarantee independence. Intervals are nominal and conditional on valid complete cells. Matching does not remove residual institutional differences.
+All institutions share one ISP; sources and models overlap across cohorts. We therefore report cohorts separately without causal attribution to institutional novelty. Complete histories favor observed eligible regimes and omit interruptions. Missing periods, shared academic calendars and only two years limit bootstrap coverage; 14-day blocks cannot guarantee independence. Intervals are nominal and conditional on valid complete cells; matching cannot eliminate residual differences.
 
-The operators are controlled stress tests, not validated conditional traffic draws. They can reward undesirable model sensitivity. Seven daily groups suppress intra-day detail; IG uses finite quadrature and four sampled main origins. The parameter control covers only central Shapley, and its common nonflat panel omits many randomized comparisons. The model/explainer set omits foundation forecasters and specialized methods such as TimeSAE. Secondary comparisons have no multiplicity correction. An independent network, conditional replacement validation and specialized baselines remain useful external tests.
+Replacement operators are controlled stress tests, not validated conditional traffic draws, and may reward undesirable sensitivity. Daily groups hide intra-day detail; IG has finite quadrature and four sampled main origins. Parameter controls cover only central Shapley on common nonflat comparisons. Foundation forecasters and specialized methods such as TimeSAE are omitted; secondary comparisons lack multiplicity correction. Independent-network replication, conditional replacements and specialized baselines remain future tests.
 
-The artifact includes frozen protocols, selection/matching, code/data/model hashes, 80 unique selected series across the projects, checkpoints, predictions, exclusions, notebooks and complete analysis tables. New-cohort manifests hash 100 inputs. Audits recompute saved forecast metrics, re-query predictions and labels, check Shapley by permutations and independently reconstruct main/dense points; reused main/dense rows agree exactly. The original full notebook rerun reproduces all neural parameter tensors and the primary result. Supplementary figures preserve training/coverage, numerical breakdowns and exploratory agreement diagnostics.
+Artifacts contain frozen protocols, selection/matching, hashes, 80 selected series, checkpoints, predictions, exclusions, notebooks and full tables. The new-cohort manifest hashes 100 inputs. Independent audits reconstruct forecast metrics and primary/dense estimates, re-query predictions/labels and check Shapley by permutations; reused rows agree exactly. The original notebook rerun reproduces neural tensors and the primary result. Extended diagnostics remain in the supplement.
 
-On a four-thread Apple M5 CPU, the original full rerun takes 529.5 seconds, including 324.3 seconds of training. New main/dense XAI takes 18.7/16.3 minutes with no refitting. Compact models, sampled epochs and cached 128-coalition response games explain the workload. Runtime and record count do not establish validity or additional independent institutions.
+On a four-thread Apple M5 CPU, the original rerun takes 529.5 seconds (324.3 training); new main/dense XAI takes 18.7/16.3 minutes without refitting. Compact models, sampled epochs and cached coalitions explain runtime, which does not establish validity or independent sample size.
 
 \section{Conclusion}
-An institution-disjoint forecasting benchmark benefits from separate accuracy, numerical and ranking evidence. Across an original target cohort and a separately frozen larger cohort, primary intervals do not establish degradation or equivalence. Undefined ranking games and low-volume forecast failures constrain the apparent informative-case result. Common-case means show positive operator alignment and similar Shapley/occlusion scores; the reset control supports parameter sensitivity on its comparable panel. The contribution is a reproducible empirical attribution-reliability audit with explicit references, controlled operators, effective denominators and bounded within-network conclusions.
+Across two target cohorts within one network, primary intervals establish neither transfer degradation nor equivalence. Undefined ranking games and low-volume forecast failures constrain complete-case conclusions. Common-case means show positive operator alignment and similar Shapley/occlusion scores; reset controls support conditional parameter sensitivity. This reproducible empirical audit separates forecast, numerical and ranking evidence with explicit references, controlled operators and effective denominators.
 
 \FloatBarrier
-\clearpage
-\IEEEtriggeratref{10}
 \bibliographystyle{IEEEtran}
 \begingroup
 \interlinepenalty=10000

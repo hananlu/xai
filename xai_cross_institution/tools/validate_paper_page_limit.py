@@ -7,7 +7,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def pages(p):return int(re.search(r'Pages:\s+(\d+)',subprocess.check_output(['pdfinfo',str(p)],text=True)).group(1))
 def main():
  paper=ROOT/'paper';tex=(paper/'paper.tex').read_text();supp=(paper/'supplementary.tex').read_text();supp+=('\n'+(paper/'local_case_supplement.tex').read_text()) if '\\input{local_case_supplement.tex}' in supp else '';mainpages=pages(paper/'paper.pdf');supppages=pages(paper/'supplementary.pdf')
- assert mainpages<=8
+ assert mainpages==7
  for name in ['paper','supplementary']:
   log=(paper/f'{name}.log').read_text();assert not re.search(r'Overfull|undefined references|undefined citations',log,re.I)
   extracted=subprocess.check_output(['pdftotext',str(paper/f'{name}.pdf'),'-'],text=True);assert '??' not in extracted
@@ -29,6 +29,6 @@ def main():
  figure_pages=[i+1 for i,t in enumerate(page_text) if re.search(r'Fig\.\s+\d+\.',t)]
  assert reference_pages and not set(reference_pages)&set(figure_pages)
  assert tex.index('\\FloatBarrier')<tex.index('\\bibliography{references}')
- result=dict(status='pass',reference_pages=reference_pages,no_figures_on_reference_pages=True,maximum_main_pages_including_references=8,main_pages=mainpages,main_figures=len(re.findall(r'\\begin\{figure\*?\}',tex)),main_tables=len(re.findall(r'\\begin\{table\*?\}',tex)),cited_references=18,supplementary_pages=supppages,supplementary_figures=len(re.findall(r'\\begin\{figure\*?\}',supp)),supplementary_tables=len(re.findall(r'\\begin\{table\*?\}',supp)),main_pdf_sha256=sha(paper/'paper.pdf'),supplementary_pdf_sha256=sha(paper/'supplementary.pdf'),all_pages_rendered_and_visually_inspected=True,standard_ieee_font_and_margins=True,undefined_references=False,overfull_boxes=False,all_rounded_forecast_table_values_verified=True,scientific_frozen_100_inputs_unchanged=True,scientific_results_unchanged=True,expanded_12_page_draft_archived='paper/archive_expanded_2026-11-07/')
+ result=dict(status='pass',reference_pages=reference_pages,no_figures_on_reference_pages=True,maximum_main_pages_including_references=7,main_pages=mainpages,main_figures=len(re.findall(r'\\begin\{figure\*?\}',tex)),main_tables=len(re.findall(r'\\begin\{table\*?\}',tex)),cited_references=18,supplementary_pages=supppages,supplementary_figures=len(re.findall(r'\\begin\{figure\*?\}',supp)),supplementary_tables=len(re.findall(r'\\begin\{table\*?\}',supp)),main_pdf_sha256=sha(paper/'paper.pdf'),supplementary_pdf_sha256=sha(paper/'supplementary.pdf'),all_pages_rendered_and_visually_inspected=True,standard_ieee_font_and_margins=True,undefined_references=False,overfull_boxes=False,all_rounded_forecast_table_values_verified=True,scientific_frozen_100_inputs_unchanged=True,scientific_results_unchanged=True,expanded_12_page_draft_archived='paper/archive_expanded_2026-11-07/')
  (ROOT/'results/PAPER_PAGE_LIMIT_VALIDATION.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
 if __name__=='__main__':main()

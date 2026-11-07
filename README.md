@@ -1,10 +1,12 @@
 # XAI network traffic projects — Farrel branch
 
+Latest manuscript: **seven pages including all 18 references**, with a compact pipeline; six figures and three tables retained. See [revision notes](xai_cross_institution/SEVEN_PAGE_REVISION_NOTES.md).
+
 Latest paper design: [monochrome workflow and regrouped tables](xai_cross_institution/VISUAL_REVISION_NOTES.md), with all results preserved and the eight-page limit retained.
 
 ## Current conference version
 
-The main paper is **8 pages including references**, with six figures, three tables and all 18 cited sources. The reference page contains no figures. [Optional supplement](xai_cross_institution/paper/supplementary.pdf) is separate (six pages/seven figures/two tables). [Updated editable deck](xai_cross_institution/presentation/XAI_Research_Results_v5.pptx) has 19 slides, 11 native tables and three native charts with embedded workbooks.
+The main paper is **7 pages including references**, with six figures, three tables and all 18 cited sources. The reference page contains no figures. [Optional supplement](xai_cross_institution/paper/supplementary.pdf) is separate (six pages/seven figures/two tables). [Updated editable deck](xai_cross_institution/presentation/XAI_Research_Results_v5.pptx) has 19 slides, 11 native tables and three native charts with embedded workbooks.
 
 Two focused post-hoc additions are complete and independently audited: [common-case absolute explainer alignment and cascading learned-layer sensitivity](xai_replication_32/conference_checks/README.md). Common-case target Q: Shapley 0.690, occlusion 0.687, recency 0.533. Conditional rank similarity is about 0.72 after head reset and 0.12-0.16 after head+GRU reset. Populations/flat outcomes and the fixed residual route remain explicit; no superiority, causal, equivalence or cross-ISP claim is added.
 

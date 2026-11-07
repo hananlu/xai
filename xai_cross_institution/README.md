@@ -1,8 +1,10 @@
+Latest: **seven pages including all references**, with a smaller pipeline. See [revision notes](SEVEN_PAGE_REVISION_NOTES.md).
+
 Latest design pass: [pipeline and table revision](VISUAL_REVISION_NOTES.md) simplifies Figure 1 and all three main tables. The paper remains eight pages including references; scientific results are unchanged.
 
 # Current conference version — focused checks complete
 
-The main paper is **8 pages including references**, with **6 figures, 3 tables and 18 references**. Its separate optional supplement is 6 pages, with 7 figures and 2 tables. All figures precede the reference page. The original primary results remain unchanged; two clearly labeled post-hoc additions now provide a common-case explainer comparison and a limited central-Shapley learned-layer control.
+The main paper is **7 pages including references**, with **6 figures, 3 tables and 18 references**. Its separate optional supplement is 6 pages, with 7 figures and 2 tables. All figures precede the reference page. The original primary results remain unchanged; two clearly labeled post-hoc additions now provide a common-case explainer comparison and a limited central-Shapley learned-layer control.
 
 Common-case target Q is 0.690 Shapley, 0.687 occlusion and 0.533 recency. Accepted-IG subset means are close across Shapley/IG/occlusion, on different cases. On the same common comparable parameter-control panel, mean rank similarity is approximately 0.72 after head reset and 0.12-0.16 after head+GRU reset. Flat/clipped outcomes and the retained fixed residual route limit interpretation. No superiority, causal or universal reliability claim is added.
 

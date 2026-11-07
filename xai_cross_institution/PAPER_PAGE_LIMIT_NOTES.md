@@ -1,3 +1,7 @@
+Current version: **seven pages including references**, with a smaller pipeline and unchanged result tables. See [seven-page revision notes](SEVEN_PAGE_REVISION_NOTES.md). The description below is prior revision history.
+
+---
+
 # Current page budget
 
 The focused extension uses **8 pages including all 18 references**, with six main figures and three tables. The reference page has no figures. The local example moved to the separate six-page supplement, making seven supplementary figures. The historical seven-page revision and four-page supplement are archived under paper/archive_before_conference_checks. See CONFERENCE_CHECKS_NOTES.md and results/CONFERENCE_CHECKS_MANUSCRIPT_VALIDATION.json for current evidence and scope.

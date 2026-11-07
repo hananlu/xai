@@ -1,50 +1,57 @@
-% Editable vector pipeline; input from paper.tex inside a figure*.
+% Editable, monochrome workflow. Orthogonal connectors; results stay in Results.
 \begin{tikzpicture}[
-  font=\scriptsize, x=1cm,y=1cm,
-  box/.style={draw=black!65,rounded corners=1.5pt,align=center,inner sep=4pt},
-  cohort/.style={box,text width=4.95cm,minimum height=.93cm,fill=blue!3},
-  lane/.style={box,text width=4.95cm,minimum height=1.98cm},
-  arr/.style={-{Latex[length=1.8mm]},line width=.5pt},
-  tag/.style={font=\tiny,fill=white,inner sep=1pt}
+  x=1cm,y=1cm,font=\small,
+  block/.style={draw=black!65,line width=.45pt,align=left,inner sep=6pt},
+  wide/.style={block,text width=16.1cm},
+  col/.style={block,text width=4.75cm,minimum height=1.35cm},
+  flow/.style={-{Latex[length=1.7mm,width=1.1mm]},line width=.5pt},
+  stage/.style={font=\small\bfseries,anchor=west}
 ]
-\node[box,text width=16.7cm,minimum height=.75cm,fill=black!3] (data) at (0,0)
-{\textbf{Observed traffic and eligibility}\quad CESNET-TimeSeries26 hourly bytes $\to$ decimal GB; native coverage audit; finite nonnegative observations; complete 168h histories and both endpoints; no label imputation.};
-\node[cohort] (source) at (-5.75,-1.35) {\textbf{32 source institutions}\quad training targets: 2024\\Normalization and calendar reference fitted here};
-\node[cohort] (val) at (0,-1.35) {\textbf{8 validation institutions}\quad Jan--Mar 2025\\Choose $\alpha$, learning rate, and early-stopped epoch};
-\node[cohort] (target) at (5.75,-1.35) {\textbf{8 original targets}\quad no gradient fitting\\2024 metadata only for membership/matching/scale};
-\foreach \a in {source,val,target}\draw[arr] (data.south)--(\a.north);
-\node[box,text width=9.4cm,minimum height=1.13cm,fill=blue!3] (fit) at (-3.4,-2.95)
-{\textbf{Fit and lock predictors}\quad log1p inputs; Ridge, DLinear, GRU.\\Neural training: 1,024 windows/source/epoch, max 30 epochs, patience 5;\\LR selected with seed 42, then seeds 123/2026. Freeze protocol/code before target scoring.};
-\node[box,text width=6.0cm,minimum height=1.13cm,fill=orange!5] (cases) at (5.25,-2.95)
-{\textbf{Original evaluation inputs}\\Apr 8--Jul 1, 2025/2026; all eligible six-hourly forecast origins.\\XAI: 8 pairs, 16 shared origins/pair-year; IG subset 4.\\15 pair-years available.};
-\draw[arr] (source.south)--(fit.north west);
-\draw[arr] (val.south)--(fit.north east);
-\draw[arr] (target.south)--(cases.north);
-\node[box,text width=16.7cm,minimum height=.91cm,fill=black!3] (function) at (0,-4.55)
-{\textbf{Deployed function and arms}\quad $F_h(x)=\operatorname{expm1}(\max(0,z_h(\log(1+x))))$, $h\in\{1,6\}$.\\Frozen arm is primary. Secondary calibrated arm adds a per-institution Apr 1--8 median log-residual offset; evaluation origins stay fixed.};
-\draw[arr] (fit.south)--node[tag,left] {locked parameters}(function.north -| fit.south);
-\draw[arr] (cases.south)--node[tag,right] {eligible histories}(function.north -| cases.south);
-\node[lane] (forecast) at (-5.75,-6.55)
-{\textbf{A. Original forecast accuracy}\\All eligible origins: 13,937 source + 3,179 target.\\Observed endpoint comparison: MAE/RMSE in GB; MASE using each institution's 2024 weekly scale.\\Average neural seeds, then available institution-year cells; 15 target cells.};
-\node[lane] (attr) at (0,-6.55)
-{\textbf{B. Original allocations and numerics}\\480 histories/fitted model; 7 consecutive day groups; source-calendar and history-median references.\\Exact Shapley: all 128 coalitions; occlusion; recency. IG: 120 histories/fit, 32--512 nodes. Keep all numerical failures.};
-\node[lane] (response) at (5.75,-6.55)
-{\textbf{C. Shared ranking-response definition}\\Within-day interpolation and one-day rotation.\\128 replacement coalitions; enumerate 5,040 rankings from cached responses.\\$U=\operatorname{mean}(C_1,C_2,C_4)$; $Q=(U-R)/(O-R)$. Undefined if oracle--random gap $\leq10^{-9}$ GB.};
-\draw[arr] (function.south)--(0,-5.23)--(-5.75,-5.23)--(forecast.north);
-\draw[arr] (function.south)--(attr.north);
-\draw[arr] (function.south)--(0,-5.23)--(5.75,-5.23)--(response.north);
-\draw[arr] (attr.east)--node[tag,above] {rankings}(response.west);
-\node[box,text width=4.95cm,minimum height=1.5cm,fill=black!3] (audit) at (-5.75,-9.0)
-{\textbf{Accuracy and numerical reporting}\\Forecast distributions and local examples; IG acceptance, denominator exclusions and provenance.\\Numerical acceptance does not certify ranking usefulness or forecast accuracy.};
-\node[box,text width=10.7cm,minimum height=1.5cm,fill=orange!5] (infer) at (2.9,-9.0)
-{\textbf{Original-cohort transfer endpoint and inference}\\Frozen GRU / h1 / source-calendar Shapley. Require all three defined seeds; timestamp-pair source/target; equal means across year/operator cells, then complete pairs.\\7 complete pairs; resample pairs and observed 14-day blocks. 1,853/2,000 valid draws.\\$\Delta Q=-0.0189$, nominal 95\% interval $[-0.0891,0.0533]$. Secondary contrasts remain exploratory.};
-\draw[arr] (forecast.south)--(audit.north);
-\draw[arr] (attr.south west)--(audit.north east);
-\draw[arr] (attr.south)--(infer.north west);
-\draw[arr] (response.south)--(infer.north east);
+\node[wide,minimum height=.85cm] (data) at (0,0)
+{\textbf{Observed traffic}\quad CESNET-TimeSeries26: hourly bytes $\rightarrow$ GB\\
+Complete 168-hour histories and observed endpoints; coverage audit; no imputation.};
 
-\node[box,text width=16.7cm,minimum height=1.37cm,fill=blue!3] (replicate) at (0,-11.15)
-{\textbf{Separately frozen extension: 32 newly evaluated targets, same 32 source anchors and model bytes}\\Select and match using 2024 metadata; no new target fitting. Original outcome already known; freeze new membership, code, data and timestamps before scoring.\\Main: 16 shared origins/pair-year, IG subset 4; 63 available pair-years, 2,016 histories/fit. Dense frozen GRU: nested 64 origins, 8,064 histories/seed.\\Report original and new contrasts separately; original bootstrap, pair-only and synchronized-calendar sensitivities; undefined denominators by volume stratum.\\\textbf{Post-hoc conference checks:} common-case explainer alignment; 126 fixed histories, three trained seeds, three reset replicates; learned-head then GRU reset.};
-\draw[arr] (infer.south)--(replicate.north east);
-\draw[arr] (audit.south)--(replicate.north west);
+\node[col] (source) at (-5.65,-1.65)
+{\textbf{Source fitting}\\32 institutions; 2024\\Normalization; calendar reference};
+\node[col] (val) at (0,-1.65)
+{\textbf{Validation}\\8 institutions; Jan--Mar 2025\\Select hyperparameters and epochs};
+\node[col] (target) at (5.65,-1.65)
+{\textbf{Target selection and matching}\\8 original; 32 additional targets\\2024 descriptors; no target fitting};
+\draw[flow] (data.south) -- (0,-.78) -| (source.north);
+\draw[flow] (0,-.78) -- (val.north);
+\draw[flow] (0,-.78) -| (target.north);
+
+\node[block,text width=7.55cm,minimum height=1.2cm] (lock) at (-4.275,-3.55)
+{\textbf{Lock predictors and preprocessing}\\Ridge, DLinear, GRU; three neural seeds\\Reuse the same source checkpoints for both cohorts};
+\node[block,text width=7.55cm,minimum height=1.2cm] (cases) at (4.275,-3.55)
+{\textbf{Build matched evaluation cases}\\Shared source/target origins; Apr--Jun 2025 and 2026\\Freeze extension before its scoring; original result known};
+\draw[flow] (source.south) -- (source.south |- 0,-2.52) -| (lock.north);
+\draw[flow] (val.south) -- (0,-2.52) -| (lock.north);
+\draw[flow] (target.south) -- (target.south |- 0,-2.52) -| (cases.north);
+
+\node[wide,minimum height=.95cm] (deploy) at (0,-5.25)
+{\textbf{Deploy at $h=1$ and $h=6$ hours}\quad log inputs $\rightarrow$ locked predictor $\rightarrow$ clipped GB output\\Frozen arm defines the primary analysis; local residual calibration is secondary.};
+\draw[flow] (lock.south) -- (deploy.north -| lock.south);
+\draw[flow] (cases.south) -- (deploy.north -| cases.south);
+
+\node[col,minimum height=1.9cm] (accuracy) at (-5.65,-7.4)
+{\textbf{Forecast accuracy}\\Compare with observed endpoints\\MAE / RMSE in GB; MASE\\Retain low-volume scale effects};
+\node[col,minimum height=1.9cm] (attr) at (0,-7.4)
+{\textbf{Temporal allocations}\\7 daily groups; 2 references\\Exact Shapley; IG; occlusion\\Recency; numerical checks};
+\node[col,minimum height=1.9cm] (response) at (5.65,-7.4)
+{\textbf{Ranking alignment}\\Interpolation and day rotation\\Enumerate replacement responses\\Score $Q$; retain undefined cases};
+\draw[flow] (deploy.south) -- (0,-6.05) -| (accuracy.north);
+\draw[flow] (0,-6.05) -- (attr.north);
+\draw[flow] (0,-6.05) -| (response.north);
+\draw[flow] (attr.east) -- (response.west);
+
+\node[wide,minimum height=1.05cm] (report) at (0,-9.55)
+{\textbf{Report cohorts separately}\quad effective sample sizes, exclusions and forecast distributions\\Primary: frozen GRU / h1 / source-calendar Shapley, paired $\Delta Q=Q_{\rm target}-Q_{\rm source}$.\\Average matched year/operator cells and complete pairs; pair + calendar-block uncertainty.};
+\draw[flow] (accuracy.south) -- (report.north -| accuracy.south);
+\draw[flow] (attr.south) -- (report.north);
+\draw[flow] (response.south) -- (report.north -| response.south);
+
+\node[wide,dashed,minimum height=.9cm] (checks) at (0,-11.3)
+{\textbf{Additional checks}\quad denser timestamps and uncertainty sensitivities (extension plan);\\\textbf{post-hoc:} common-case explainer comparison; learned-head then GRU parameter resets.};
+\draw[flow] (report.south) -- (checks.north);
 \end{tikzpicture}

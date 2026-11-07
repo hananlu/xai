@@ -1,5 +1,7 @@
 # XAI network traffic projects — Farrel branch
 
+Latest paper design: [monochrome workflow and regrouped tables](xai_cross_institution/VISUAL_REVISION_NOTES.md), with all results preserved and the eight-page limit retained.
+
 ## Current conference version
 
 The main paper is **8 pages including references**, with six figures, three tables and all 18 cited sources. The reference page contains no figures. [Optional supplement](xai_cross_institution/paper/supplementary.pdf) is separate (six pages/seven figures/two tables). [Updated editable deck](xai_cross_institution/presentation/XAI_Research_Results_v5.pptx) has 19 slides, 11 native tables and three native charts with embedded workbooks.

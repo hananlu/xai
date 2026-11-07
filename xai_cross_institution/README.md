@@ -1,3 +1,5 @@
+Latest design pass: [pipeline and table revision](VISUAL_REVISION_NOTES.md) simplifies Figure 1 and all three main tables. The paper remains eight pages including references; scientific results are unchanged.
+
 # Current conference version — focused checks complete
 
 The main paper is **8 pages including references**, with **6 figures, 3 tables and 18 references**. Its separate optional supplement is 6 pages, with 7 figures and 2 tables. All figures precede the reference page. The original primary results remain unchanged; two clearly labeled post-hoc additions now provide a common-case explainer comparison and a limited central-Shapley learned-layer control.

@@ -7,7 +7,7 @@
 \graphicspath{{../figures/}}
 \title{Cross-Institution Reliability of Temporal Attributions in Network Traffic Forecasting}
 \author{\IEEEauthorblockN{Anonymous research draft}\IEEEauthorblockA{Conference draft; authors and venue to be finalized}}
-\begin{document}\maketitle
+\begin{document}\raggedbottom\maketitle
 \begin{abstract}
 Forecast accuracy does not establish that temporal explanations remain useful at unseen institutions. We audit this distinction on CESNET-TimeSeries26 using 32 source institutions, eight validation institutions and two target cohorts: eight original targets and 32 subsequently reserved targets. The latter cohort reuses the locked source models, yielding 80 unique institutions within one ISP. Ridge, DLinear and GRU predict one- and six-hour endpoints from one week of history. We separate forecast error, numerical attribution checks and ranking alignment under controlled history replacements. The original primary target-minus-source Shapley contrast for frozen one-hour GRU is $-0.0189$, nominal 95\% interval $[-0.0891,0.0533]$, across seven complete pairs. The new-cohort contrast is $-0.0075$, interval $[-0.0402,0.0241]$, across 30 pairs; a prespecified denser timestamp budget also spans zero. Neither establishes degradation or equivalence. Original reference-specific secondary intervals below zero do not recur in the new cohort. Extreme relative forecast errors on nearly constant traffic and undefined ranking games further limit complete-case inference. Common-case comparisons expose similar Shapley/occlusion alignment, while a post-hoc learned-layer control shows conditional parameter sensitivity. The contribution is an empirical reliability audit with explicit references, controls and effective denominators.
 \end{abstract}
@@ -24,7 +24,7 @@ Both primary intervals contain zero. The stronger-looking original secondary pat
 
 \begin{figure*}[t]\centering
 \resizebox{\textwidth}{!}{\input{pipeline_overall.tex}}
-\caption{Executed workflow and separately frozen extension. Source fitting, validation, both deployment arms, attribution references, numerical screening, independent replacement definitions and paired inference remain distinct. Hash freezes are local audit trails; controlled responses do not identify causal demand effects.}\label{fig:pipeline}
+\caption{Study workflow. Both target cohorts reuse locked source predictors; the additional cohort is frozen after the original result and before its own scoring. Accuracy, numerical checks and ranking alignment answer separate questions. Dashed box distinguishes additional checks; parameter resets and common-case comparisons are post-hoc.}\label{fig:pipeline}
 \end{figure*}
 
 \section{Related Work}
@@ -43,18 +43,26 @@ Twelve earlier development institutions are excluded. Deterministic SHA-256 orde
 The additional cohort excludes all 48 original institutions and the 12 development institutions. Among 217 eligible unused candidates, a fixed hash salt selects eight per reconstructed volume stratum. Hungarian matching within strata pairs these 32 new targets with all 32 original source anchors using source-standardized log-transformed 2024 median volume and coefficient of variation. There is no outcome-based caliper or replacement. The original outcome was already known when this protocol was written; new membership and then code/data/timestamps were locally frozen before new-target scoring. This is not external preregistration or independent network replication. Both studies together contain 80 unique institutions.
 
 \begin{table}[t]\centering
-\caption{Effective evaluation units. Histories and repeated queries do not increase the number of institutions.}\label{tab:units}
-\begin{tabular}{lrr}\toprule
-Quantity&Original&New targets\\\midrule
+\caption{Evaluation units and explanation budgets.}\label{tab:units}
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrr@{}}\toprule
+&\multicolumn{2}{c}{Target cohort}\\
+\cmidrule(l){2-3}
+Quantity&Original&Additional\\\midrule
 Target institutions&8&32\\
 Matched source anchors&8&32\\
-Available matched pair-years&15/16&63/64\\
-Target forecast institution-year cells&15&63\\
-Main XAI histories per fitted model&480&2,016\\
-IG histories per fitted model&120&504\\
+Available pair-years&15/16&63/64\\
+Forecast institution-year cells&15&63\\
 Complete primary pairs&7&30\\
-Dense GRU histories per seed&---&8,064\\\bottomrule
-\end{tabular}\end{table}
+\addlinespace[4pt]
+Main XAI histories / fitted model&480&2,016\\
+IG histories / fitted model&120&504\\
+Dense GRU histories / seed&---&8,064\\\bottomrule
+\end{tabular*}
+\par\smallskip\raggedright\footnotesize
+Histories count both source and target roles. Repeated queries do not increase the number of institutions.
+\end{table}
 
 For explanations, intersect eligible timestamps per matched pair/year and choose up to 16 evenly spaced origins using availability only; four form the IG subset. Original pair 2 (source 160, target 192) lacks a common 2026 cell. New pair 1 (source 260, target 8) also lacks one; neither is replaced. Original 2026 target cells have only 50 or 129 eligible origins versus 206 or 307 in 2025. Complete-case conclusions concern observed eligible regimes, not interrupted or absent periods. Table~\ref{tab:units} separates sampling budgets from inferential units.
 
@@ -129,17 +137,24 @@ The original h1 history-median secondary intervals fall below zero for all three
 Table~\ref{tab:forecast} shows frozen target MASE, retaining each original scale and every available institution-year. The original one-hour model means are close; the larger cohort exposes extreme relative errors that the smaller target set missed. DLinear's lower descriptive mean does not establish inferential superiority.
 
 \begin{table}[t]\centering
-\caption{Frozen target mean MASE. Average seeds before available institution-year cells (15 original, 63 new). No case removal or significance ranking.}\label{tab:forecast}
-\begin{tabular}{lrrrr}\toprule
-&\multicolumn{2}{c}{Original targets}&\multicolumn{2}{c}{New targets}\\
-Model&h1&h6&h1&h6\\\midrule
+\caption{Frozen target mean MASE by forecast horizon.}\label{tab:forecast}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrr@{}}\toprule
+&\multicolumn{2}{c}{Original targets}&\multicolumn{2}{c}{Additional targets}\\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
+Model&$h=1$&$h=6$&$h=1$&$h=6$\\\midrule
 Persistence&0.737&1.451&1.408&2.428\\
 Daily&1.083&1.112&1.864&1.824\\
 Weekly&1.075&1.053&1.673&1.674\\
+\addlinespace[4pt]
 Ridge&0.681&0.813&30.823&57.324\\
 DLinear&0.682&0.812&1.208&1.375\\
 GRU&0.684&0.909&9.682&64.150\\\bottomrule
-\end{tabular}\end{table}
+\end{tabular*}
+\par\smallskip\raggedright\footnotesize
+Average seeds first, then all available institution-year cells: 15 original and 63 additional. No case removal or significance ranking.
+\end{table}
 
 After observing extreme new-cohort MASE, we added a descriptive all-cell scale diagnostic (Fig.~\ref{fig:scales}), retaining the metric, floor and membership. Target 267 has a 2024 weekly scale of about 751 bytes. GRU seed 2026 h6 yields approximately 0.004445 GB MAE in 2025, hence MASE about 5,921. Small absolute errors can dominate a mean of relative ratios. Descriptive h1 median institution-year MASE is 0.761 for Ridge, 0.747 for DLinear and 0.824 for GRU; medians do not replace the frozen means.
 
@@ -165,9 +180,12 @@ The supplementary local example illustrates the distinction: both reference-spec
 Table~\ref{tab:methods} separates transfer differences from absolute operator alignment. In panel A, target Shapley $Q$ is 0.690 versus recency 0.533 and occlusion 0.687; the exact random-order mean is zero on each informative game. Thus the near-zero transfer contrast coexists with positive response alignment, but Shapley and occlusion have similar descriptive means. Accepted IG is also close to Shapley/occlusion on panel B. Neither cross-panel differences nor these means establish explainer superiority or causal relevance.
 
 \begin{table}[t]\centering
-\caption{Post-hoc common-case GRU h1/source-calendar mean $Q$. All methods use identical cases within each panel and all three defined seeds. A: main-budget Shapley/occlusion/recency; B: original IG subset, all four methods accepted/defined. Populations differ between panels.}\label{tab:methods}
-\begin{tabular}{lrrrr}\toprule
-&\multicolumn{2}{c}{A: main common}&\multicolumn{2}{c}{B: IG common}\\
+\caption{Post-hoc common-case ranking alignment ($Q$).}\label{tab:methods}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrr@{}}\toprule
+&\multicolumn{2}{c}{A: main budget}&\multicolumn{2}{c}{B: accepted IG}\\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
 Method&Source&Target&Source&Target\\\midrule
 Shapley&0.694&0.690&0.682&0.700\\
 IG&---&---&0.682&0.705\\
@@ -175,7 +193,10 @@ Occlusion&0.691&0.687&0.681&0.704\\
 Recency&0.541&0.533&0.454&0.466\\\midrule
 Used cases&1,813&1,824&451&451\\
 Inst.-year cells&61&61&61&60\\\bottomrule
-\end{tabular}\end{table}
+\end{tabular*}
+\par\smallskip\raggedright\footnotesize
+GRU, $h=1$, source-calendar reference; three defined seeds. Each panel uses identical cases across its methods. Panel B additionally requires accepted IG; populations differ between panels.
+\end{table}
 
 Each panel retains 31 institutions per cohort. Panel A has 2,016 planned history/operator cases per cohort; panel B has 504. Panel B initially has 452 common target cases; one lacks the other operator in its institution/year cell and is excluded from aggregation. Numerical and denominator exclusions therefore remain material even in a fair within-panel comparison.
 

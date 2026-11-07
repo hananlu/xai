@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "checks": {
+    "extension_frozen_files": true,
+    "upstream_frozen_files": true,
+    "original_quality_inputs": true,
+    "panel_A_complete_values": true,
+    "panel_B_complete_values": true,
+    "independent_explainer_macro": true,
+    "complete_control_grid": true,
+    "finite_nonnegative_predictions": true,
+    "pattern_distance_bounds": true,
+    "pattern_distance_recalculation": true,
+    "randomized_checkpoint_requeries": true,
+    "permutation_shapley_check": true,
+    "copied_model_identity": true,
+    "same_random_head_across_stages": true,
+    "preserved_source_buffers": true,
+    "retained_fixed_residual_architecture": true
+  },
+  "details": {
+    "max_explainer_macro_difference": 1.1102230246251565e-16,
+    "max_pattern_distance_difference": 0.0,
+    "max_checkpoint_requery_difference": 0.0,
+    "max_permutation_difference": 0.0
+  },
+  "post_hoc": true
+}

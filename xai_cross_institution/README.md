@@ -1,3 +1,15 @@
+# Current conference version — focused checks complete
+
+The main paper is **8 pages including references**, with **6 figures, 3 tables and 18 references**. Its separate optional supplement is 6 pages, with 7 figures and 2 tables. All figures precede the reference page. The original primary results remain unchanged; two clearly labeled post-hoc additions now provide a common-case explainer comparison and a limited central-Shapley learned-layer control.
+
+Common-case target Q is 0.690 Shapley, 0.687 occlusion and 0.533 recency. Accepted-IG subset means are close across Shapley/IG/occlusion, on different cases. On the same common comparable parameter-control panel, mean rank similarity is approximately 0.72 after head reset and 0.12-0.16 after head+GRU reset. Flat/clipped outcomes and the retained fixed residual route limit interpretation. No superiority, causal or universal reliability claim is added.
+
+The executed replication notebook now has **62 cells, 37 code cells, eight plots and zero errors**. It reconstructs the common-case table and regenerates a local randomized checkpoint pair; a separate optional isolated flag reruns the approximately 40-second control. The editable [updated PPT](presentation/XAI_Research_Results_v5.pptx) has **19 slides**. See [focused extension notes](CONFERENCE_CHECKS_NOTES.md) and the sibling [check artifact](../xai_replication_32/conference_checks/README.md). Author/venue formatting remains to be finalized.
+
+---
+
+The following preserves the prior project/revision documentation; use the current status above for page and artifact counts.
+
 # Conference manuscript: 7 pages including references
 
 The requested maximum is 7-8 pages. The current main PDF is **7 pages**, with **6 figures, 2 tables and 18 references**, using standard IEEE fonts/margins. The optional **4-page supplementary PDF** is separate and retains six extended diagnostic figures and two tables. See [page-limit revision notes](PAPER_PAGE_LIMIT_NOTES.md). The prior 12-page version is archived; all scientific results, source models and freezes are unchanged.

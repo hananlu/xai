@@ -171,6 +171,68 @@ code('''display(readjson('FINAL_VALIDATION.json'))
 display(readjson('DENSE_COMPLETE.json'))
 for name in ['DENSE_VALIDATION.json','REPLICATION_COMPLETION.json']:
     if (ROOT/'results'/name).exists():display(readjson(name))''')
+md('## 15b. Focused post-hoc conference checks\nThese analyses were specified after the original and new-cohort outcomes, then locally frozen before randomized-model outcomes. They preserve the two primary estimands. GRU h1/source-calendar is the limited scope. Read `conference_checks/PLAN.md` for the exact masks, seeds, metrics and conditional interpretation.')
+code("""CHECKS=ROOT/'conference_checks'
+comparison=json.loads((CHECKS/'results/EXPLAINER_COMPARISON.json').read_text())
+display(pd.read_csv(CHECKS/'results/method_table.csv',header=[0,1],index_col=0))
+display(pd.DataFrame(json.loads((CHECKS/'results/DENOMINATOR_CLARIFICATIONS.json').read_text())['counts']))
+print('Exact random-order mean Q = 0 on informative response games. Cross-panel means use different populations.')""")
+md('### Reconstruct the common-case absolute means\nAll required methods must have three defined seeds on identical cases. Panel A uses the main budget; panel B uses the original IG subset and accepted IG. Both operators are required within each retained institution-year. These available-period means are different from the complete-pair primary contrast.')
+code("""saved=pd.read_csv(CHECKS/'results/explainer_macro.csv')
+for panel,methods in [('A',['shapley','occlusion','recency']),('B',['shapley','ig','occlusion','recency'])]:
+    common=pd.read_csv(CHECKS/f'results/common_cases_{panel}.csv.gz')
+    cells=common.groupby(['id','cohort','year','operator'])[methods].mean().unstack('operator')
+    cells=cells.dropna()
+    years=pd.DataFrame({m:cells[m][['interpolation','rotation']].mean(axis=1) for m in methods}).reset_index()
+    institutions=years.groupby(['id','cohort'])[methods].mean().reset_index()
+    means=institutions.groupby('cohort')[methods].mean()
+    for cohort in ['source','target']:
+        for m in methods:
+            expected=saved.query('panel==@panel and cohort==@cohort and method==@m').quality_q.iloc[0]
+            assert np.isclose(means.loc[cohort,m],expected,atol=1e-12,rtol=0)
+    display(means)
+print('Both panels independently reconstructed.')""")
+md('### Cascading learned-layer parameter sensitivity\nThe fixed control uses 126 timestamp-selected histories, three trained seeds and three reset replicates. Reset head, then GRU while keeping the same randomized head. The source buffers, reference, log/clipping/output and fixed last-input residual route remain. No threshold defines a pass. Comparisons condition on nonflat patterns common to both stages, with exclusions retained.')
+code("""import copy
+from scipy.stats import spearmanr
+EPS=1e-9
+"""+ '\n\n'.join(ast.get_source_segment((root/'conference_checks/src/parameter_control.py').read_text(),x) for x in ast.parse((root/'conference_checks/src/parameter_control.py').read_text()).body if isinstance(x,ast.FunctionDef) and x.name in {'pattern_metrics','randomize'}))
+code("""# Actually regenerate one predeclared randomized model pair and verify saved tensors.
+head_control,full_control=randomize(Predictor('gru',42),42,701)
+for stage,net in [('head',head_control),('head_gru',full_control)]:
+    checkpoint=torch.load(CHECKS/f'models/{stage}_42_701.pt',weights_only=True,map_location='cpu')
+    assert all(torch.equal(net.net.state_dict()[k],v) for k,v in checkpoint['state'].items())
+print('Head and cumulative GRU resets reproduce exactly; no fitting ran.')
+task=pd.read_csv(CHECKS/'case_plan.csv').sort_values(['pair','year','cohort','origin']).iloc[0]
+cv=windows(ROOT/f'data/institution_{int(task.id)}.csv.gz');co=int(cv['t'].get_loc(pd.Timestamp(task.origin)))
+cx=cv['y'][co-167:co+1];ct=cv['t'][co-167:co+1];cr=profile[ct.day_of_week*24+ct.hour]
+trained_phi,*_=games(Predictor('gru',42),cx,cr)
+random_phi,*_=games(full_control,cx,cr)
+distance,rho,_,_=pattern_metrics(trained_phi[0],random_phi[0])
+records=pd.read_csv(CHECKS/'results/parameter_records.csv.gz')
+record=records.query('id==@task.id and year==@task.year and origin==@task.origin and seed==42 and replicate==701 and stage=="head_gru"').iloc[0]
+assert np.isclose(distance,record.pattern_distance,atol=1e-12,equal_nan=True)
+assert np.isclose(rho,record.rank_spearman,atol=1e-12,equal_nan=True)
+print({'fixed_first_case_pattern_distance':distance,'rank_similarity':rho,'flat_cases_stay_undefined':True})""")
+code("""display(pd.read_csv(CHECKS/'results/control_macro.csv'))
+display(Image(filename=str(CHECKS/'figures/parameter_sensitivity.png')))
+for name in ['VALIDATION.json','INFORMATIVE_VALIDATION.json']:
+    display(json.loads((CHECKS/'results'/name).read_text()))
+freeze=json.loads((CHECKS/'FREEZE.json').read_text())
+assert all(hashlib.sha256((CHECKS/p).read_bytes()).hexdigest()==h for p,h in freeze['files'].items())
+print('Frozen extension computation files verified:',len(freeze['files']))""")
+md('### Optional isolated rerun of conference checks only\nThis reruns the approximately 40-second control and existing-output comparison on a copy, without retraining or rerunning the entire primary benchmark. It reproduces already opened outcomes, not a new holdout. Delivered primary and control snapshots remain preserved.')
+code("""RUN_CONFERENCE_CHECKS=False
+if RUN_CONFERENCE_CHECKS:
+    import shutil,subprocess
+    target=ROOT.parent/'conference_check_reruns'/time.strftime('%Y%m%dT%H%M%S')
+    shutil.copytree(ROOT,target)
+    commands=['src/explainer_comparison.py','src/parameter_control.py','src/summarize_controls.py','src/validate_checks.py','src/report_checks.py','tools/report_denominators.py','tools/render_parameter_figure.py','tools/validate_informative_controls.py']
+    for script in commands:
+        subprocess.run([sys.executable,str(target/'conference_checks'/script)],cwd=target,check=True)
+    print('Isolated post-hoc check reproduction:',target)
+else:
+    print('Using validated completed checks. No model refitting.')""")
 md('## 16. Interpretation limits and original comparison\nThe original eight-target primary contrast was −0.0189 (nominal 95% interval −0.0891 to 0.0533; seven complete pairs). Keep that estimate separate. New target institutions improve within-network coverage, while the same ISP, source anchors and trained models remain shared. Do not claim causal truth, universal explainability, equivalence from a non-significant interval, or a new attribution method. Conference contribution is the controlled empirical audit and reproducible evidence.')
 code('''summary=ROOT/'RESULTS_BRIEF.md'
 if summary.exists():display(Markdown(summary.read_text()))''')

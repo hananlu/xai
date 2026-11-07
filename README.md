@@ -1,5 +1,15 @@
 # XAI network traffic projects — Farrel branch
 
+## Current conference version
+
+The main paper is **8 pages including references**, with six figures, three tables and all 18 cited sources. The reference page contains no figures. [Optional supplement](xai_cross_institution/paper/supplementary.pdf) is separate (six pages/seven figures/two tables). [Updated editable deck](xai_cross_institution/presentation/XAI_Research_Results_v5.pptx) has 19 slides, 11 native tables and three native charts with embedded workbooks.
+
+Two focused post-hoc additions are complete and independently audited: [common-case absolute explainer alignment and cascading learned-layer sensitivity](xai_replication_32/conference_checks/README.md). Common-case target Q: Shapley 0.690, occlusion 0.687, recency 0.533. Conditional rank similarity is about 0.72 after head reset and 0.12-0.16 after head+GRU reset. Populations/flat outcomes and the fixed residual route remain explicit; no superiority, causal, equivalence or cross-ISP claim is added.
+
+The latest [replication notebook](xai_replication_32/XAI_Replication_32.ipynb) has 62 cells, 37 executed code cells and eight plots, with zero errors. It includes inline computations and an optional isolated control-only rerun, without fitting. The original primary estimates, source models and scientific freezes remain unchanged. See [extension notes](xai_cross_institution/CONFERENCE_CHECKS_NOTES.md). Older revision/page counts below are historical.
+
+---
+
 ## Conference page limit
 
 The main manuscript is **7 pages including references**, within the requested 7-8-page limit. It retains six figures, two tables, all 18 references and the original/new-cohort outcomes. [Optional supplementary material](xai_cross_institution/paper/supplementary.pdf) is a separate four-page file with six additional diagnostic figures and two tables. The previous expanded draft is archived. Sources, figures, scientific results and model/protocol freezes remain available and unchanged.

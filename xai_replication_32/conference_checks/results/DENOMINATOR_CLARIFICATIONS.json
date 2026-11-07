@@ -1,0 +1,38 @@
+{
+  "reporting_only": true,
+  "estimator_unchanged": true,
+  "counts": [
+    {
+      "panel": "A",
+      "cohort": "source",
+      "common_cases_before_complete_operator_cell": 1813,
+      "used_history_operator_cases": 1813,
+      "histories_used": 929,
+      "institution_years_used": 61
+    },
+    {
+      "panel": "A",
+      "cohort": "target",
+      "common_cases_before_complete_operator_cell": 1824,
+      "used_history_operator_cases": 1824,
+      "histories_used": 936,
+      "institution_years_used": 61
+    },
+    {
+      "panel": "B",
+      "cohort": "source",
+      "common_cases_before_complete_operator_cell": 451,
+      "used_history_operator_cases": 451,
+      "histories_used": 228,
+      "institution_years_used": 61
+    },
+    {
+      "panel": "B",
+      "cohort": "target",
+      "common_cases_before_complete_operator_cell": 452,
+      "used_history_operator_cases": 451,
+      "histories_used": 227,
+      "institution_years_used": 60
+    }
+  ]
+}

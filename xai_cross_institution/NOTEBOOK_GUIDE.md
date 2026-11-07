@@ -42,3 +42,7 @@ The new notebook does not add LIME, TreeSHAP or classification metrics to the fo
 ## New-target replication
 
 The separate `../xai_replication_32/XAI_Replication_32.ipynb` has 52 cells, 31 code cells and seven embedded plots, executed with a real kernel and zero errors. It reuses original locked forecasters, verifies frozen inputs, recomputes local Shapley/IG and the main bootstrap, and reports the full completed 32-new-target batch and nested 64-origin sensitivity. Its default is an analysis/audit companion, not another training run. Read the original full-run notebook and the replication notebook together.
+
+## Focused conference extension
+
+The latest sibling replication notebook has 62 cells, 37 executed code cells and eight plots, with no errors. It adds independent common-case macro reconstruction, inline pattern/randomization definitions, actual regeneration of a randomized model pair, saved-control validation and an optional isolated control-only rerun. Old 52-cell counts above describe the preceding version. The original 95-cell training notebook and full local run remain unchanged.

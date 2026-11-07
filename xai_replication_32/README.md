@@ -1,3 +1,11 @@
+# Focused conference extension complete
+
+New post-hoc checks are in [conference_checks](conference_checks/README.md), with a locally frozen plan/source/case selection, 18 separately saved randomized checkpoints and independent audits. The original/new-cohort primary estimates remain unchanged. The latest [notebook](XAI_Replication_32.ipynb) has 62 cells, 37 executed code cells, eight plots and zero errors. It includes both the original replication analysis and the additional checks. The combined main paper is eight pages including references, with the optional six-page supplement separate; the deck has 19 editable slides.
+
+These checks are a common-case absolute-Q comparison and learned-layer sensitivity of central GRU h1/source-calendar Shapley. They do not add a dataset, backbone, new explainer or independent network. See conference_checks/PLAN.md for conditional estimands/coverage and CONFERENCE_CHECKS_NOTES.md in the sibling study for manuscript integration. The following preserves the original replication record; earlier notebook counts describe its pre-extension snapshot.
+
+---
+
 # Completed replication — 7 November 2026
 
 32 new targets, 80 unique institutions across both studies. The main result uses 30 complete pairs: ΔQ -0.0075, nominal 95% interval [-0.0402, 0.0241], 1885/2,000 valid draws. It establishes neither systematic degradation nor equivalence. The original reference-specific zero-excluding secondary pattern does not recur here.

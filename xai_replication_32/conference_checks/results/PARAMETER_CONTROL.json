@@ -1,0 +1,26 @@
+{
+  "status": "complete",
+  "runtime_seconds": 39.69945304200519,
+  "histories": 126,
+  "trained_seeds": [
+    42,
+    123,
+    2026
+  ],
+  "replicates": [
+    701,
+    1701,
+    2701
+  ],
+  "stages": [
+    "head",
+    "head_gru"
+  ],
+  "records": 2268,
+  "identity_max_abs_difference": 0.0,
+  "randomized_heads_identical_across_cumulative_stages": true,
+  "source_buffers_identical": true,
+  "fixed_residual_route_retained": true,
+  "positive_sensitivity_threshold_defined": false,
+  "post_hoc": true
+}

@@ -1,0 +1,9 @@
+metric,cohort,stage,mean_equal_institutions,median_institution,institutions,common_comparison_records,common_histories,planned_comparison_records,stage_metric_defined,trained_nonflat,randomized_nonflat,randomized_clipped
+pattern_distance,source,head,0.6195955508550605,0.6967922073034964,32,337,63,567,425,567,425,203
+pattern_distance,source,head_gru,0.5700579909255958,0.4545144175199938,32,337,63,567,342,567,342,225
+pattern_distance,target,head,0.5648944512230974,0.598493760815088,32,364,63,567,439,567,439,167
+pattern_distance,target,head_gru,0.5311740628364279,0.4546202884310233,32,364,63,567,367,567,367,201
+rank_spearman,source,head,0.7162182451105443,0.7333829365079367,32,337,63,567,425,567,425,203
+rank_spearman,source,head_gru,0.11905375810625934,0.05463699800100991,32,337,63,567,342,567,342,225
+rank_spearman,target,head,0.7185323217828798,0.7187500000000002,32,364,63,567,439,567,439,167
+rank_spearman,target,head_gru,0.16174042249260281,0.1450960193141511,32,364,63,567,367,567,367,201

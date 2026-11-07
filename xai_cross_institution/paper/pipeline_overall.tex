@@ -44,7 +44,7 @@
 \draw[arr] (response.south)--(infer.north east);
 
 \node[box,text width=16.7cm,minimum height=1.37cm,fill=blue!3] (replicate) at (0,-11.15)
-{\textbf{Separately frozen extension: 32 newly evaluated targets, same 32 source anchors and model bytes}\\Select and match using 2024 metadata; no new target fitting. Original outcome already known; freeze new membership, code, data and timestamps before scoring.\\Main: 16 shared origins/pair-year, IG subset 4; 63 available pair-years, 2,016 histories/fit. Dense frozen GRU: nested 64 origins, 8,064 histories/seed.\\Report original and new contrasts separately; original bootstrap, pair-only and synchronized-calendar sensitivities; undefined denominators by volume stratum.};
+{\textbf{Separately frozen extension: 32 newly evaluated targets, same 32 source anchors and model bytes}\\Select and match using 2024 metadata; no new target fitting. Original outcome already known; freeze new membership, code, data and timestamps before scoring.\\Main: 16 shared origins/pair-year, IG subset 4; 63 available pair-years, 2,016 histories/fit. Dense frozen GRU: nested 64 origins, 8,064 histories/seed.\\Report original and new contrasts separately; original bootstrap, pair-only and synchronized-calendar sensitivities; undefined denominators by volume stratum.\\\textbf{Post-hoc conference checks:} common-case explainer alignment; 126 fixed histories, three trained seeds, three reset replicates; learned-head then GRU reset.};
 \draw[arr] (infer.south)--(replicate.north east);
 \draw[arr] (audit.south)--(replicate.north west);
 \end{tikzpicture}

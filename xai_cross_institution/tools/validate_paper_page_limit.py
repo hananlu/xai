@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def pages(p):return int(re.search(r'Pages:\s+(\d+)',subprocess.check_output(['pdfinfo',str(p)],text=True)).group(1))
 def main():
- paper=ROOT/'paper';tex=(paper/'paper.tex').read_text();supp=(paper/'supplementary.tex').read_text();mainpages=pages(paper/'paper.pdf');supppages=pages(paper/'supplementary.pdf')
+ paper=ROOT/'paper';tex=(paper/'paper.tex').read_text();supp=(paper/'supplementary.tex').read_text();supp+=('\n'+(paper/'local_case_supplement.tex').read_text()) if '\\input{local_case_supplement.tex}' in supp else '';mainpages=pages(paper/'paper.pdf');supppages=pages(paper/'supplementary.pdf')
  assert mainpages<=8
  for name in ['paper','supplementary']:
   log=(paper/f'{name}.log').read_text();assert not re.search(r'Overfull|undefined references|undefined citations',log,re.I)

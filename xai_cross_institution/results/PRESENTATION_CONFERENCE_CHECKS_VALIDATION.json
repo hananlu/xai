@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "sha256": "145479c324e1ca3542ebf451ff2f1dfbc045c1b6cd96090394b3dabd25753814",
+  "slides": 19,
+  "native_tables": 11,
+  "native_charts": 3,
+  "embedded_chart_workbooks": 3,
+  "speaker_notes": 19,
+  "all_final_slides_rendered_and_inspected": true,
+  "retained_first_15_slides_pixel_identical": true,
+  "first_party_import_passed": true,
+  "native_powerpoint_opened": false,
+  "chart_numeric_literals_rounded_to_six_decimals": true
+}

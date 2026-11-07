@@ -44,4 +44,6 @@ for title,text in blocks:
 end=r'''
 \end{document}
 '''
+extra=ROOT/'paper/conference_checks_supplement.tex'
+if extra.exists():end=extra.read_text()+end
 (ROOT/'paper/supplementary.tex').write_text(head+body+end)

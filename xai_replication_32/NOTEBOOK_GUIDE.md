@@ -11,3 +11,7 @@ The last notebook cell has an opt-in full-evaluation flag that copies this proje
 The executable inline definitions expose the saved inference wrapper, neural architecture, exact coalition allocation, response utilities, IG integrator and primary bootstrap. Full cohort selection/preparation/batch code is in `tools/` and `src/`. Do not run the historical `neural_feasibility.py` development entry point: its class is imported for inference, while its original development-training main function is retained only as byte-identical provenance.
 
 `RESULTS_BRIEF.md` and the notebook distinguish the original eight-target estimate from the new 32-target estimate. Source/model/ISP reuse prevents independent pooling. Cases with undefined Q and failed IG remain visible. More cells, records or query count do not establish scientific novelty or publication acceptance.
+
+## Added conference checks
+
+The current notebook is 62 cells/37 code cells with eight plots. Post-hoc common-case comparisons and cascading learned-layer randomization follow the frozen conference_checks/PLAN.md. Actual local checkpoint regeneration and independent table means execute in the default mode. RUN_CONFERENCE_CHECKS optionally reruns only this approximately 40-second control and its reporting/audits on a copy, without refitting or recomputing the full primary benchmark. Original historical notebook execution metadata is preserved in conference_checks/results/NOTEBOOK_EXECUTION_BEFORE_EXTENSION.json.

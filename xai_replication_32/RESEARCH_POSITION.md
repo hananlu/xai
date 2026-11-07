@@ -1,3 +1,11 @@
+# Current scope after the focused checks
+
+The two highest-priority additions are complete: common-case absolute explainer alignment and conditional learned-layer parameter sensitivity. The paper remains a bounded empirical audit within one ISP. Common-case target Q is 0.690 Shapley versus 0.687 occlusion and 0.533 recency; no explainer-superiority test is claimed. Conditional rank similarity changes from about 0.72 to 0.12-0.16 under cumulative learned-layer resets, with flat/undefined comparisons and the fixed residual route disclosed. Neither addition changes the original null/inconclusive transfer estimates or establishes equivalence/causal reliability.
+
+This is the conference version's chosen scope. External-network replication and learned conditional traffic replacements remain separate future work. The prior positioning review follows.
+
+---
+
 # Research position after the new-cohort main evaluation
 
 The main evaluation, prespecified density/uncertainty sensitivities, independent audits and real-kernel notebook execution are complete. Read all fixed estimates and valid-draw counts in RESULTS_BRIEF.md and SENSITIVITY_RESULTS.json.

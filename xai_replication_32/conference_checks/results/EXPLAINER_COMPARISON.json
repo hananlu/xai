@@ -1,0 +1,141 @@
+{
+  "status": "complete",
+  "post_hoc": true,
+  "methods": [
+    "shapley",
+    "ig",
+    "occlusion",
+    "recency"
+  ],
+  "scope": "new cohort, main budget, frozen GRU h1/source-calendar",
+  "counts": [
+    {
+      "panel": "A",
+      "cohort": "source",
+      "planned_history_operator_cases": 2016,
+      "common_history_operator_cases": 1813,
+      "retained_institutions": 31,
+      "retained_institution_years": 61,
+      "all_methods_three_seeds": true,
+      "all_required_operators_per_institution_year": true
+    },
+    {
+      "panel": "A",
+      "cohort": "target",
+      "planned_history_operator_cases": 2016,
+      "common_history_operator_cases": 1824,
+      "retained_institutions": 31,
+      "retained_institution_years": 61,
+      "all_methods_three_seeds": true,
+      "all_required_operators_per_institution_year": true
+    },
+    {
+      "panel": "B",
+      "cohort": "source",
+      "planned_history_operator_cases": 504,
+      "common_history_operator_cases": 451,
+      "retained_institutions": 31,
+      "retained_institution_years": 61,
+      "all_methods_three_seeds": true,
+      "all_required_operators_per_institution_year": true
+    },
+    {
+      "panel": "B",
+      "cohort": "target",
+      "planned_history_operator_cases": 504,
+      "common_history_operator_cases": 452,
+      "retained_institutions": 31,
+      "retained_institution_years": 60,
+      "all_methods_three_seeds": true,
+      "all_required_operators_per_institution_year": true
+    }
+  ],
+  "macro": [
+    {
+      "panel": "A",
+      "cohort": "source",
+      "method": "occlusion",
+      "quality_q": 0.6908226639393906
+    },
+    {
+      "panel": "A",
+      "cohort": "source",
+      "method": "recency",
+      "quality_q": 0.5414840087250176
+    },
+    {
+      "panel": "A",
+      "cohort": "source",
+      "method": "shapley",
+      "quality_q": 0.6941077426912499
+    },
+    {
+      "panel": "A",
+      "cohort": "target",
+      "method": "occlusion",
+      "quality_q": 0.6868912972495677
+    },
+    {
+      "panel": "A",
+      "cohort": "target",
+      "method": "recency",
+      "quality_q": 0.5334512678406187
+    },
+    {
+      "panel": "A",
+      "cohort": "target",
+      "method": "shapley",
+      "quality_q": 0.6901554898590115
+    },
+    {
+      "panel": "B",
+      "cohort": "source",
+      "method": "ig",
+      "quality_q": 0.6815475119594512
+    },
+    {
+      "panel": "B",
+      "cohort": "source",
+      "method": "occlusion",
+      "quality_q": 0.6813381848874063
+    },
+    {
+      "panel": "B",
+      "cohort": "source",
+      "method": "recency",
+      "quality_q": 0.45398397663966716
+    },
+    {
+      "panel": "B",
+      "cohort": "source",
+      "method": "shapley",
+      "quality_q": 0.6818467473087569
+    },
+    {
+      "panel": "B",
+      "cohort": "target",
+      "method": "ig",
+      "quality_q": 0.704602449123215
+    },
+    {
+      "panel": "B",
+      "cohort": "target",
+      "method": "occlusion",
+      "quality_q": 0.7038066398352669
+    },
+    {
+      "panel": "B",
+      "cohort": "target",
+      "method": "recency",
+      "quality_q": 0.4660611132225324
+    },
+    {
+      "panel": "B",
+      "cohort": "target",
+      "method": "shapley",
+      "quality_q": 0.7003585131859091
+    }
+  ],
+  "inference": "descriptive; available-year-within-institution then equal institutions; no superiority test",
+  "random_order_q": 0.0
+}

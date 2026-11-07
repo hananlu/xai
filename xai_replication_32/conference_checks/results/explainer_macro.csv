@@ -1,0 +1,15 @@
+panel,cohort,method,quality_q
+A,source,occlusion,0.6908226639393906
+A,source,recency,0.5414840087250176
+A,source,shapley,0.6941077426912499
+A,target,occlusion,0.6868912972495677
+A,target,recency,0.5334512678406187
+A,target,shapley,0.6901554898590115
+B,source,ig,0.6815475119594512
+B,source,occlusion,0.6813381848874063
+B,source,recency,0.45398397663966716
+B,source,shapley,0.6818467473087569
+B,target,ig,0.704602449123215
+B,target,occlusion,0.7038066398352669
+B,target,recency,0.4660611132225324
+B,target,shapley,0.7003585131859091

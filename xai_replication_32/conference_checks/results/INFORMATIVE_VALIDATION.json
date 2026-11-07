@@ -1,0 +1,23 @@
+{
+  "status": "pass",
+  "checks": {
+    "independent_case_mask_A": true,
+    "independent_case_mask_B": true,
+    "saved_buffers_preserved": true,
+    "saved_cumulative_heads_identical_and_changed": true,
+    "saved_gru_reset_stages_correct": true,
+    "nonflat_permutation_audit_included": true,
+    "stratified_permutation_checks": true,
+    "stratified_checkpoint_requeries": true
+  },
+  "details": {
+    "volume_strata": 4,
+    "cohorts": 2,
+    "model_case_queries": 16,
+    "nonflat_model_case_queries": 5,
+    "max_permutation_difference": 2.4584778657299466e-12,
+    "max_requery_difference": 0.0
+  },
+  "post_computation_audit": true,
+  "estimator_unchanged": true
+}

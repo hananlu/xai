@@ -24,6 +24,26 @@
   "dense_xai_seconds": 975.4202169589698,
   "notebook": {
     "status": "pass",
+    "runtime_seconds": 8.803449624916539,
+    "cells": 62,
+    "code_cells": 37,
+    "executed_code_cells": 37,
+    "embedded_pngs": 8,
+    "errors": 0,
+    "kernel": "xai-project",
+    "input_notebook_sha256": "0782b451abaa83de950777dc6e37566a64f1e2182d107d4a5abe463ac4aedda3",
+    "executed_notebook_sha256": "00d7aab575ef2fadfb0f84d4ad5c238ea35252e01be28b157e1086d87b789b15",
+    "full_evaluation_enabled": false,
+    "locked_models_refitted": false
+  },
+  "scientific_audits_pass": true,
+  "scientific_amendments": [],
+  "post_hoc_descriptive_diagnostics": [
+    "All-cell forecast MASE scale/median diagnostic; no changes to metrics, floor, model or membership."
+  ],
+  "frozen_input_files": 100,
+  "notebook_before_conference_checks": {
+    "status": "pass",
     "runtime_seconds": 3.5333790840231813,
     "cells": 52,
     "code_cells": 31,
@@ -36,10 +56,6 @@
     "full_evaluation_enabled": false,
     "locked_models_refitted": false
   },
-  "scientific_audits_pass": true,
-  "scientific_amendments": [],
-  "post_hoc_descriptive_diagnostics": [
-    "All-cell forecast MASE scale/median diagnostic; no changes to metrics, floor, model or membership."
-  ],
-  "frozen_input_files": 100
+  "post_hoc_conference_checks_complete": true,
+  "conference_checks_completion": "conference_checks/COMPLETION.json"
 }

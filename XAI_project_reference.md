@@ -1,3 +1,9 @@
+# Status terbaru: versi konferensi dengan dua tambahan terfokus
+
+7 November 2026. Perbandingan explainer pada common cases dan kontrol learned-layer randomization sudah dijalankan serta diaudit. Main paper **8 halaman termasuk referensi**, 6 figures/3 tabel/18 referensi; supplementary 6 halaman terpisah, 7 figures/2 tabel. Semua grafik sebelum halaman referensi. Notebook terbaru 62 cells/37 code cells/8 plot tanpa error; PPT editable 19 slide. Hasil primer dan seluruh scientific freeze awal tetap utuh. Tambahan diberi label post-hoc dan dibatasi pada kasus comparable; tidak menambahkan klaim kausal atau generalisasi lintas ISP.
+
+---
+
 # Status terbaru: batas halaman konferensi
 
 Paper utama sekarang **7 halaman termasuk referensi**, dengan 6 figure, 2 tabel dan 18 referensi. Supplementary 4 halaman disimpan terpisah; detail tambahan tetap tersedia tanpa memperpanjang manuscript utama. Hasil eksperimen dan scientific freeze tidak berubah. Versi 12 halaman sebelumnya diarsipkan.

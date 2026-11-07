@@ -1,3 +1,11 @@
+# Update: focused priorities completed
+
+The common-case table and learned-layer parameter control described below are now completed and independently audited in ../xai_replication_32/conference_checks/. The main paper is eight pages including references and shows the bounded results; the notebook/deck are updated. Original source/data/model freezes remain unchanged. The control is post-hoc, conditional on comparable nonflat records and does not validate causal demand attribution. Broader network/replacement validation remains a scope limitation, not an experiment added to this conference version.
+
+The text below is the historical pre-extension review.
+
+---
+
 # Submission readiness review — 7 November 2026
 
 Scope: review of the current manuscript and delivered project artifacts, not a new systematic literature search or a new experiment. The current study is a reproducible empirical draft; publication readiness still depends on a sharper evidence-to-claim argument and venue fit.

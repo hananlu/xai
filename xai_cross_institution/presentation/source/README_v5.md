@@ -1,0 +1,5 @@
+# Focused conference deck source
+
+content_v5.mjs/build_v5.mjs produce the 19-slide editable deck, preserving the prior content and adding the common-case comparison and learned-layer control. Facts come from the replication REPORT_FACTS and conference_checks/REPORT_FACTS. The new native Spearman chart uses six-decimal literals for portable Excel workbook snapshots; tables/labels show three decimals, and full precision remains in the CSV/JSON. There are 11 native tables, three native charts with embedded snapshots and 19 speaker-note parts.
+
+Use the bundled @oai/artifact-tool runtime and presentation finalizer. Set WORKSPACE_DIR, PRESENTATION_SKILL_DIR, RUNTIME_NODE_MODULES and RUNTIME_PYTHON from Codex load_workspace_dependencies; link node_modules when using bare imports. WORKSPACE_DIR supports either a workspace with outputs/ or the repository root with project folders. Set a new BUILD_DIR and FINAL_PPTX on every revision; finalized files are not overwritten. No native PowerPoint application test was performed.

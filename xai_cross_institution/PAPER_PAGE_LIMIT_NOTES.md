@@ -1,3 +1,11 @@
+# Current page budget
+
+The focused extension uses **8 pages including all 18 references**, with six main figures and three tables. The reference page has no figures. The local example moved to the separate six-page supplement, making seven supplementary figures. The historical seven-page revision and four-page supplement are archived under paper/archive_before_conference_checks. See CONFERENCE_CHECKS_NOTES.md and results/CONFERENCE_CHECKS_MANUSCRIPT_VALIDATION.json for current evidence and scope.
+
+The following is prior revision history.
+
+---
+
 # Conference page-limit revision
 
 User limit: maximum 7-8 pages. The main IEEE conference manuscript is now **7 pages including all 18 cited references**, with six figures and two tables. Standard document fonts and margins are unchanged. The manuscript retains the gap/contribution, complete overall pipeline, both target cohorts, source-only training setup, attribution/response equations, primary estimates, density/uncertainty sensitivities, low-volume forecast failure, undefined-score exclusions and limitations.
